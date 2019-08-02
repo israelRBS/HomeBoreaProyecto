@@ -62,7 +62,7 @@ public class SubcategoriaDao implements SubcategoriasInterface {
         
         try {
             conex.abrirConexion();
-            sql="update subcategorias set nombre=?, categoria=?, empleado_id=? where subcategoria=?";
+            sql="update subcategorias set nombre=?, categoria_id=?, empleado_id=? where subcategoria_id=?";
             ejecutar = conex.getMiConexion().prepareStatement(sql);
             
             ejecutar.setByte(4, sub.getSubcategoria_id());
@@ -92,7 +92,7 @@ public class SubcategoriaDao implements SubcategoriasInterface {
     public String deleteSubcategoria(Subcategorias sub) {
          try {
             conex.abrirConexion();
-            sql="DELETE FROM subcategorias  where subcategoria=?";
+            sql="DELETE FROM subcategorias  where subcategoria_id=?";
             ejecutar = conex.getMiConexion().prepareStatement(sql);
             
             ejecutar.setByte(1, sub.getSubcategoria_id());
