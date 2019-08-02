@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
+package controlador;
 
 /**
  *
  * @author Admin
  */
-public class PruebasEliminar {
+public class ServiciosMunicipioControlador {
     
-    public static void main(String[] args) {
-        System.out.println("hola");
-    }
 }

@@ -1,13 +1,14 @@
 package dao;
 
 import modelo.ClasificacionesServicios;
-import modelo.Clientes;
 import interfaces.ClasificacionesServiciosInterfaces;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ClasServiciosDao implements ClasificacionesServiciosInterfaces {
+
     ConexionBorea cnb = new ConexionBorea();
     ClasificacionesServicios cs = new ClasificacionesServicios();
     private String mensaje = null;
@@ -19,10 +20,10 @@ public class ClasServiciosDao implements ClasificacionesServiciosInterfaces {
     public ClasificacionesServicios buscarClasificacionesServicios(ClasificacionesServicios clasificacionesServicios) {
         try {
             cnb.abrirConexion();
-            sql = "select * from  clasificaciones_servicios";
+            sql = "select * from  clasificaciones_servicios where clasificiacion_id=?";
             ejecutar = cnb.getMiConexion().prepareStatement(sql);
             rs = ejecutar.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 cs = new ClasificacionesServicios();
                 cs.setClasificacion_id(rs.getByte("clasificacion_id"));
                 cs.setNombre(rs.getString("nombre"));
@@ -30,7 +31,8 @@ public class ClasServiciosDao implements ClasificacionesServiciosInterfaces {
             }
             rs.close();
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            System.out.println("ERROR EN CLASIFICACION_SERVICIOS_DAO : " + e);
         } finally {
             cnb.cerrarConexion();
         }
@@ -40,7 +42,7 @@ public class ClasServiciosDao implements ClasificacionesServiciosInterfaces {
     @Override
     public ArrayList<ClasificacionesServicios> listarClasificaciones() {
         ArrayList<ClasificacionesServicios> lista = new ArrayList();
-        
+
         try {
             cnb.abrirConexion();
             sql = "select * from clasificaciones_servicios";
@@ -54,8 +56,9 @@ public class ClasServiciosDao implements ClasificacionesServiciosInterfaces {
                 lista.add(cs);
             }
             rs.close();
-            
-        } catch (Exception e) {
+
+        } catch (SQLException e) {
+            System.out.println("ERROR LISTAR_CLASIFICACION_SERVICIOS : " + e);
         } finally {
             cnb.cerrarConexion();
         }
@@ -72,8 +75,8 @@ public class ClasServiciosDao implements ClasificacionesServiciosInterfaces {
             ejecutar.executeUpdate();
             mensaje = "Los datos se eliminaron";
         } catch (Exception e) {
-            mensaje = "Los datos no se pueden eliminar" +e;
-        }finally{
+            mensaje = "Los datos no se pueden eliminar" + e;
+        } finally {
             cnb.cerrarConexion();
         }
         return mensaje;
@@ -90,9 +93,9 @@ public class ClasServiciosDao implements ClasificacionesServiciosInterfaces {
             ejecutar.setString(3, cs.getDescripcion());
             ejecutar.executeUpdate();
             mensaje = "Los Datos fueron almacenados";
-        } catch (Exception e) {
-            mensaje = "Error almacenando los datos "+e ;
-        }finally{
+        } catch (SQLException e) {
+            mensaje = "Error almacenando los datos " + e;
+        } finally {
             cnb.cerrarConexion();
         }
         return mensaje;
@@ -100,7 +103,21 @@ public class ClasServiciosDao implements ClasificacionesServiciosInterfaces {
 
     @Override
     public String modificarCalificaciones(ClasificacionesServicios clasificacionesServicios) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            cnb.abrirConexion();
+            sql = "update clasificaciones_servicios set nombre=?, descripcion=? where clasificacion_id=?";
+            ejecutar = cnb.getMiConexion().prepareStatement(sql);
+            ejecutar.setByte(3, cs.getClasificacion_id());
+            ejecutar.setString(1, cs.getNombre());
+            ejecutar.setString(2, cs.getDescripcion());
+            ejecutar.executeUpdate();
+            mensaje = "DATO MODIFICACOD";
+        } catch (SQLException e) {
+            mensaje = "ERROR EN  MODIFICAR DATO " + e;
+        } finally {
+            cnb.cerrarConexion();
+        }
+        return mensaje;
     }
-    
+
 }

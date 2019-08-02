@@ -11,7 +11,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import vistas.VistaAsociados;
 
-public class AsociadosControlador implements ActionListener, MouseListener{
+public class AsociadosControlador implements ActionListener, MouseListener {
+
     VistaAsociados vista = new VistaAsociados();
     AsociadosDao dao = new AsociadosDao();
     Asociados modelo = new Asociados();
@@ -19,14 +20,13 @@ public class AsociadosControlador implements ActionListener, MouseListener{
 
     public AsociadosControlador(VistaAsociados vistaAsociados) {
         this.vista = vista;
-
         vista.jBtnAgregar.addActionListener(this);
         vista.jBtnBuscar.addActionListener(this);
         vista.jBtnEliminar.addActionListener(this);
         vista.jBtnModificar.addActionListener(this);
     }
-    
-    public void insertarAsociados(){
+
+    public void insertarAsociados() {
         modelo.setAsociado_id(Integer.parseInt(this.vista.jTxtAsociadosId.getText()));
         modelo.setAnte_penal(this.vista.jTxtAntecedentesPena.getText());
         modelo.setAnte_poli(this.vista.jTxtAntecedentesPoli.getText());
@@ -40,16 +40,16 @@ public class AsociadosControlador implements ActionListener, MouseListener{
         JOptionPane.showMessageDialog(vista, mensaje);
         listarAsociados();
     }
-    
-    public void eliminarAsociados(){
+
+    public void eliminarAsociados() {
         modelo.setAsociado_id(Integer.parseInt(this.vista.jTxtAsociadosId.getText()));
         mensaje = dao.eliminarAsociados(modelo);
         JOptionPane.showMessageDialog(vista, mensaje);
         listarAsociados();
-        
+
     }
-    
-    public void modificarAsociados(){
+
+    public void modificarAsociados() {
         modelo.setAsociado_id(Integer.parseInt(this.vista.jTxtAsociadosId.getText()));
         modelo.setAnte_penal(this.vista.jTxtAntecedentesPena.getText());
         modelo.setAnte_poli(this.vista.jTxtAntecedentesPoli.getText());
@@ -63,10 +63,10 @@ public class AsociadosControlador implements ActionListener, MouseListener{
         JOptionPane.showMessageDialog(vista, mensaje);
         listarAsociados();
     }
-    
-    public void buscarAsociados(){
+
+    public void buscarAsociados() {
         int codigo = Integer.parseInt(this.vista.jTxtAsociadosId.getText());
-        modelo = dao.buscarAsociados(modelo);
+        modelo = dao.buscarAsociados(codigo);
         this.vista.jTxtAntecedentesPena.setEnabled(false);
         this.vista.jTxtAntecedentesPoli.setEnabled(false);
         this.vista.jTxtDpiImg.setEnabled(false);
@@ -75,15 +75,14 @@ public class AsociadosControlador implements ActionListener, MouseListener{
         this.vista.jTxtNivAcad.setEnabled(false);
         this.vista.jTxtUsuario.setEnabled(false);
         this.vista.jTxtPassword.setEnabled(false);
-        
-        
+
     }
-    
-    public void listarAsociados(){
+
+    public void listarAsociados() {
         ArrayList<Asociados> listar = dao.listarAsociados();
-        
+
         DefaultTableModel tabla = (DefaultTableModel) vista.jTblAsociados.getModel();
-        Object [] fila = new Object[tabla.getColumnCount()];
+        Object[] fila = new Object[tabla.getColumnCount()];
         for (int i = 0; i < listar.size(); i++) {
             fila[0] = listar.get(i).getAsociado_id();
             fila[1] = listar.get(i).getAnte_penal();
@@ -97,23 +96,23 @@ public class AsociadosControlador implements ActionListener, MouseListener{
             tabla.addRow(fila);
         }
 
-    
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.vista.jBtnAgregar) {
             insertarAsociados();
         }
         if (e.getSource() == this.vista.jBtnBuscar) {
-            
+
         }
         if (e.getSource() == this.vista.jBtnEliminar) {
             eliminarAsociados();
         }
         if (e.getSource() == this.vista.jBtnModificar) {
-            
+
         }
-        
+
     }
 
     @Override
@@ -140,5 +139,5 @@ public class AsociadosControlador implements ActionListener, MouseListener{
     public void mouseExited(MouseEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

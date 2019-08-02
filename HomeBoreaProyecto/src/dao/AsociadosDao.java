@@ -4,6 +4,7 @@ import modelo.Asociados;
 import interfaces.AsociadosInterface;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class AsociadosDao implements AsociadosInterface {
@@ -24,9 +25,9 @@ public class AsociadosDao implements AsociadosInterface {
             ejecutar = cnb.getMiConexion().prepareStatement(sql);
             ejecutar.setInt(1, ac.getAsociado_id());
             rs = ejecutar.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 ac = new Asociados();
-                ac.setAsociado_id(rs.getInt(""));
+                ac.setAsociado_id(rs.getInt("asociado_id"));
                 ac.setAnte_penal(rs.getString("antecedentes_penales"));
                 ac.setAnte_poli(rs.getString("antecedentes_policiacos"));
                 ac.setDpiImagen(rs.getString("dpiimagen"));
@@ -38,7 +39,8 @@ public class AsociadosDao implements AsociadosInterface {
             }
             rs.close();
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            System.out.println("ERROR EN BUSCAR_ASOCIADO "+e);
         } finally {
             cnb.cerrarConexion();
         }
@@ -69,7 +71,7 @@ public class AsociadosDao implements AsociadosInterface {
             }
             rs.close();
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
         } finally {
             cnb.cerrarConexion();
         }
@@ -85,7 +87,7 @@ public class AsociadosDao implements AsociadosInterface {
             ejecutar.setInt(1, ac.getAsociado_id());
             ejecutar.executeUpdate();
             mensaje = "Los datos se eliminaron";
-        } catch (Exception e) {
+        } catch (SQLException e) {
             mensaje = "Los datos no se pueden eliminar" +e;
         }finally{
             cnb.cerrarConexion();
@@ -110,7 +112,7 @@ public class AsociadosDao implements AsociadosInterface {
             ejecutar.setString(9, ac.getUsuario_contra());
             ejecutar.executeUpdate();
             mensaje = "Los Datos fueron almacenados";
-        } catch (Exception e) {
+        } catch (SQLException e) {
             mensaje = "Error almacenando los datos "+e ;
         }finally{
             cnb.cerrarConexion();
@@ -139,15 +141,12 @@ public class AsociadosDao implements AsociadosInterface {
             }else{
                 mensaje = "Los datos se modificaron ";
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
         }finally{
             cnb.cerrarConexion();
         }
         return mensaje;
     }
 
-    public Asociados buscarAsociados(Asociados modelo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }

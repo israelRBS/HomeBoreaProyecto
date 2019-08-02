@@ -1,10 +1,10 @@
 package dao;
 
-import modelo.Asociados;
 import modelo.Clientes;
 import interfaces.ClientesInterface;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ClientesDao implements ClientesInterface {
@@ -20,8 +20,9 @@ public class ClientesDao implements ClientesInterface {
     public Clientes buscarClientes(Clientes clientes) {
         try {
             cnb.abrirConexion();
-            sql = "select * from  clientes";
+            sql = "select * from  clientes where cliente_id=?";
             ejecutar = cnb.getMiConexion().prepareStatement(sql);
+            ejecutar.setInt(1, clientes.getCliente_id());
             rs = ejecutar.executeQuery();
             if (rs.next()) {
                 cl = new Clientes();
@@ -31,7 +32,8 @@ public class ClientesDao implements ClientesInterface {
             }
             rs.close();
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            System.out.println("ERROR EN BUSCAR_CLIENTE_DAO "+e);
         } finally {
             cnb.cerrarConexion();
         }
@@ -56,7 +58,8 @@ public class ClientesDao implements ClientesInterface {
             }
             rs.close();
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            System.out.println("ERROR EN LISTAR_CLIENTES "+e);
         } finally {
             cnb.cerrarConexion();
         }
@@ -72,7 +75,7 @@ public class ClientesDao implements ClientesInterface {
             ejecutar.setInt(1, cl.getCliente_id());
             ejecutar.executeUpdate();
             mensaje = "Los datos se eliminaron";
-        } catch (Exception e) {
+        } catch (SQLException e) {
             mensaje = "Los datos no se pueden eliminar" +e;
         }finally{
             cnb.cerrarConexion();
@@ -91,7 +94,7 @@ public class ClientesDao implements ClientesInterface {
             ejecutar.setString(3, cl.getContrasenia());
             ejecutar.executeUpdate();
             mensaje = "Los Datos fueron almacenados";
-        } catch (Exception e) {
+        } catch (SQLException e) {
             mensaje = "Error almacenando los datos "+e ;
         }finally{
             cnb.cerrarConexion();
@@ -101,7 +104,21 @@ public class ClientesDao implements ClientesInterface {
 
     @Override
     public String modificarClientes(Clientes clientes) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            cnb.abrirConexion();
+            sql = "update clientes set usuario=?, contrasenia=? where cliente_id=?";
+            ejecutar = cnb.getMiConexion().prepareStatement(sql);
+            ejecutar.setInt(3, cl.getCliente_id());
+            ejecutar.setString(1, cl.getUsuario());
+            ejecutar.setString(2, cl.getContrasenia());
+            ejecutar.executeUpdate();
+            mensaje = "Los Datos fueron se Modificaron";
+        } catch (SQLException e) {
+            mensaje = "Error Modificar dato "+e ;
+        }finally{
+            cnb.cerrarConexion();
+        }
+        return mensaje;
     }
     
     
