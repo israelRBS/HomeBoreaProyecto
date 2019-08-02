@@ -97,5 +97,10 @@ public class ClasServiciosDao implements ClasificacionesServiciosInterfaces {
         }
         return mensaje;
     }
+
+    @Override
+    public String modificarCalificaciones(ClasificacionesServicios clasificacionesServicios) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

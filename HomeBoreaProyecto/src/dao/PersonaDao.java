@@ -43,5 +43,10 @@ public class PersonaDao implements PersonasInterface {
     public String insertarPersonas(Personas personas) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public String modificarPersonas(Personas personas) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

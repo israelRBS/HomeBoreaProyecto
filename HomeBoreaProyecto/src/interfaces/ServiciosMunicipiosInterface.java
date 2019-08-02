@@ -13,18 +13,15 @@ import java.util.ArrayList;
  * @author Admin
  */
 public interface ServiciosMunicipiosInterface {
-    
-    
-    
-    public String insertServiciosMunicipios      (ServiciosMunicipios serviciosmunicipios);
-    public String updateServiciosMunicipios     (ServiciosMunicipios serviciosmunicipios);
-    public String deleteServiciosMunicipios     (ServiciosMunicipios serviciosmunicipios);
-    
-    public ServiciosMunicipios buscarServiciosMunicipios  (int servicio_muni_id);
-    
-    public ArrayList<ServiciosMunicipios> listarServiciosMunicipios ();
-    
 
-    
-    
+    public String insertServiciosMunicipios(ServiciosMunicipios serviciosmunicipios);
+
+    public String updateServiciosMunicipios(ServiciosMunicipios serviciosmunicipios);
+
+    public String deleteServiciosMunicipios(ServiciosMunicipios serviciosmunicipios);
+
+    public ServiciosMunicipios buscarServiciosMunicipios(int servicio_muni_id);
+
+    public ArrayList<ServiciosMunicipios> listarServiciosMunicipios();
+
 }

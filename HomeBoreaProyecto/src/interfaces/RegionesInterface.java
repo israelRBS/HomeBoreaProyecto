@@ -8,5 +8,6 @@ public interface RegionesInterface {
     public ArrayList<Regiones> listarRegiones();
     public String eliminarRegiones(Regiones regiones);
     public String insertarRegiones(Regiones regiones);
+    public String modificarRegiones(Regiones regiones);
     
 }

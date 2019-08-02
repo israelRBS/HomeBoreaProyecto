@@ -10,16 +10,17 @@ import java.util.ArrayList;
 
 /**
  *
-    * @Edwin Estuardo Lezana
+ * @Edwin Estuardo Lezana
  */
 public interface SubcategoriasInterface {
-    
-    
-    public String insertSubcategia      (Subcategorias sub);
-    public String updateSubcategoria    (Subcategorias sub);
-    public String deleteSubcategoria    (Subcategorias sub);
-    
-    public Subcategorias buscarSubcategoria (int sub_cate );
-    
+
+    public String insertSubcategia(Subcategorias sub);
+
+    public String updateSubcategoria(Subcategorias sub);
+
+    public String deleteSubcategoria(Subcategorias sub);
+
+    public Subcategorias buscarSubcategoria(int sub_cate);
+
     public ArrayList<Subcategorias> listarSubcategorias();
 }

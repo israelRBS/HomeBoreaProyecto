@@ -8,5 +8,6 @@ public interface MunicipiosInterface {
     public ArrayList<Municipios> listarMunicipios();
     public String eliminarMunicipios(Municipios municipios);
     public String agregarMunicipios(Municipios municipios);
+    public String modificarMunicipio(Municipios municipios);
     
 }
