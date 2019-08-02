@@ -10,5 +10,7 @@ package controlador;
  * @author JAVAM2019
  */
 public class ControladorPrueba {
-    
+    public static void main(String[] args) {
+        System.out.println("Hola a todos");
+    }
 }
