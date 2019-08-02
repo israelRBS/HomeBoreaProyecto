@@ -16,9 +16,9 @@ import java.util.ArrayList;
  *
  * @author Admin
  */
-public class ServiciosMunicipiosDao implements ServiciosMunicipiosInterface{
- 
- ConexionBorea conex = new ConexionBorea();
+public class ServiciosMunicipiosDao implements ServiciosMunicipiosInterface {
+
+    ConexionBorea conex = new ConexionBorea();
     private PreparedStatement ejecutar;
     private ResultSet resultadoSelect;
 
@@ -30,56 +30,52 @@ public class ServiciosMunicipiosDao implements ServiciosMunicipiosInterface{
     public String insertServiciosMunicipios(ServiciosMunicipios serviciosmunicipios) {
         try {
             conex.abrirConexion();
-            sql="INSERT INTO servicios_municipios  values(?,?,?)";
+            sql = "INSERT INTO servicios_municipios  values(?,?,?)";
             ejecutar = conex.getMiConexion().prepareStatement(sql);
-            
+
             ejecutar.setInt(1, serviciosmunicipios.getServicio_muni_id());
             ejecutar.setInt(2, serviciosmunicipios.getServicio_id());
             ejecutar.setInt(3, serviciosmunicipios.getMuni_id());
 
             contarRegistros = ejecutar.executeUpdate();
-            
-            if(contarRegistros==0){
-                mensaje="No se puede registrar";
-            }else{
+
+            if (contarRegistros == 0) {
+                mensaje = "No se puede registrar";
+            } else {
                 mensaje = "Registro realizado con exito";
             }
-              
-        } 
-        catch (Exception e) {
-            mensaje ="LOS DATOS NO FUERON GUARDARON"+e;
-        }
-        finally{
+
+        } catch (Exception e) {
+            mensaje = "LOS DATOS NO FUERON GUARDARON" + e;
+        } finally {
             conex.cerrarConexion();
         }
         return mensaje;
-        
+
     }
 
     @Override
     public String updateServiciosMunicipios(ServiciosMunicipios serviciosmunicipios) {
-         try {
+        try {
             conex.abrirConexion();
-            sql="update servicios_municipios  set serviciomunicipio_id=?, servicio_id=?, muni_id=?  where servicios_municipios=?";
+            sql = "update servicios_municipios  set servicio_id=?, muni_id=?  where serviciomunicipio_id=?";
             ejecutar = conex.getMiConexion().prepareStatement(sql);
-            
-           ejecutar.setInt(1, serviciosmunicipios.getServicio_muni_id());
+
+            ejecutar.setInt(1, serviciosmunicipios.getServicio_muni_id());
             ejecutar.setInt(2, serviciosmunicipios.getServicio_id());
             ejecutar.setInt(3, serviciosmunicipios.getMuni_id());
-            
+
             contarRegistros = ejecutar.executeUpdate();
-            
-            if(contarRegistros==0){
-                mensaje="No se puede registrar";
-            }else{
+
+            if (contarRegistros == 0) {
+                mensaje = "No se puede registrar";
+            } else {
                 mensaje = "Registro realizado con exito";
             }
-              
-        } 
-        catch (Exception e) {
-            mensaje ="LOS DATOS NO FUERON MODIFICARON"+e;
-        }
-        finally{
+
+        } catch (Exception e) {
+            mensaje = "LOS DATOS NO FUERON MODIFICARON" + e;
+        } finally {
             conex.cerrarConexion();
         }
         return mensaje;
@@ -87,27 +83,24 @@ public class ServiciosMunicipiosDao implements ServiciosMunicipiosInterface{
 
     @Override
     public String deleteServiciosMunicipios(ServiciosMunicipios serviciosmunicipios) {
-           try {
+        try {
             conex.abrirConexion();
-            sql="DELETE FROM servicios_municipios  where servicios_municipios=?";
+            sql = "DELETE FROM servicios_municipios  where serviciomunicipio_id=?";
             ejecutar = conex.getMiConexion().prepareStatement(sql);
-            
-              ejecutar.setInt(1, serviciosmunicipios.getServicio_muni_id());
-           
-            
+
+            ejecutar.setInt(1, serviciosmunicipios.getServicio_muni_id());
+
             contarRegistros = ejecutar.executeUpdate();
-            
-            if(contarRegistros==0){
-                mensaje="NO SE ENCONTRO EL REGISTRO";
-            }else{
+
+            if (contarRegistros == 0) {
+                mensaje = "NO SE ENCONTRO EL REGISTRO";
+            } else {
                 mensaje = "DATOS ELIMINADOS";
             }
-              
-        } 
-        catch (Exception e) {
-            mensaje ="LOS DATOS NO SE ELIMINARON"+e;
-        }
-        finally{
+
+        } catch (Exception e) {
+            mensaje = "LOS DATOS NO SE ELIMINARON" + e;
+        } finally {
             conex.cerrarConexion();
         }
         return mensaje;
@@ -115,7 +108,7 @@ public class ServiciosMunicipiosDao implements ServiciosMunicipiosInterface{
 
     @Override
     public ArrayList<ServiciosMunicipios> listarServiciosMunicipios() {
-         ServiciosMunicipios serm;
+        ServiciosMunicipios serm;
         ArrayList<ServiciosMunicipios> lista = new ArrayList();
 
         try {
@@ -129,10 +122,9 @@ public class ServiciosMunicipiosDao implements ServiciosMunicipiosInterface{
             while (resultadoSelect.next()) {
                 serm = new ServiciosMunicipios();
 
-               serm.setServicio_muni_id(resultadoSelect.getInt("serviciomunicipio_id"));
-            serm.setServicio_id(resultadoSelect.getInt("Servicio_id"));
-            serm.setMuni_id((short) resultadoSelect.getInt("muni_id"));
-
+                serm.setServicio_muni_id(resultadoSelect.getInt("serviciomunicipio_id"));
+                serm.setServicio_id(resultadoSelect.getInt("Servicio_id"));
+                serm.setMuni_id((short) resultadoSelect.getInt("muni_id"));
 
                 lista.add(serm);
             }
@@ -151,10 +143,10 @@ public class ServiciosMunicipiosDao implements ServiciosMunicipiosInterface{
 
     @Override
     public ServiciosMunicipios buscarServiciosMunicipios(int servicio_muni_id) {
-         ServiciosMunicipios serviciosmunicipios = new ServiciosMunicipios();
+        ServiciosMunicipios serviciosmunicipios = new ServiciosMunicipios();
         try {
             conex.abrirConexion();
-            sql = "select * from servicios_municipios where serviciomunicipio_id=" ;
+            sql = "select * from servicios_municipios where serviciomunicipio_id=?";
             ejecutar = conex.getMiConexion().prepareStatement(sql);
 
             resultadoSelect = ejecutar.executeQuery();
@@ -173,5 +165,5 @@ public class ServiciosMunicipiosDao implements ServiciosMunicipiosInterface{
         }
         return serviciosmunicipios;
     }
-    
+
 }
