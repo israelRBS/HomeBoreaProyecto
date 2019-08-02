@@ -105,4 +105,9 @@ public class EmpleadosDao implements EmpleadosInterface {
         return mensaje;
     }
 
+    @Override
+    public String modificarEmpleado(Empleados empleado) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

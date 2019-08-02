@@ -98,6 +98,11 @@ public class ClientesDao implements ClientesInterface {
         }
         return mensaje;
     }
+
+    @Override
+    public String modificarClientes(Clientes clientes) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }

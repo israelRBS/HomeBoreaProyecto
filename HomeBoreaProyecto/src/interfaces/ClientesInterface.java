@@ -8,5 +8,6 @@ public interface ClientesInterface {
     public ArrayList<Clientes> listarClientes();
     public String eliminarClientes(Clientes clientes);
     public String insertarClientes(Clientes clientes); 
+    public String modificarClientes(Clientes clientes);
     
 }

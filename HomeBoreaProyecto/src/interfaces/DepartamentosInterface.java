@@ -8,5 +8,6 @@ public interface DepartamentosInterface {
     public ArrayList<Departamentos> listarDepartamentos();
     public String eliminarDepartamentos(Departamentos departamentos);
     public String agregarDepartamentos(Departamentos departamentos);
+    public String modificarDepartamentos(Departamentos departamentos);
     
 }

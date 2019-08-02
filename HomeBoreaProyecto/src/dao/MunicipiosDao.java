@@ -97,5 +97,10 @@ public class MunicipiosDao implements MunicipiosInterface {
         }
         return mensaje;
     }
+
+    @Override
+    public String modificarMunicipio(Municipios municipios) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

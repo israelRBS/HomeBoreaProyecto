@@ -99,5 +99,10 @@ public class DepartamentosDao implements DepartamentosInterface {
         }
         return mensaje;
     }
+
+    @Override
+    public String modificarDepartamentos(Departamentos departamentos) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

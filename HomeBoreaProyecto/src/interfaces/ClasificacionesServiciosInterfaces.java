@@ -8,5 +8,6 @@ public interface ClasificacionesServiciosInterfaces {
     public ArrayList<ClasificacionesServicios> listarClasificaciones();
     public String eliminarClasificaciones(ClasificacionesServicios clasificacionesServicios);
     public String agregarClasificaciones(ClasificacionesServicios clasificacionesServicios);
+    public String modificarCalificaciones(ClasificacionesServicios clasificacionesServicios);
     
 }

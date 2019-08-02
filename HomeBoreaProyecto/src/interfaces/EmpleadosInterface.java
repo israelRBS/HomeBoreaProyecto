@@ -8,6 +8,7 @@ public interface EmpleadosInterface {
     public ArrayList<Empleados> listarEmpleados();
     public String eliminarEmpleados(Empleados empleado);
     public String insertarEmpleado(Empleados empleado);
+    public String modificarEmpleado(Empleados empleado);
     
     
     
