@@ -5,6 +5,7 @@ import modelo.Departamentos;
 import interfaces.DepartamentosInterface;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class DepartamentosDao implements DepartamentosInterface {
@@ -101,8 +102,26 @@ public class DepartamentosDao implements DepartamentosInterface {
     }
 
     @Override
-    public String modificarDepartamentos(Departamentos departamentos) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String modificarDepartamentos(Departamentos departamentos)  {
+            try {
+            cnb.abrirConexion();
+            sql = "update departamentos set departamento_id=?, nombre=?, region_id=? where departamentos=?  ";
+            ejecutar = cnb.getMiConexion().prepareStatement(sql);
+            ejecutar.setByte(1, dp.getDepa_id());
+            ejecutar.setString(2, dp.getNombre());
+            ejecutar.setByte(3, dp.getRegion_id());
+            ejecutar.executeUpdate();
+                int ContarRegistro = ejecutar.executeUpdate();
+            if (ContarRegistro == 0) {
+                mensaje = "Ingrese un registro valido";
+            }else{
+                mensaje = "Los datos se modificaron ";
+            }
+        } catch (SQLException e) {
+        }finally{
+            cnb.cerrarConexion();
+        }
+        return mensaje;
     }
     
 }
