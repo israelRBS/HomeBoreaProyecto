@@ -20,6 +20,10 @@ public class Prueba {
     conexion.abrirConexion();
     conexion.cerrarConexion();
         System.out.println("hola a todos");
+        System.out.println("");
+        for (int i = 0; i < 10; i++) {
+            System.out.println("hola");   
+        }
     }
     
     
