@@ -16,7 +16,7 @@ public class Prueba {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-    ConexionRandal conexion=new ConexionRandal();
+    ConexionBorea conexion=new ConexionBorea();
     conexion.abrirConexion();
     conexion.cerrarConexion();
         System.out.println("hola a todos");
