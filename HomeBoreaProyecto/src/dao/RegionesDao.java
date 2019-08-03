@@ -71,17 +71,80 @@ public class RegionesDao implements RegionesInterface {
 
     @Override
     public String eliminarRegiones(Regiones regiones) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            conex.abrirConexion();
+            sql = "DELETE FROM regiones where region_id=?";
+            ejecutar = conex.getMiConexion().prepareStatement(sql);
+
+            ejecutar.setByte(1, regiones.getRegion_id());
+
+            contarRegistros = ejecutar.executeUpdate();
+
+            if (contarRegistros == 0) {
+                mensaje = "NO SE ENCONTRO EL REGISTRO";
+            } else {
+                mensaje = "REGION ELIMINADA";
+            }
+        } catch (SQLException e) {
+            mensaje = "ERROR EN ELIMINAR_REGION_DAO " + e;
+        } finally {
+            conex.cerrarConexion();
+        }
+        return mensaje;
     }
 
     @Override
     public String insertarRegiones(Regiones regiones) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            conex.abrirConexion();
+            sql = "INSERT INTO regiones values(?,?,?)";
+            ejecutar = conex.getMiConexion().prepareStatement(sql);
+
+            ejecutar.setByte(1, regiones.getRegion_id());
+            ejecutar.setString(2, regiones.getNombre());
+            ejecutar.setString(3, regiones.getDescripcion());
+
+            contarRegistros = ejecutar.executeUpdate();
+
+            if (contarRegistros == 0) {
+                mensaje = "NO SE ENCONTRO LA BASE DE DATOS";
+            } else {
+                mensaje = "REGION GUARDADA";
+            }
+
+        } catch (SQLException e) {
+            mensaje = "ERROR EN DAO_INSERTAR_REGION " + e;
+
+        } finally {
+            conex.cerrarConexion();
+        }
+        return mensaje;
     }
 
     @Override
     public String modificarRegiones(Regiones regiones) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            conex.abrirConexion();
+            sql = "update regiones set nombre=?, descripcion=? where region_id=?";
+            ejecutar = conex.getMiConexion().prepareStatement(sql);
+
+            ejecutar.setByte(3, regiones.getRegion_id());
+            ejecutar.setString(1, regiones.getNombre());
+            ejecutar.setString(2, regiones.getDescripcion());
+
+            contarRegistros = ejecutar.executeUpdate();
+
+            if (contarRegistros == 0) {
+                mensaje = "NO SE ENCONTRO EL REGISTRO";
+            } else {
+                mensaje = "REGION MODIFICADA";
+            }
+        } catch (SQLException e) {
+            mensaje="ERROR EN MOFICAR_REGION_DAO "+e;
+        } finally {
+            conex.cerrarConexion();
+        }
+        return mensaje;
     }
 
 }
