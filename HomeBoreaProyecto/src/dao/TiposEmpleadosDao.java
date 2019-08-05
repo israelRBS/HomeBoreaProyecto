@@ -13,6 +13,8 @@ public class TiposEmpleadosDao {
     /*FALTA POR TERMINAR ESTA CLASE*/
     private String mensaje;
     private int registrosAfectados=0;
-    
+    public static void main(String[] args) {
+        System.out.println("HOLA");
+    }
     
 }
