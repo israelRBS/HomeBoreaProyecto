@@ -98,7 +98,7 @@ public class ServiciosMunicipiosDao implements ServiciosMunicipiosInterface {
                 mensaje = "DATOS ELIMINADOS";
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             mensaje = "LOS DATOS NO SE ELIMINARON" + e;
         } finally {
             conex.cerrarConexion();
@@ -123,7 +123,7 @@ public class ServiciosMunicipiosDao implements ServiciosMunicipiosInterface {
                 serm = new ServiciosMunicipios();
 
                 serm.setServicio_muni_id(resultadoSelect.getInt("serviciomunicipio_id"));
-                serm.setServicio_id(resultadoSelect.getInt("Servicio_id"));
+                serm.setServicio_id(resultadoSelect.getInt("servicio_id"));
                 serm.setMuni_id((short) resultadoSelect.getInt("muni_id"));
 
                 lista.add(serm);
@@ -154,10 +154,10 @@ public class ServiciosMunicipiosDao implements ServiciosMunicipiosInterface {
             resultadoSelect.next();
 
             serviciosmunicipios.setServicio_muni_id(resultadoSelect.getInt("serviciomunicipio_id"));
-            serviciosmunicipios.setServicio_id(resultadoSelect.getInt("Servicio_id"));
+            serviciosmunicipios.setServicio_id(resultadoSelect.getInt("servicio_id"));
             serviciosmunicipios.setMuni_id((short) resultadoSelect.getInt("muni_id"));
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("ERROR EN BUSQUEDA" + e);
 
         } finally {

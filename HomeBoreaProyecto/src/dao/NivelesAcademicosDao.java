@@ -5,6 +5,7 @@ import modelo.NivelesAcademicos;
 import interfaces.NivelesAcademicosInterface;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class NivelesAcademicosDao implements NivelesAcademicosInterface {
@@ -19,9 +20,13 @@ public class NivelesAcademicosDao implements NivelesAcademicosInterface {
     public NivelesAcademicos buscarNiveles(NivelesAcademicos nivelesAcademicos) {
         try {
             cnb.abrirConexion();
-            sql = "select * from  niveles_academicos";
+            sql = "select * from  niveles_academicos where nivelacademico=?";
             ejecutar = cnb.getMiConexion().prepareStatement(sql);
+            
+            ejecutar.setByte(1, nivelesAcademicos.getNivel_acad_id());
+            
             rs = ejecutar.executeQuery();
+            
             if (rs.next()) {
                 nva = new NivelesAcademicos();
                 nva.setNivel_acad_id(rs.getByte("nivelacademico_id"));
@@ -29,7 +34,8 @@ public class NivelesAcademicosDao implements NivelesAcademicosInterface {
             }
             rs.close();
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            System.out.println("EROROR EN BUSCAR_NIVEL_ACADEMICO :"+e);
         } finally {
             cnb.cerrarConexion();
         }
@@ -51,7 +57,8 @@ public class NivelesAcademicosDao implements NivelesAcademicosInterface {
                 listar.add(nva);
             }
             rs.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            System.out.println("ERROR EN LISTAR_NIVELES_ACADEMICOS "+e);
         }finally{
            cnb.cerrarConexion();
         }
@@ -67,8 +74,8 @@ public class NivelesAcademicosDao implements NivelesAcademicosInterface {
             ejecutar.setByte(1, nivelesAcademicos.getNivel_acad_id());
             ejecutar.executeUpdate();
             mensaje = "Los datos se eliminaron";
-        } catch (Exception e) {
-            mensaje = "Los datos no se eliminaron ";
+        } catch (SQLException e) {
+            mensaje = "Los datos no se eliminaron "+e;
         }finally{
             cnb.cerrarConexion();
         }
@@ -79,14 +86,14 @@ public class NivelesAcademicosDao implements NivelesAcademicosInterface {
     public String agregarNiveles(NivelesAcademicos nivelesAcademicos) {
         try {
             cnb.abrirConexion();
-            sql = "insert into niveles_academicos values(?, ? ) ";
+            sql = "insert into niveles_academicos values(?,?) ";
             ejecutar = cnb.getMiConexion().prepareStatement(sql);
             ejecutar.setByte(1, nivelesAcademicos.getNivel_acad_id());
             ejecutar.setString(2, nivelesAcademicos.getNombre());
             ejecutar.executeUpdate();
             mensaje = "Los datos fueron almacenados ";
-        } catch (Exception e) {
-            mensaje = "Los dato no se pueden almacenar";
+        } catch (SQLException e) {
+            mensaje = "Los dato no se pueden almacenar "+e;
         }finally{
             cnb.cerrarConexion();
         }
@@ -103,7 +110,7 @@ public class NivelesAcademicosDao implements NivelesAcademicosInterface {
             ejecutar.setString(1, nivelesAcademicos.getNombre());
             ejecutar.executeUpdate();
             mensaje = "Los datos fueron almacenados ";
-        } catch (Exception e) {
+        } catch (SQLException e) {
             mensaje = "Los dato no se PUEDE MODIFICAR "+e;
         }finally{
             cnb.cerrarConexion();

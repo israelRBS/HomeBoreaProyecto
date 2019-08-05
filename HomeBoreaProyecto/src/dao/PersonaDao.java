@@ -4,6 +4,7 @@ import modelo.Personas;
 import interfaces.PersonasInterface;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class PersonaDao implements PersonasInterface {
@@ -19,10 +20,18 @@ public class PersonaDao implements PersonasInterface {
     public Personas buscarPersonas(Personas personas) {
         try {
             cnb.abrirConexion();
-            sql = "select * from personas ";
+            sql = "select * from personas where persona_id=? ";
             ejecutar = cnb.getMiConexion().prepareStatement(sql);
             ejecutar.setInt(1, p.getPersona_id());
-        } catch (Exception e) {
+            
+            rs = ejecutar.executeQuery();
+            
+            while(rs.next()){
+                
+            }
+            
+        } catch (SQLException e) {
+            System.out.println("ERROR EN BUSCAR PERSONAS_DAO "+e);
         }finally{
             cnb.cerrarConexion();
         }

@@ -16,11 +16,9 @@ import java.util.ArrayList;
  *
  * @author Admin
  */
-    
-   public class ServiciosDao implements ServiciosInterface {
+public class ServiciosDao implements ServiciosInterface {
 
-  
- ConexionBorea conex = new ConexionBorea();
+    ConexionBorea conex = new ConexionBorea();
     private PreparedStatement ejecutar;
     private ResultSet resultadoSelect;
 
@@ -30,31 +28,29 @@ import java.util.ArrayList;
 
     @Override
     public String insertServicios(Servicios servicios) {
-        
-    try {
+
+        try {
             conex.abrirConexion();
-            sql="INSERT INTO servicios  values(?,?,?,?,?)";
+            sql = "INSERT INTO servicios  values(?,?,?,?,?)";
             ejecutar = conex.getMiConexion().prepareStatement(sql);
-            
+
             ejecutar.setInt(1, servicios.getServicio_id());
             ejecutar.setInt(2, servicios.getAsociado_id());
             ejecutar.setInt(3, servicios.getSubcategoria_id());
             ejecutar.setInt(4, servicios.getCosto());
             ejecutar.setInt(5, servicios.getTipocosto_id());
-            
+
             contarRegistros = ejecutar.executeUpdate();
-            
-            if(contarRegistros==0){
-                mensaje="No se puede registrar";
-            }else{
+
+            if (contarRegistros == 0) {
+                mensaje = "No se puede registrar";
+            } else {
                 mensaje = "Registro realizado con exito";
             }
-              
-        } 
-        catch (Exception e) {
-            mensaje ="LOS DATOS NO FUERON GUARDARON"+e;
-        }
-        finally{
+
+        } catch (SQLException e) {
+            mensaje = "LOS DATOS NO FUERON GUARDARON" + e;
+        } finally {
             conex.cerrarConexion();
         }
         return mensaje;
@@ -63,83 +59,77 @@ import java.util.ArrayList;
 
     @Override
     public String updateServicios(Servicios servicios) {
-            try {
+        try {
             conex.abrirConexion();
-            sql="update servicios  set sevicio_id=?, asociado_id=?, subcategoria_id=?, costo=?, tipocosto_id=? where servicios=?";
+            sql = "update servicios  set asociado_id=?, subcategoria_id=?, costo=?, tipocosto_id=? where sevicio_id=?";
             ejecutar = conex.getMiConexion().prepareStatement(sql);
-            
-           ejecutar.setInt(1, servicios.getServicio_id());
-            ejecutar.setInt(2, servicios.getAsociado_id());
-            ejecutar.setInt(3, servicios.getSubcategoria_id());
-            ejecutar.setInt(4, servicios.getCosto());
-            ejecutar.setInt(5, servicios.getTipocosto_id());
+
+            ejecutar.setInt(5, servicios.getServicio_id());
+            ejecutar.setInt(1, servicios.getAsociado_id());
+            ejecutar.setInt(2, servicios.getSubcategoria_id());
+            ejecutar.setInt(3, servicios.getCosto());
+            ejecutar.setInt(4, servicios.getTipocosto_id());
             contarRegistros = ejecutar.executeUpdate();
-            
-            if(contarRegistros==0){
-                mensaje="No se puede registrar";
-            }else{
-                mensaje = "Registro realizado con exito";
+
+            if (contarRegistros == 0) {
+                mensaje = "NO SE ENCONTRO EL REGISTRO";
+            } else {
+                mensaje = "REGISTRO MODIFICADO";
             }
-              
-        } 
-        catch (Exception e) {
-            mensaje ="LOS DATOS NO FUERON MODIFICARON"+e;
-        }
-        finally{
+
+        } catch (SQLException e) {
+            mensaje = "LOS DATOS NO FUERON MODIFICARON" + e;
+        } finally {
             conex.cerrarConexion();
         }
         return mensaje;
     }
-    
 
     @Override
     public String deleteServicios(Servicios servicios) {
-      
-           try {
+
+        try {
             conex.abrirConexion();
-            sql="DELETE FROM servicios  where servicios=?";
+            sql = "DELETE FROM servicios  where servicio_id=?";
             ejecutar = conex.getMiConexion().prepareStatement(sql);
-            
+
             ejecutar.setInt(1, servicios.getServicio_id());
-           
-            
+
             contarRegistros = ejecutar.executeUpdate();
-            
-            if(contarRegistros==0){
-                mensaje="NO SE ENCONTRO EL REGISTRO";
-            }else{
+
+            if (contarRegistros == 0) {
+                mensaje = "NO SE ENCONTRO EL REGISTRO";
+            } else {
                 mensaje = "DATOS ELIMINADOS";
             }
-              
-        } 
-        catch (Exception e) {
-            mensaje ="LOS DATOS NO SE ELIMINARON"+e;
-        }
-        finally{
+
+        } catch (SQLException e) {
+            mensaje = "LOS DATOS NO SE ELIMINARON" + e;
+        } finally {
             conex.cerrarConexion();
         }
         return mensaje;
     }
-    
+
     @Override
-    public Servicios buscarServicios(int servicio_id) { 
-         Servicios servicios = new Servicios();
+    public Servicios buscarServicios(int servicio_id) {
+        Servicios servicios = new Servicios();
         try {
             conex.abrirConexion();
-            sql = "select * from servicios where sevicio_id=" ;
+            sql = "select * from servicios where sevicio_id=?";
             ejecutar = conex.getMiConexion().prepareStatement(sql);
 
             resultadoSelect = ejecutar.executeQuery();
 
             resultadoSelect.next();
 
-            servicios.setServicio_id(resultadoSelect.getInt("Servicio_id"));
-            servicios.setAsociado_id(resultadoSelect.getInt("Asociado_id"));
+            servicios.setServicio_id(resultadoSelect.getInt("servicio_id"));
+            servicios.setAsociado_id(resultadoSelect.getInt("asociado_id"));
             servicios.setSubcategoria_id(resultadoSelect.getInt("subcategoria_id"));
             servicios.setCosto((short) resultadoSelect.getInt("costo"));
             servicios.setTipocosto_id((byte) resultadoSelect.getInt("tipocosto_id"));
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("ERROR EN BUSQUEDA" + e);
 
         } finally {
@@ -150,7 +140,7 @@ import java.util.ArrayList;
 
     @Override
     public ArrayList<Servicios> listarServicios() {
-        
+
         Servicios ser;
         ArrayList<Servicios> lista = new ArrayList();
 
@@ -165,12 +155,11 @@ import java.util.ArrayList;
             while (resultadoSelect.next()) {
                 ser = new Servicios();
 
-                ser.setServicio_id(resultadoSelect.getInt("Servicio_id"));
-            ser.setAsociado_id(resultadoSelect.getInt("Asociado_id"));
-            ser.setSubcategoria_id(resultadoSelect.getInt("subcategoria_id"));
-            ser.setCosto((short) resultadoSelect.getInt("costo"));
-            ser.setTipocosto_id((byte) resultadoSelect.getInt("tipocosto_id"));
-
+                ser.setServicio_id(resultadoSelect.getInt("servicio_id"));
+                ser.setAsociado_id(resultadoSelect.getInt("asociado_id"));
+                ser.setSubcategoria_id(resultadoSelect.getInt("subcategoria_id"));
+                ser.setCosto((short) resultadoSelect.getInt("costo"));
+                ser.setTipocosto_id((byte) resultadoSelect.getInt("tipocosto_id"));
 
                 lista.add(ser);
             }
@@ -178,7 +167,7 @@ import java.util.ArrayList;
             ejecutar.close();
 
         } catch (SQLException e) {
-            System.out.println("Error en ServiciosDao" + e);
+                System.out.println("ERROR EN LISTAR_SERVICIOS " + e);
         } finally {
             conex.cerrarConexion();
         }
@@ -188,5 +177,3 @@ import java.util.ArrayList;
     }
 
 }
-    
-
