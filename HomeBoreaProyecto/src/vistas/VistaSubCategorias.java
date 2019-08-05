@@ -20,7 +20,8 @@ public class VistaSubCategorias extends javax.swing.JFrame {
      */
     public VistaSubCategorias() {
         initComponents();
-        String ruta = new File ("").getAbsolutePath () + "\\src\\main\\java\\imagenes\\subcate.png";
+        String ruta = new File ("").getAbsolutePath () + "\\src\\imagenes\\subcate.png";
+        System.out.println("Ruta: " + ruta);
         jLblmagenes.setIcon(new ImageIcon(ruta));
         //setSize(780, 650);
         //JOptionPane.showMessageDialog(null, System.getProperty("user.dir"));
@@ -191,9 +192,8 @@ public class VistaSubCategorias extends javax.swing.JFrame {
                         .addComponent(jLblmagenes, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jBtnModificarSub)
-                        .addComponent(jBtnGuardarSub))
+                    .addComponent(jBtnModificarSub)
+                    .addComponent(jBtnGuardarSub)
                     .addComponent(jBtnEliminarSub))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

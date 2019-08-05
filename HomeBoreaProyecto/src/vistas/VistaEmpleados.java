@@ -20,11 +20,11 @@ public class VistaEmpleados extends javax.swing.JFrame {
      */
     public VistaEmpleados() {
         initComponents();
-        String ruta = new File ("").getAbsolutePath () + "\\src\\main\\java\\imagenes\\trabajadores.png";
+        String ruta = new File ("").getAbsolutePath () + "\\src\\imagenes\\trabajadores.png";
         jLblImagen.setIcon(new ImageIcon(ruta));
         setSize(700, 650);
         //JOptionPane.showMessageDialog(null, System.getProperty("user.dir"));
-        this.getContentPane().setBackground(Color.ORANGE);
+        this.getContentPane().setBackground(Color.white);
         setLocationRelativeTo(null);
         setVisible(true);
     }

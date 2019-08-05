@@ -5,6 +5,10 @@
  */
 package vistas;
 
+import java.awt.Color;
+import java.io.File;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Admin
@@ -16,6 +20,13 @@ public class VistaAsociados extends javax.swing.JFrame {
      */
     public VistaAsociados() {
         initComponents();
+        String ruta = new File ("").getAbsolutePath () + "\\src\\imagenes\\asociados.png";
+        jLblImagenes.setIcon(new ImageIcon(ruta));
+        setSize(975, 800);
+        //JOptionPane.showMessageDialog(null, System.getProperty("user.dir"));
+        this.getContentPane().setBackground(Color.ORANGE);
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
 
     /**
@@ -28,7 +39,6 @@ public class VistaAsociados extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jPnlImgAsociados = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -54,24 +64,13 @@ public class VistaAsociados extends javax.swing.JFrame {
         jBtnModificar = new javax.swing.JButton();
         jBtnBuscar = new javax.swing.JButton();
         jBtnListar = new javax.swing.JButton();
+        jLblImagenes = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel1.setText("Asociados");
-
-        jPnlImgAsociados.setBackground(new java.awt.Color(204, 204, 204));
-
-        javax.swing.GroupLayout jPnlImgAsociadosLayout = new javax.swing.GroupLayout(jPnlImgAsociados);
-        jPnlImgAsociados.setLayout(jPnlImgAsociadosLayout);
-        jPnlImgAsociadosLayout.setHorizontalGroup(
-            jPnlImgAsociadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 215, Short.MAX_VALUE)
-        );
-        jPnlImgAsociadosLayout.setVerticalGroup(
-            jPnlImgAsociadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("ASOCIADOS");
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("Asociados-Id");
@@ -134,12 +133,14 @@ public class VistaAsociados extends javax.swing.JFrame {
         jBtnListar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBtnListar.setText("Listar");
 
+        jLblImagenes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,18 +153,17 @@ public class VistaAsociados extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addComponent(jLabel9)
                             .addComponent(jLabel7)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jBtnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel8)))
+                            .addComponent(jLabel8)
+                            .addComponent(jBtnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jBtnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(48, 48, 48)
+                                .addGap(29, 29, 29)
                                 .addComponent(jBtnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(37, 37, 37)
+                                .addGap(32, 32, 32)
                                 .addComponent(jBtnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(29, 29, 29)
                                 .addComponent(jBtnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -176,22 +176,18 @@ public class VistaAsociados extends javax.swing.JFrame {
                                     .addComponent(jTxtFoto, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTxtEspecialidad, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTxtDpiImg))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPnlImgAsociados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(24, 24, 24))))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 865, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 24, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(340, 340, 340)
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(59, 59, 59)
+                                .addComponent(jLblImagenes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 865, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -225,7 +221,9 @@ public class VistaAsociados extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(jTxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jPnlImgAsociados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLblImagenes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
@@ -238,8 +236,8 @@ public class VistaAsociados extends javax.swing.JFrame {
                     .addComponent(jBtnBuscar)
                     .addComponent(jBtnListar))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -301,7 +299,7 @@ public class VistaAsociados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    public javax.swing.JPanel jPnlImgAsociados;
+    private javax.swing.JLabel jLblImagenes;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jTblAsociados;
     public javax.swing.JTextField jTxtAntecedentesPena;
