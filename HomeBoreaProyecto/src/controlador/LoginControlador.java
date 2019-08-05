@@ -29,16 +29,18 @@ public class LoginControlador implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == this.login.jBtnEntrar) {
-            
+            buscarEmpleado();
         }
     }
     public void buscarEmpleado(){
+        
         String usuario = this.login.jTxtUsuario.getText();
         String contrasenia = new String( this.login.jTxtContrasenia.getPassword());
         JOptionPane.showMessageDialog(null,usuario+","+contrasenia);
         empleados = empleadosDao.buscarEmpleados(usuario, contrasenia);
         JFrmPrincipal principal=new JFrmPrincipal();
         PrincipalControlador principalcontrolador =new PrincipalControlador(principal);
+        principal.setExtendedState(6);
         principal.setVisible(true);
     }
     

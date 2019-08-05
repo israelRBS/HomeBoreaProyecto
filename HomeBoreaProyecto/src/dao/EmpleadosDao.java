@@ -18,12 +18,14 @@ public class EmpleadosDao implements EmpleadosInterface {
     
 
     @Override
-    public Empleados buscarEmpleados(String usuario, String contraseña) {
+    public Empleados buscarEmpleados(String usuario, String contrasenia) {
         
         try {
             conexion.abrirConexion();
-            sql="select * from empleados where usuario=? and contraseña=?";
+            sql="select * from empleados where usuario=? and contrasenia=Md5(?)";
             ejecutar=conexion.getMiConexion().prepareStatement(sql);
+            ejecutar.setString(1, empleado.getUsuario());
+            ejecutar.setString(2, empleado.getContraseña());
             resultadoSelect=ejecutar.executeQuery();
             if (resultadoSelect.next()) {
                 empleado=new Empleados();

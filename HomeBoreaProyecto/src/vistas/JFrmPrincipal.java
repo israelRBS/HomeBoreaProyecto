@@ -37,8 +37,8 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
-        editMenu = new javax.swing.JMenu();
-        cutMenuItem = new javax.swing.JMenuItem();
+        jEditMenu = new javax.swing.JMenu();
+        cutMenuCategorias = new javax.swing.JMenuItem();
         copyMenuItem = new javax.swing.JMenuItem();
         pasteMenuItem = new javax.swing.JMenuItem();
         deleteMenuItem = new javax.swing.JMenuItem();
@@ -95,26 +95,31 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
         menuBar.add(fileMenu);
 
-        editMenu.setMnemonic('e');
-        editMenu.setText("Edit");
+        jEditMenu.setMnemonic('e');
+        jEditMenu.setText("Opciones");
 
-        cutMenuItem.setMnemonic('t');
-        cutMenuItem.setText("Cut");
-        editMenu.add(cutMenuItem);
+        cutMenuCategorias.setMnemonic('t');
+        cutMenuCategorias.setText("Categorias");
+        cutMenuCategorias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cutMenuCategoriasActionPerformed(evt);
+            }
+        });
+        jEditMenu.add(cutMenuCategorias);
 
         copyMenuItem.setMnemonic('y');
         copyMenuItem.setText("Copy");
-        editMenu.add(copyMenuItem);
+        jEditMenu.add(copyMenuItem);
 
         pasteMenuItem.setMnemonic('p');
         pasteMenuItem.setText("Paste");
-        editMenu.add(pasteMenuItem);
+        jEditMenu.add(pasteMenuItem);
 
         deleteMenuItem.setMnemonic('d');
         deleteMenuItem.setText("Delete");
-        editMenu.add(deleteMenuItem);
+        jEditMenu.add(deleteMenuItem);
 
-        menuBar.add(editMenu);
+        menuBar.add(jEditMenu);
 
         setJMenuBar(menuBar);
 
@@ -135,6 +140,10 @@ public class JFrmPrincipal extends javax.swing.JFrame {
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
+
+    private void cutMenuCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuCategoriasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cutMenuCategoriasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,11 +183,11 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem copyMenuItem;
-    private javax.swing.JMenuItem cutMenuItem;
+    public javax.swing.JMenuItem cutMenuCategorias;
     private javax.swing.JMenuItem deleteMenuItem;
-    private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
+    private javax.swing.JMenu jEditMenu;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
