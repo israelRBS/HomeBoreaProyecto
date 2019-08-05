@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class EmpleadosDao implements EmpleadosInterface {
 
-    ConexionBorea conexion = new ConexionBorea();
+    ConexionRandal conexion = new ConexionRandal();
     private String mensaje;
     Empleados empleado;
     private String sql;

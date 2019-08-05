@@ -9,6 +9,8 @@ import dao.EmpleadosDao;
 import modelo.Empleados;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+import vistas.JFrmPrincipal;
 import vistas.Login;
 
 /**
@@ -21,19 +23,23 @@ public class LoginControlador implements ActionListener{
     Empleados empleados = new Empleados();
     public LoginControlador(Login login) {
         this.login = login;
-        login.jButton2.addActionListener(this);
+        login.jBtnEntrar.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource() == this.login.jButton2) {
+        if (ae.getSource() == this.login.jBtnEntrar) {
             
         }
     }
     public void buscarEmpleado(){
-        String usuario = this.login.jTextField1.getText();
-        String contraseña = this.login.jTextField2.getText();
-        empleados = empleadosDao.buscarEmpleados(usuario, contraseña);
+        String usuario = this.login.jTxtUsuario.getText();
+        String contrasenia = new String( this.login.jTxtContrasenia.getPassword());
+        JOptionPane.showMessageDialog(null,usuario+","+contrasenia);
+        empleados = empleadosDao.buscarEmpleados(usuario, contrasenia);
+        JFrmPrincipal principal=new JFrmPrincipal();
+        PrincipalControlador principalcontrolador =new PrincipalControlador(principal);
+        principal.setVisible(true);
     }
     
 }
