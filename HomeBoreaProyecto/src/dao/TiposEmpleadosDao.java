@@ -12,6 +12,7 @@ package dao;
 public class TiposEmpleadosDao {
     /*FALTA POR TERMINAR ESTA CLASE*/
     private String mensaje;
+    private int registrosAfectados=0;
     
     
 }
