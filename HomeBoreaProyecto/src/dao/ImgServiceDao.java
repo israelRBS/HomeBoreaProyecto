@@ -32,6 +32,7 @@ public class ImgServiceDao implements ImageServiceInterface {
             conex.abrirConexion();
 
             mysql = "insert into imagenes_servicios values(?,?,?)";
+           
 
             ejecutar = conex.getMiConexion().prepareStatement(mysql);
 
