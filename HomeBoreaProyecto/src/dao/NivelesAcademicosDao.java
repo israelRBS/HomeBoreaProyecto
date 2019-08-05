@@ -9,24 +9,26 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class NivelesAcademicosDao implements NivelesAcademicosInterface {
+
     ConexionBorea cnb = new ConexionBorea();
-    NivelesAcademicos nva = new NivelesAcademicos();
     private String sql;
     private String mensaje;
     PreparedStatement ejecutar;
     ResultSet rs;
-    
+
     @Override
     public NivelesAcademicos buscarNiveles(NivelesAcademicos nivelesAcademicos) {
+
+        NivelesAcademicos nva = new NivelesAcademicos();
         try {
             cnb.abrirConexion();
             sql = "select * from  niveles_academicos where nivelacademico=?";
             ejecutar = cnb.getMiConexion().prepareStatement(sql);
-            
+
             ejecutar.setByte(1, nivelesAcademicos.getNivel_acad_id());
-            
+
             rs = ejecutar.executeQuery();
-            
+
             if (rs.next()) {
                 nva = new NivelesAcademicos();
                 nva.setNivel_acad_id(rs.getByte("nivelacademico_id"));
@@ -35,7 +37,7 @@ public class NivelesAcademicosDao implements NivelesAcademicosInterface {
             rs.close();
 
         } catch (SQLException e) {
-            System.out.println("EROROR EN BUSCAR_NIVEL_ACADEMICO :"+e);
+            System.out.println("EROROR EN BUSCAR_NIVEL_ACADEMICO :" + e);
         } finally {
             cnb.cerrarConexion();
         }
@@ -44,6 +46,7 @@ public class NivelesAcademicosDao implements NivelesAcademicosInterface {
 
     @Override
     public ArrayList<NivelesAcademicos> listarNiveles() {
+        NivelesAcademicos nva;
         ArrayList<NivelesAcademicos> listar = new ArrayList();
         try {
             cnb.abrirConexion();
@@ -58,9 +61,9 @@ public class NivelesAcademicosDao implements NivelesAcademicosInterface {
             }
             rs.close();
         } catch (SQLException e) {
-            System.out.println("ERROR EN LISTAR_NIVELES_ACADEMICOS "+e);
-        }finally{
-           cnb.cerrarConexion();
+            System.out.println("ERROR EN LISTAR_NIVELES_ACADEMICOS " + e);
+        } finally {
+            cnb.cerrarConexion();
         }
         return listar;
     }
@@ -75,8 +78,8 @@ public class NivelesAcademicosDao implements NivelesAcademicosInterface {
             ejecutar.executeUpdate();
             mensaje = "Los datos se eliminaron";
         } catch (SQLException e) {
-            mensaje = "Los datos no se eliminaron "+e;
-        }finally{
+            mensaje = "Los datos no se eliminaron " + e;
+        } finally {
             cnb.cerrarConexion();
         }
         return mensaje;
@@ -93,8 +96,8 @@ public class NivelesAcademicosDao implements NivelesAcademicosInterface {
             ejecutar.executeUpdate();
             mensaje = "Los datos fueron almacenados ";
         } catch (SQLException e) {
-            mensaje = "Los dato no se pueden almacenar "+e;
-        }finally{
+            mensaje = "Los dato no se pueden almacenar " + e;
+        } finally {
             cnb.cerrarConexion();
         }
         return mensaje;
@@ -102,20 +105,20 @@ public class NivelesAcademicosDao implements NivelesAcademicosInterface {
 
     @Override
     public String modificarNiveles(NivelesAcademicos nivelesAcademicos) {
-       try {
+        try {
             cnb.abrirConexion();
-            sql = "update niveles_academicos set nombre=? where nivelacademico=?";
+            sql = "update niveles_academicos set nombre=? where nivelacademico_id=?";
             ejecutar = cnb.getMiConexion().prepareStatement(sql);
             ejecutar.setByte(2, nivelesAcademicos.getNivel_acad_id());
             ejecutar.setString(1, nivelesAcademicos.getNombre());
             ejecutar.executeUpdate();
-            mensaje = "Los datos fueron almacenados ";
+            mensaje = "Los datos fueron Modificados ";
         } catch (SQLException e) {
-            mensaje = "Los dato no se PUEDE MODIFICAR "+e;
-        }finally{
+            mensaje = "ERROR EN  MODIFICAR " + e;
+        } finally {
             cnb.cerrarConexion();
         }
         return mensaje;
     }
-    
+
 }

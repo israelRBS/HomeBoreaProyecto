@@ -31,7 +31,7 @@ public class ImgServiceDao implements ImageServiceInterface {
         try {
             conex.abrirConexion();
 
-            mysql = "insert into imageners_servicios values(?,?,?)";
+            mysql = "insert into imagenes_servicios values(?,?,?)";
 
             ejecutar = conex.getMiConexion().prepareStatement(mysql);
 
@@ -46,7 +46,7 @@ public class ImgServiceDao implements ImageServiceInterface {
             } else {
                 mensaje = "IMGAGEN ALMACENADA";
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             mensaje = "ERROR EN DAO_IMAGE_SERVICE_DAO : " + e;
         } finally {
             conex.cerrarConexion();
@@ -59,7 +59,7 @@ public class ImgServiceDao implements ImageServiceInterface {
         try {
             conex.abrirConexion();
 
-            mysql = "update imagenes_servicios set servicos_id=?, imagene=? where imagenservicio=?";
+            mysql = "update imagenes_servicios set servicio_id=?, imagen=? where imagenservicio=?";
 
             ejecutar = conex.getMiConexion().prepareStatement(mysql);
 
@@ -74,7 +74,7 @@ public class ImgServiceDao implements ImageServiceInterface {
             } else {
                 mensaje = "REGISTRO MODIFICADO ";
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             mensaje = "ERORR EN DAO_IMAGE_SERVICE : " + e;
         } finally {
             conex.cerrarConexion();
@@ -88,7 +88,7 @@ public class ImgServiceDao implements ImageServiceInterface {
         try {
             conex.abrirConexion();
 
-            mysql = "delete from imagenes_servicios where imagenservicio=?";
+            mysql = "delete from imagenes_servicios where imagenservicio_id=?";
 
             ejecutar = conex.getMiConexion().prepareStatement(mysql);
 
@@ -101,7 +101,7 @@ public class ImgServiceDao implements ImageServiceInterface {
             } else {
                 mensaje = "REGISTRO ELIMINADO";
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             mensaje = "REGISTRO ELIMINADO " + e;
         } finally {
             conex.cerrarConexion();
@@ -116,24 +116,23 @@ public class ImgServiceDao implements ImageServiceInterface {
 
         try {
             conex.abrirConexion();
-            mysql = "select * from imagenes_servicios where imagenservicio="+img_service;
+            mysql = "select * from imagenes_servicios where imagenservicio=" + img_service;
             ejecutar = conex.getMiConexion().prepareStatement(mysql);
-            
+
             seleccionar = ejecutar.executeQuery();
-            
-            while(seleccionar.next()){
-                
-                service.setImagenservicio_id(seleccionar.getInt("imagenservicio"));
-                service.setServicio_id(seleccionar.getInt("servicos_id"));
-                service.setImagen(seleccionar.getString("imagene"));
-                
+
+            while (seleccionar.next()) {
+
+                service.setImagenservicio_id(seleccionar.getInt("imagenservicio_id"));
+                service.setServicio_id(seleccionar.getInt("servicio_id"));
+                service.setImagen(seleccionar.getString("imagen"));
+
             }
             ejecutar.close();
-            
-            
-        } catch (Exception e) {
-            System.out.println("ERROR EN BUSQUEDA_IMG_SERVICIO");
-            
+
+        } catch (SQLException e) {
+            System.out.println("ERROR EN BUSQUEDA_IMG_SERVICIO " + e);
+
         } finally {
             conex.cerrarConexion();
         }
@@ -143,40 +142,38 @@ public class ImgServiceDao implements ImageServiceInterface {
 
     @Override
     public ArrayList<ImagenesServicio> listarImgServices() {
-       
+
         ImagenesServicio ser;
         ArrayList<ImagenesServicio> lista = new ArrayList();
-        
+
         try {
             conex.abrirConexion();
-            mysql="select * from imagenes_servicios";
-            
+            mysql = "select * from imagenes_servicios";
+
             ejecutar = conex.getMiConexion().prepareStatement(mysql);
-            
+
             seleccionar = ejecutar.executeQuery();
-            
-            while(seleccionar.next()){
+
+            while (seleccionar.next()) {
                 ser = new ImagenesServicio();
-                
-                ser.setImagenservicio_id(seleccionar.getInt("imagenservicio"));
-                ser.setServicio_id(seleccionar.getInt("servicos_id"));
-                ser.setImagen(seleccionar.getString("imagene"));
-                
-               lista.add(ser);  
+
+                ser.setImagenservicio_id(seleccionar.getInt("imagenservicio_id"));
+                ser.setServicio_id(seleccionar.getInt("servicio_id"));
+                ser.setImagen(seleccionar.getString("imagen"));
+
+                lista.add(ser);
             }
-            
+
             ejecutar.close();
-            
-        } 
-        catch (SQLException e) {
-            System.out.println("ERROR EN DAO_LISTA_SERVICIOS"+e);
-        }
-        finally{
+
+        } catch (SQLException e) {
+            System.out.println("ERROR EN DAO_LISTA_SERVICIOS" + e);
+        } finally {
             conex.cerrarConexion();
         }
-        
+
         return lista;
-        
+
     }
 
 }

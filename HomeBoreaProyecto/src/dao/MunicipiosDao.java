@@ -5,10 +5,11 @@ import modelo.Municipios;
 import interfaces.MunicipiosInterface;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class MunicipiosDao implements MunicipiosInterface {
-    Municipios mn = new Municipios();
+    
     ConexionBorea cnb = new ConexionBorea();
     private PreparedStatement ejecutar;
     private String mensaje;
@@ -17,10 +18,14 @@ public class MunicipiosDao implements MunicipiosInterface {
 
     @Override
     public Municipios buscarMunicipios(Municipios municipios) {
+        Municipios mn = new Municipios();
         try {
             cnb.abrirConexion();
-            sql = "select * from  municipios";
+            sql = "select * from  municipios where municipio_id=?";
             ejecutar = cnb.getMiConexion().prepareStatement(sql);
+            
+            ejecutar.setShort(1, municipios.getMunicipio_id());
+            
             rs = ejecutar.executeQuery();
             if (rs.next()) {
                 mn = new Municipios();
@@ -30,7 +35,8 @@ public class MunicipiosDao implements MunicipiosInterface {
             }
             rs.close();
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            System.out.println("ERROR EN BUSCAR_MUNICIPIO "+e);
         } finally {
             cnb.cerrarConexion();
         }
@@ -40,7 +46,7 @@ public class MunicipiosDao implements MunicipiosInterface {
     @Override
     public ArrayList<Municipios> listarMunicipios() {
         ArrayList<Municipios> lista = new ArrayList();
-        
+        Municipios mn;
         try {
             cnb.abrirConexion();
             sql = "select * from municipios";
@@ -55,7 +61,8 @@ public class MunicipiosDao implements MunicipiosInterface {
             }
             rs.close();
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            System.out.println("ERROR EN LISCAR_MUNICIPIOS "+e);
         } finally {
             cnb.cerrarConexion();
         }
@@ -68,10 +75,10 @@ public class MunicipiosDao implements MunicipiosInterface {
             cnb.abrirConexion();
             sql = "delete from municipios where municipio_id=?";
             ejecutar = cnb.getMiConexion().prepareStatement(sql);
-            ejecutar.setShort(1, mn.getMunicipio_id());
+            ejecutar.setShort(1, municipios.getMunicipio_id());
             ejecutar.executeUpdate();
             mensaje = "Los datos se eliminaron";
-        } catch (Exception e) {
+        } catch (SQLException e) {
             mensaje = "Los datos no se pueden eliminar" +e;
         }finally{
             cnb.cerrarConexion();
@@ -85,12 +92,12 @@ public class MunicipiosDao implements MunicipiosInterface {
             cnb.abrirConexion();
             sql = "insert into municipios values(?,?,?)";
             ejecutar = cnb.getMiConexion().prepareStatement(sql);
-            ejecutar.setShort(1, mn.getMunicipio_id());
-            ejecutar.setString(2, mn.getNombre());
-            ejecutar.setByte(3, mn.getDepa_id());
+            ejecutar.setShort(1, municipios.getMunicipio_id());
+            ejecutar.setString(2, municipios.getNombre());
+            ejecutar.setByte(3, municipios.getDepa_id());
             ejecutar.executeUpdate();
             mensaje = "Los Datos fueron almacenados";
-        } catch (Exception e) {
+        } catch (SQLException e) {
             mensaje = "Error almacenando los datos "+e ;
         }finally{
             cnb.cerrarConexion();
@@ -100,7 +107,26 @@ public class MunicipiosDao implements MunicipiosInterface {
 
     @Override
     public String modificarMunicipio(Municipios municipios) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            cnb.abrirConexion();
+            sql="UPDATE municipios set nombre=?, departamento_id=? where municipio_id=?";
+            ejecutar = cnb.getMiConexion().prepareStatement(sql);
+            
+            ejecutar.setShort(3, municipios.getMunicipio_id());
+            ejecutar.setString(1, municipios.getNombre());
+            ejecutar.setByte(2, municipios.getDepa_id());
+            
+            ejecutar.executeUpdate();
+            
+            mensaje="REGISTRO MODIFICADO";
+            
+            
+        } catch (SQLException e) {
+            mensaje="ERROR EN MODIFICAR MUNICIPIO"+e;
+        }finally{
+            cnb.cerrarConexion();
+        }
+        return mensaje;
     }
     
 }
