@@ -74,7 +74,7 @@ public class ClasServiciosDao implements ClasificacionesServiciosInterfaces {
             ejecutar.setByte(1, cs.getClasificacion_id());
             ejecutar.executeUpdate();
             mensaje = "Los datos se eliminaron";
-        } catch (Exception e) {
+        } catch (SQLException e) {
             mensaje = "Los datos no se pueden eliminar" + e;
         } finally {
             cnb.cerrarConexion();

@@ -16,10 +16,9 @@ import modelo.Generos;
  *
  * @author Jose
  */
-public class GenerosDao implements GenerosInterface{
-    
-     ConexionBorea cnb = new ConexionBorea();
-    Generos ge = new Generos();
+public class GenerosDao implements GenerosInterface {
+
+    ConexionBorea cnb = new ConexionBorea();
     private String mensaje = null;
     PreparedStatement ejecutar;
     ResultSet rs;
@@ -27,10 +26,11 @@ public class GenerosDao implements GenerosInterface{
 
     @Override
     public ArrayList<Generos> listarTipEmpleado() {
- ArrayList<Generos> lista = new ArrayList();
-         try {
+        ArrayList<Generos> lista = new ArrayList();
+        Generos ge;
+        try {
             cnb.abrirConexion();
-            sql = "select * from estados";
+            sql = "select * from generos";
             ejecutar = cnb.getMiConexion().prepareStatement(sql);
             rs = ejecutar.executeQuery();
             while (rs.next()) {
@@ -40,12 +40,13 @@ public class GenerosDao implements GenerosInterface{
                 lista.add(ge);
             }
             rs.close();
-            
-        } catch (Exception e) {
+
+        } catch (SQLException e) {
+            System.out.println("ERROR EN LISTAR_GENEROS");
         } finally {
             cnb.cerrarConexion();
         }
-        return lista;        
+        return lista;
     }
 
     @Override
@@ -54,37 +55,37 @@ public class GenerosDao implements GenerosInterface{
             cnb.abrirConexion();
             sql = "insert into generos values(?,?)";
             ejecutar = cnb.getMiConexion().prepareStatement(sql);
-            ejecutar.setInt(1, ge.getGenero_id());
-            ejecutar.setString(2, ge.getNombre());
+            ejecutar.setInt(1, genero.getGenero_id());
+            ejecutar.setString(2, genero.getNombre());
             ejecutar.executeUpdate();
             mensaje = "Los Datos fueron almacenados";
-        } catch (Exception e) {
-            mensaje = "Error almacenando los datos "+e ;
-        }finally{
+        } catch (SQLException e) {
+            mensaje = "Error almacenando los datos " + e;
+        } finally {
             cnb.cerrarConexion();
         }
-        return mensaje;        
+        return mensaje;
 
-        
     }
 
     @Override
     public String modificarGenero(Generos genero) {
         try {
             cnb.abrirConexion();
-            sql = "update generos set  genero_id=?, nombre=? where genero_id=?  ";
+            sql = "update generos set  nombre=? where genero_id=?";
             ejecutar = cnb.getMiConexion().prepareStatement(sql);
-            ejecutar.setInt(1, ge.getGenero_id());
-            ejecutar.setString(2, ge.getNombre());
-            
-             int ContarRegistro = ejecutar.executeUpdate();
+            ejecutar.setInt(1, genero.getGenero_id());
+            ejecutar.setString(2, genero.getNombre());
+
+            int ContarRegistro = ejecutar.executeUpdate();
             if (ContarRegistro == 0) {
                 mensaje = "Ingrese un registro valido";
-            }else{
+            } else {
                 mensaje = "Los datos se modificaron ";
             }
         } catch (SQLException e) {
-        }finally{
+            mensaje="ERROR EN MODIFICAR GENERO"+e;
+        } finally {
             cnb.cerrarConexion();
         }
         return mensaje;
@@ -92,28 +93,31 @@ public class GenerosDao implements GenerosInterface{
 
     @Override
     public String eliminarGenero(Generos genero) {
-                try {
+        try {
             cnb.abrirConexion();
             sql = "delete from generos where genero_id=?";
             ejecutar = cnb.getMiConexion().prepareStatement(sql);
-            ejecutar.setInt(1, ge.getGenero_id());
+            ejecutar.setInt(1, genero.getGenero_id());
             ejecutar.executeUpdate();
             mensaje = "Los datos se eliminaron";
-        } catch (Exception e) {
-            mensaje = "Los datos no se pueden eliminar" +e;
-        }finally{
+        } catch (SQLException e) {
+            mensaje = "Los datos no se pueden eliminar" + e;
+        } finally {
             cnb.cerrarConexion();
         }
         return mensaje;
-        
+
     }
 
     @Override
     public Generos buscar(Generos genero) {
-                try {
+        Generos ge = new Generos();
+        try {
             cnb.abrirConexion();
-            sql = "select * from  generos";
+            sql = "select * from  generos where genero_id=?";
             ejecutar = cnb.getMiConexion().prepareStatement(sql);
+            
+            ejecutar.setInt(1, genero.getGenero_id());
             rs = ejecutar.executeQuery();
             if (rs.next()) {
                 ge = new Generos();
@@ -122,13 +126,13 @@ public class GenerosDao implements GenerosInterface{
             }
             rs.close();
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            System.out.println("ERROR EN BUSCAR GENERO"+e);
         } finally {
             cnb.cerrarConexion();
         }
         return ge;
 
     }
-    
+
 }
- 

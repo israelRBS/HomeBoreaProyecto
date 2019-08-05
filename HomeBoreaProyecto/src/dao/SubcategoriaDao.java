@@ -28,61 +28,57 @@ public class SubcategoriaDao implements SubcategoriasInterface {
 
     @Override
     public String insertSubcategia(Subcategorias sub) {
-         try {
+        try {
             conex.abrirConexion();
-            sql="INSERT INTO subcategorias values(?,?,?,?)";
+            sql = "INSERT INTO subcategorias values(?,?,?,?)";
             ejecutar = conex.getMiConexion().prepareStatement(sql);
-            
+
             ejecutar.setByte(1, sub.getSubcategoria_id());
             ejecutar.setString(2, sub.getNombre());
             ejecutar.setByte(3, sub.getCategoria_id());
             ejecutar.setInt(4, sub.getEmpleado_id());
-            
+
             contarRegistros = ejecutar.executeUpdate();
-            
-            if(contarRegistros==0){
-                mensaje="NO SE AGREGO EL REGISTRO";
-            }else{
+
+            if (contarRegistros == 0) {
+                mensaje = "NO SE AGREGO EL REGISTRO";
+            } else {
                 mensaje = "DATOS ALMACENADOS";
             }
-              
-        } 
-        catch (Exception e) {
-            mensaje ="LOS DATOS NO SE GUARDARON"+e;
-        }
-        finally{
+
+        } catch (SQLException e) {
+            mensaje = "LOS DATOS NO SE GUARDARON" + e;
+        } finally {
             conex.cerrarConexion();
         }
         return mensaje;
-        
+
     }
 
     @Override
     public String updateSubcategoria(Subcategorias sub) {
-        
+
         try {
             conex.abrirConexion();
-            sql="update subcategorias set nombre=?, categoria_id=?, empleado_id=? where subcategoria_id=?";
+            sql = "update subcategorias set nombre=?, categoria_id=?, empleado_id=? where subcategoria_id=?";
             ejecutar = conex.getMiConexion().prepareStatement(sql);
-            
+
             ejecutar.setByte(4, sub.getSubcategoria_id());
             ejecutar.setString(1, sub.getNombre());
             ejecutar.setByte(2, sub.getCategoria_id());
             ejecutar.setInt(3, sub.getEmpleado_id());
-            
+
             contarRegistros = ejecutar.executeUpdate();
-            
-            if(contarRegistros==0){
-                mensaje="NO SE AGREGO EL REGISTRO";
-            }else{
+
+            if (contarRegistros == 0) {
+                mensaje = "NO SE AGREGO EL REGISTRO";
+            } else {
                 mensaje = "DATOS MODIFICADOS";
             }
-              
-        } 
-        catch (Exception e) {
-            mensaje ="LOS DATOS NO SE MODIFICARON"+e;
-        }
-        finally{
+
+        } catch (SQLException e) {
+            mensaje = "LOS DATOS NO SE MODIFICARON" + e;
+        } finally {
             conex.cerrarConexion();
         }
         return mensaje;
@@ -90,27 +86,24 @@ public class SubcategoriaDao implements SubcategoriasInterface {
 
     @Override
     public String deleteSubcategoria(Subcategorias sub) {
-         try {
+        try {
             conex.abrirConexion();
-            sql="DELETE FROM subcategorias  where subcategoria_id=?";
+            sql = "DELETE FROM subcategorias  where subcategoria_id=?";
             ejecutar = conex.getMiConexion().prepareStatement(sql);
-            
+
             ejecutar.setByte(1, sub.getSubcategoria_id());
-           
-            
+
             contarRegistros = ejecutar.executeUpdate();
-            
-            if(contarRegistros==0){
-                mensaje="NO SE AGREGO EL REGISTRO";
-            }else{
+
+            if (contarRegistros == 0) {
+                mensaje = "NO SE AGREGO EL REGISTRO";
+            } else {
                 mensaje = "DATOS ELIMINADOS";
             }
-              
-        } 
-        catch (Exception e) {
-            mensaje ="LOS DATOS NO SE ELIMINARON"+e;
-        }
-        finally{
+
+        } catch (Exception e) {
+            mensaje = "LOS DATOS NO SE ELIMINARON" + e;
+        } finally {
             conex.cerrarConexion();
         }
         return mensaje;
@@ -128,12 +121,12 @@ public class SubcategoriaDao implements SubcategoriasInterface {
 
             resultadoSelect.next();
 
-            subcategoria.setSubcategoria_id(resultadoSelect.getByte("subcategoria"));
+            subcategoria.setSubcategoria_id(resultadoSelect.getByte("subcategoria_id"));
             subcategoria.setNombre(resultadoSelect.getString("nombre"));
             subcategoria.setCategoria_id(resultadoSelect.getByte("categoria_id"));
             subcategoria.setEmpleado_id(resultadoSelect.getInt("empleado_id"));
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("ERROR EN BUSQUEDA" + e);
 
         } finally {
@@ -158,7 +151,7 @@ public class SubcategoriaDao implements SubcategoriasInterface {
             while (resultadoSelect.next()) {
                 sub = new Subcategorias();
 
-                sub.setSubcategoria_id(resultadoSelect.getByte("subcategoria"));
+                sub.setSubcategoria_id(resultadoSelect.getByte("subcategoria_id"));
                 sub.setNombre(resultadoSelect.getString("nombre"));
                 sub.setCategoria_id(resultadoSelect.getByte("categoria_id"));
                 sub.setEmpleado_id(resultadoSelect.getInt("empleado_id"));

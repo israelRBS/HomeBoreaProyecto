@@ -5,7 +5,6 @@
  */
 package dao;
 
-import modelo.Asociados;
 import modelo.Categorias;
 import interfaces.CategoriasInterface;
 import java.sql.PreparedStatement;
@@ -38,7 +37,7 @@ public class CategoriasDao implements CategoriasInterface {
             ejecutar.setInt(3, cate.getEmpleado_id());
             ejecutar.executeUpdate();
             mensaje = "Los datos se guardaron";
-        } catch (Exception e) {
+        } catch (SQLException e) {
             mensaje = "Error al guardar los datos"+e;
         } finally {
             conex.cerrarConexion();
@@ -66,7 +65,7 @@ public class CategoriasDao implements CategoriasInterface {
                 mensaje = "REGISTRO MODIFICADO";
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             mensaje = "ERROR EN MODIFICAR CATEGORIA" + e;
         } finally {
             conex.cerrarConexion();
@@ -92,7 +91,7 @@ public class CategoriasDao implements CategoriasInterface {
                 mensaje = "REGISTRO ELIMINADO";
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             mensaje = "ERROR EN ELIMINAR_CATEGORIA " + e;
         } finally {
             conex.cerrarConexion();
@@ -112,7 +111,7 @@ public class CategoriasDao implements CategoriasInterface {
 
             resultadoSelect.next();
 
-            cat.setCategoria_id((byte) resultadoSelect.getInt(""));
+            cat.setCategoria_id((byte) resultadoSelect.getInt("categoria_id"));
             cat.setNombre(resultadoSelect.getString("nombre"));
             cat.setEmpleado_id(resultadoSelect.getInt("descripcion"));
 
@@ -140,7 +139,7 @@ public class CategoriasDao implements CategoriasInterface {
             while (resultadoSelect.next()) {
                 cate = new Categorias();
 
-                cate.setCategoria_id((byte) resultadoSelect.getInt(""));
+                cate.setCategoria_id((byte) resultadoSelect.getInt("categoria_id"));
                 cate.setNombre(resultadoSelect.getString("nombre"));
                 cate.setEmpleado_id(resultadoSelect.getInt("descripcion"));
 
@@ -150,7 +149,7 @@ public class CategoriasDao implements CategoriasInterface {
             ejecutar.close();
 
         } catch (SQLException e) {
-            System.out.println("ERROR EN DAO_LISTA_REGIONES" + e);
+            System.out.println("ERROR EN DAO_LISTAR-CATEGORIAS" + e);
         } finally {
             conex.cerrarConexion();
         }

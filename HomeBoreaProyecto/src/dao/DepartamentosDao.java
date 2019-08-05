@@ -32,7 +32,8 @@ public class DepartamentosDao implements DepartamentosInterface {
             }
             rs.close();
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            System.out.println("ERROR EN BUSCAR_DEPARTAMENTO"+e);
         } finally {
             cnb.cerrarConexion();
         }
@@ -58,7 +59,8 @@ public class DepartamentosDao implements DepartamentosInterface {
             }
             rs.close();
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            System.out.println("ERROR EN LISTAR_DEPARTEMENTOS"+e);
         } finally {
             cnb.cerrarConexion();
         }
@@ -74,7 +76,7 @@ public class DepartamentosDao implements DepartamentosInterface {
             ejecutar.setByte(1, dp.getDepa_id());
             ejecutar.executeUpdate();
             mensaje = "Los datos se eliminaron";
-        } catch (Exception e) {
+        } catch (SQLException e) {
             mensaje = "Los datos no se pueden eliminar" +e;
         }finally{
             cnb.cerrarConexion();
@@ -93,7 +95,7 @@ public class DepartamentosDao implements DepartamentosInterface {
             ejecutar.setByte(3, dp.getRegion_id());
             ejecutar.executeUpdate();
             mensaje = "Los Datos fueron almacenados";
-        } catch (Exception e) {
+        } catch (SQLException e) {
             mensaje = "Error almacenando los datos "+e ;
         }finally{
             cnb.cerrarConexion();
@@ -105,11 +107,11 @@ public class DepartamentosDao implements DepartamentosInterface {
     public String modificarDepartamentos(Departamentos departamentos)  {
             try {
             cnb.abrirConexion();
-            sql = "update departamentos set departamento_id=?, nombre=?, region_id=? where departamentos=?  ";
+            sql = "update departamentos set nombre=?, region_id=? where departamento_id=?s";
             ejecutar = cnb.getMiConexion().prepareStatement(sql);
-            ejecutar.setByte(1, dp.getDepa_id());
-            ejecutar.setString(2, dp.getNombre());
-            ejecutar.setByte(3, dp.getRegion_id());
+            ejecutar.setByte(3, dp.getDepa_id());
+            ejecutar.setString(1, dp.getNombre());
+            ejecutar.setByte(2, dp.getRegion_id());
             ejecutar.executeUpdate();
                 int ContarRegistro = ejecutar.executeUpdate();
             if (ContarRegistro == 0) {
@@ -118,6 +120,7 @@ public class DepartamentosDao implements DepartamentosInterface {
                 mensaje = "Los datos se modificaron ";
             }
         } catch (SQLException e) {
+            mensaje="ERROR EN MODIFICAR DEPARTAMENTO"+e;
         }finally{
             cnb.cerrarConexion();
         }
