@@ -31,16 +31,12 @@ public class CategoriasDao implements CategoriasInterface {
     public String guardarCategoria(Categorias cate) {
         try {
             conex.abrirConexion();
-            sql = "select * from  categorias where categoria_id=?";
+            sql = "insert into categorias values(?,?,?)";
             ejecutar = conex.getMiConexion().prepareStatement(sql);
-            ejecutar.setInt(1, cate.getCategoria_id());
-            resultadoSelect = ejecutar.executeQuery();
-            if (resultadoSelect.next()) {
-                cate = new Categorias();
-                cate.setNombre(resultadoSelect.getString("nombre"));
-                cate.setEmpleado_id(resultadoSelect.getInt("empleado_id"));
-                cate.setCategoria_id(resultadoSelect.getByte("categoria_id"));
-            }
+            ejecutar.setByte(1, cate.getCategoria_id());
+            ejecutar.setString(2, cate.getNombre());
+            ejecutar.setInt(3, cate.getEmpleado_id());
+            ejecutar.executeUpdate();
             mensaje = "Los datos se guardaron";
         } catch (Exception e) {
             mensaje = "Error al guardar los datos"+e;
