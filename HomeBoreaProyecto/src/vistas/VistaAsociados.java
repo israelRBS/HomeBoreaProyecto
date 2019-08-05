@@ -24,7 +24,7 @@ public class VistaAsociados extends javax.swing.JFrame {
         jLblImagenes.setIcon(new ImageIcon(ruta));
         setSize(975, 800);
         //JOptionPane.showMessageDialog(null, System.getProperty("user.dir"));
-        this.getContentPane().setBackground(Color.ORANGE);
+        this.getContentPane().setBackground(Color.white);
         setLocationRelativeTo(null);
         setVisible(true);
     }
