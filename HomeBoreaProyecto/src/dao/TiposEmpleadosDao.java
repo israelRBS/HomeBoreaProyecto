@@ -10,5 +10,8 @@ package dao;
  * @author Admin
  */
 public class TiposEmpleadosDao {
+    /*FALTA POR TERMINAR ESTA CLASE*/
+    private String mensaje;
+    
     
 }
