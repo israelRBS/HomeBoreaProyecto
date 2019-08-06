@@ -54,7 +54,9 @@ public class VistaCategorias extends javax.swing.JInternalFrame {
         jTxtNombre = new javax.swing.JTextField();
         jTxtEmpleado = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setVisible(true);
 
         jLblImagen.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
 

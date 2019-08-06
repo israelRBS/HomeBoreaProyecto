@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import vistas.JFrmPrincipal;
+import vistas.VistaAsociados;
 import vistas.VistaCategorias;
 
 /**
@@ -12,27 +13,50 @@ import vistas.VistaCategorias;
  * @author javam2019
  */
 public class PrincipalControlador implements ActionListener, MouseListener {
-
-    VistaCategorias frmcategorias = new VistaCategorias();
+    boolean verificar=false;
+    //VistaCategorias frmcategorias = new VistaCategorias();
     JFrmPrincipal principal = new JFrmPrincipal();
-
+    VistaCategorias vistacategorias;
+    CategoriasControlador categoriascontrolador;
+    VistaAsociados vistaasociados ;
+     AsociadosControlador asociadoscontrolador;
     public PrincipalControlador(JFrmPrincipal principal) {
         this.principal = principal;
         principal.cutMenuCategorias.addActionListener(this);
-
+        principal.copyMenuAsociados.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==this.principal.cutMenuCategorias){
-            VistaCategorias vistacategorias=new VistaCategorias();
-            CategoriasControlador categoriascontrolador=new CategoriasControlador(vistacategorias);
-            principal.add(vistacategorias);
-            vistacategorias.setVisible(true);
+        if (e.getSource() == this.principal.cutMenuCategorias) {
+            if (verificar==true) {
+                vistacategorias=null;  // destruir el objeto cuando ya existe
+                categoriascontrolador=null;
+                System.gc(); //llamar al recolector de basura de jvm
+
+                verificar = false;
+            }else{
+                vistacategorias = new VistaCategorias();
+                categoriascontrolador = new CategoriasControlador(vistacategorias);
+                principal.jDesktopPane1.add(vistacategorias);
+                verificar = true;
+            }
+       
             
+
+        }
+        if (e.getSource() == this.principal.copyMenuAsociados) {
+            
+            vistaasociados= new VistaAsociados();
+            asociadoscontrolador= new AsociadosControlador(vistaasociados);
+            principal.jDesktopPane1.add(vistaasociados);
+            vistaasociados.setVisible(true);
         }
     }
-
+    
+    public void destruirFormularios(){
+       
+    }
     @Override
     public void mouseClicked(MouseEvent me) {
         System.out.println("Nose usa");
@@ -57,6 +81,5 @@ public class PrincipalControlador implements ActionListener, MouseListener {
     public void mouseExited(MouseEvent me) {
         System.out.println("Nose usa");
     }
-     
 
 }

@@ -104,13 +104,13 @@ public class AsociadosControlador implements ActionListener, MouseListener {
             insertarAsociados();
         }
         if (e.getSource() == this.vista.jBtnBuscar) {
-
+            buscarAsociados();
         }
         if (e.getSource() == this.vista.jBtnEliminar) {
             eliminarAsociados();
         }
         if (e.getSource() == this.vista.jBtnModificar) {
-
+            modificarAsociados();
         }
 
     }

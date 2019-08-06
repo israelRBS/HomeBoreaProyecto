@@ -20,7 +20,7 @@ public class CategoriasDao implements CategoriasInterface {
     
     private String mensaje;
 
-    ConexionBorea conex = new ConexionBorea();
+    ConexionRandal conex = new ConexionRandal();
     private PreparedStatement ejecutar;
     private ResultSet resultadoSelect;
     private String sql;
@@ -131,6 +131,7 @@ public class CategoriasDao implements CategoriasInterface {
         try {
             conex.abrirConexion();
             sql = "select * from categorias";
+            System.out.println("sql");
             ejecutar = conex.getMiConexion().prepareStatement(sql);
             resultadoSelect = ejecutar.executeQuery();
             while (resultadoSelect.next()) {
@@ -138,7 +139,7 @@ public class CategoriasDao implements CategoriasInterface {
 
                 cate.setCategoria_id((byte) resultadoSelect.getInt("categoria_id"));
                 cate.setNombre(resultadoSelect.getString("nombre"));
-                cate.setEmpleado_id(resultadoSelect.getInt("descripcion"));
+                cate.setEmpleado_id(resultadoSelect.getInt("empleado_id"));
 
                 lista.add(cate);
             }
