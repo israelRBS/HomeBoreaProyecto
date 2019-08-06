@@ -130,12 +130,9 @@ public class CategoriasDao implements CategoriasInterface {
 
         try {
             conex.abrirConexion();
-            sql = "select * from regiones";
-
+            sql = "select * from categorias";
             ejecutar = conex.getMiConexion().prepareStatement(sql);
-
             resultadoSelect = ejecutar.executeQuery();
-
             while (resultadoSelect.next()) {
                 cate = new Categorias();
 

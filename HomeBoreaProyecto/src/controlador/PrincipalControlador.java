@@ -24,7 +24,13 @@ public class PrincipalControlador implements ActionListener, MouseListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if(e.getSource()==this.principal.cutMenuCategorias){
+            VistaCategorias vistacategorias=new VistaCategorias();
+            CategoriasControlador categoriascontrolador=new CategoriasControlador(vistacategorias);
+            principal.add(vistacategorias);
+            vistacategorias.setVisible(true);
+            
+        }
     }
 
     @Override
@@ -51,6 +57,6 @@ public class PrincipalControlador implements ActionListener, MouseListener {
     public void mouseExited(MouseEvent me) {
         System.out.println("Nose usa");
     }
-    
+     
 
 }
