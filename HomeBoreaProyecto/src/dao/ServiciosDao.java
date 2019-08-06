@@ -45,7 +45,7 @@ public class ServiciosDao implements ServiciosInterface {
             if (contarRegistros == 0) {
                 mensaje = "No se puede registrar";
             } else {
-                mensaje = "Registro realizado con exito";
+                mensaje = "REGISTRO GUARDADO";
             }
 
         } catch (SQLException e) {

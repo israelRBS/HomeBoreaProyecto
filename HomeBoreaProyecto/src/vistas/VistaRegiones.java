@@ -20,7 +20,7 @@ public class VistaRegiones extends javax.swing.JFrame {
      */
     public VistaRegiones() {
         initComponents();
-        String ruta = new File ("").getAbsolutePath () + "\\src\\main\\java\\imagenes\\images.jpg";
+        String ruta = new File ("").getAbsolutePath () + "\\src\\imagenes\\images.jpg";
         jLblImagenes.setIcon(new ImageIcon(ruta));
         setSize(780, 550);
         //JOptionPane.showMessageDialog(null, System.getProperty("user.dir"));

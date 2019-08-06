@@ -20,7 +20,7 @@ public class VistaCategorias extends javax.swing.JInternalFrame {
      */
     public VistaCategorias() {
         initComponents();
-        String ruta = new File ("").getAbsolutePath () + "\\src\\main\\java\\imagenes\\categoria.png";
+        String ruta = new File ("").getAbsolutePath () + "\\src\\imagenes\\categoria.png";
         jLblImagen.setIcon(new ImageIcon(ruta)); 
         setSize(800, 600);
         //JOptionPane.showMessageDialog(null, System.getProperty("user.dir"));

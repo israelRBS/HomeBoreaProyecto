@@ -65,6 +65,7 @@
             </MenuItem>
           </SubComponents>
         </Menu>
+<<<<<<< HEAD
         <Menu class="javax.swing.JMenu" name="jEditMenu">
           <Properties>
             <Property name="mnemonic" type="int" value="101"/>
@@ -82,6 +83,19 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
+=======
+        <Menu class="javax.swing.JMenu" name="editMenu">
+          <Properties>
+            <Property name="mnemonic" type="int" value="101"/>
+            <Property name="text" type="java.lang.String" value="Edit"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="cutMenuItem">
+              <Properties>
+                <Property name="mnemonic" type="int" value="116"/>
+                <Property name="text" type="java.lang.String" value="Cut"/>
+              </Properties>
+>>>>>>> fbaa6b0ee3e85aab346ab0da9b6de435f1e434d4
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="copyMenuItem">
               <Properties>

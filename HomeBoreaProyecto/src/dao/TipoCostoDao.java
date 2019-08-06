@@ -33,6 +33,8 @@ public class TipoCostoDao implements TiposCostoInterface {
             sql = "select * from tiposcosto where tipocosto_id=?";
             ejecutar = conex.getMiConexion().prepareStatement(sql);
 
+            ejecutar.setByte(1, tiposCosto.getTipocosto_id());
+
             seleccionar = ejecutar.executeQuery();
 
             while (seleccionar.next()) {
@@ -50,16 +52,53 @@ public class TipoCostoDao implements TiposCostoInterface {
 
     @Override
     public ArrayList<TiposCosto> listarTipCosto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        TiposCosto costo;
+        ArrayList<TiposCosto> listar = new ArrayList<>();
+        try {
+            conex.abrirConexion();
+            sql = "select * from tiposcosto";
+            ejecutar = conex.getMiConexion().prepareStatement(sql);
+
+            seleccionar = ejecutar.executeQuery();
+
+            while (seleccionar.next()) {
+                costo = new TiposCosto();
+                costo.setTipocosto_id(seleccionar.getByte("tipocosto_id"));
+                costo.setDescripcion(seleccionar.getString("descripcion"));
+
+                listar.add(costo);
+            }
+            seleccionar.close();
+
+        } catch (SQLException e) {
+            System.out.println("ERROR EN LISTAR_TIPOS_COSTOS " + e);
+        } finally {
+            conex.cerrarConexion();
+        }
+
+        return listar;
     }
 
     @Override
     public String eliminarTipCosto(TiposCosto tiposCosto) {
         try {
             conex.abrirConexion();
-        } catch (Exception e) {
-            mensaje="ERROR EN DAO_ELIMINAR_TIPO_COSTO "+e;
-        }finally{
+            sql = "delete from tiposcosto where tipocosto_id=?";
+            ejecutar = conex.getMiConexion().prepareStatement(sql);
+
+            ejecutar.setByte(1, tiposCosto.getTipocosto_id());
+
+            contarRegistros = ejecutar.executeUpdate();
+
+            if (contarRegistros == 0) {
+                mensaje = "NO SE ENCONTRO EL REGISTRO";
+            } else {
+                mensaje = "REGISTRO ELIMINADO";
+            }
+
+        } catch (SQLException e) {
+            mensaje = "ERROR EN DAO_ELIMINAR_TIPO_COSTO " + e;
+        } finally {
             conex.cerrarConexion();
         }
         return mensaje;
@@ -67,7 +106,27 @@ public class TipoCostoDao implements TiposCostoInterface {
 
     @Override
     public String insertarTipCosto(TiposCosto tiposCosto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            conex.abrirConexion();
+            sql = "insert into tiposcosto values(?,?)";
+            ejecutar = conex.getMiConexion().prepareStatement(sql);
+
+            ejecutar.setByte(1, tiposCosto.getTipocosto_id());
+            ejecutar.setString(2, tiposCosto.getDescripcion());
+
+            contarRegistros = ejecutar.executeUpdate();
+
+            if (contarRegistros == 0) {
+                mensaje = "NO SE ENCOTRO EL REGISTRO ";
+            } else {
+                mensaje = "TIPO_COSTO GUARDADO";
+            }
+        } catch (SQLException e) {
+            mensaje = "ERROR EN MODIFICAR_TIPO_COSTO_DAO " + e;
+        } finally {
+            conex.cerrarConexion();
+        }
+        return mensaje;
     }
 
     @Override
@@ -77,8 +136,8 @@ public class TipoCostoDao implements TiposCostoInterface {
             sql = "UPDATE tiposcosto SET descripcion=? WHERE tipocosto=?";
             ejecutar = conex.getMiConexion().prepareStatement(sql);
 
-            ejecutar.setByte(1, tiposCosto.getTipocosto_id());
-            ejecutar.setString(2, tiposCosto.getDescripcion());
+            ejecutar.setByte(2, tiposCosto.getTipocosto_id());
+            ejecutar.setString(1, tiposCosto.getDescripcion());
 
             contarRegistros = ejecutar.executeUpdate();
 

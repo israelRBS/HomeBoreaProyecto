@@ -21,7 +21,7 @@ public class VistaDepartamento extends javax.swing.JFrame {
     public VistaDepartamento() {
         initComponents();
         //cargando imagen
-        String ruta = new File ("").getAbsolutePath () + "\\src\\main\\java\\imagenes\\mapa.gif";
+        String ruta = new File ("").getAbsolutePath () + "\\src\\imagenes\\mapa_1.gif";
         jLblImagen.setIcon(new ImageIcon(ruta));
         jLblImagen.setForeground(new java.awt.Color(255, 255, 255));
         setSize(800, 600);
@@ -29,7 +29,7 @@ public class VistaDepartamento extends javax.swing.JFrame {
         jLblImagen.repaint();
         jLblImagen.revalidate();
         //JOptionPane.showMessageDialog(null, System.getProperty("user.dir"));
-        this.getContentPane().setBackground(Color.LIGHT_GRAY);
+        this.getContentPane().setBackground(Color.white);
         setLocationRelativeTo(null);
         setVisible(true);
     }
@@ -78,15 +78,14 @@ public class VistaDepartamento extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 0));
         jLabel2.setText("DEPARTAMENTO_ID");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("NOMBRE");
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("REGION_ID");
 
         jBtnEliminar.setText("ELIMINAR");
@@ -111,7 +110,6 @@ public class VistaDepartamento extends javax.swing.JFrame {
         jBtnBuscar.setText("BUSCAR");
 
         jLblTitulo2.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
-        jLblTitulo2.setForeground(new java.awt.Color(255, 255, 0));
         jLblTitulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLblTitulo2.setText("LISTA DEPARTAMENTOS");
 

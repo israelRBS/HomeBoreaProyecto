@@ -20,7 +20,7 @@ public class VistasNivelesAca extends javax.swing.JFrame {
      */
     public VistasNivelesAca() {
         initComponents();
-        String ruta = new File ("").getAbsolutePath () + "\\src\\main\\java\\imagenes\\nivelacademico.png";
+        String ruta = new File ("").getAbsolutePath () + "\\src\\imagenes\\nivelacademico.png";
         jLblImagenes.setIcon(new ImageIcon(ruta));
         setSize(835, 650);
         //JOptionPane.showMessageDialog(null, System.getProperty("user.dir"));

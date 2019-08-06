@@ -61,9 +61,9 @@ public class ServiciosMunicipiosDao implements ServiciosMunicipiosInterface {
             sql = "update servicios_municipios  set servicio_id=?, muni_id=?  where serviciomunicipio_id=?";
             ejecutar = conex.getMiConexion().prepareStatement(sql);
 
-            ejecutar.setInt(1, serviciosmunicipios.getServicio_muni_id());
-            ejecutar.setInt(2, serviciosmunicipios.getServicio_id());
-            ejecutar.setInt(3, serviciosmunicipios.getMuni_id());
+            ejecutar.setInt(3, serviciosmunicipios.getServicio_muni_id());
+            ejecutar.setInt(1, serviciosmunicipios.getServicio_id());
+            ejecutar.setInt(2, serviciosmunicipios.getMuni_id());
 
             contarRegistros = ejecutar.executeUpdate();
 
@@ -73,7 +73,7 @@ public class ServiciosMunicipiosDao implements ServiciosMunicipiosInterface {
                 mensaje = "Registro realizado con exito";
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             mensaje = "LOS DATOS NO FUERON MODIFICARON" + e;
         } finally {
             conex.cerrarConexion();
@@ -124,7 +124,7 @@ public class ServiciosMunicipiosDao implements ServiciosMunicipiosInterface {
 
                 serm.setServicio_muni_id(resultadoSelect.getInt("serviciomunicipio_id"));
                 serm.setServicio_id(resultadoSelect.getInt("servicio_id"));
-                serm.setMuni_id((short) resultadoSelect.getInt("muni_id"));
+                serm.setMuni_id(resultadoSelect.getShort("muni_id"));
 
                 lista.add(serm);
             }
@@ -132,7 +132,7 @@ public class ServiciosMunicipiosDao implements ServiciosMunicipiosInterface {
             ejecutar.close();
 
         } catch (SQLException e) {
-            System.out.println("ERROR EN DAO_LISTA_SUBCATEGORIAS" + e);
+            System.out.println("ERROR EN DAO_LISTAR_SERVICIOS_MUNICIPIOS " + e);
         } finally {
             conex.cerrarConexion();
         }
@@ -155,7 +155,7 @@ public class ServiciosMunicipiosDao implements ServiciosMunicipiosInterface {
 
             serviciosmunicipios.setServicio_muni_id(resultadoSelect.getInt("serviciomunicipio_id"));
             serviciosmunicipios.setServicio_id(resultadoSelect.getInt("servicio_id"));
-            serviciosmunicipios.setMuni_id((short) resultadoSelect.getInt("muni_id"));
+            serviciosmunicipios.setMuni_id(resultadoSelect.getShort("muni_id"));
 
         } catch (SQLException e) {
             System.out.println("ERROR EN BUSQUEDA" + e);

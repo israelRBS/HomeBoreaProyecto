@@ -18,7 +18,7 @@ import modelo.Estados;
  */
 public class EstadosDao implements EstadosInterface {
     ConexionBorea cnb = new ConexionBorea();
-    Estados es = new Estados();
+    
     private String mensaje = null;
     PreparedStatement ejecutar;
     ResultSet rs;
@@ -30,11 +30,11 @@ try {
             cnb.abrirConexion();
             sql = "insert into estados values(?,?)";
             ejecutar = cnb.getMiConexion().prepareStatement(sql);
-            ejecutar.setInt(1, es.getEstado_id());
-            ejecutar.setString(2, es.getNombre());
+            ejecutar.setInt(1, estado.getEstado_id());
+            ejecutar.setString(2, estado.getNombre());
             ejecutar.executeUpdate();
             mensaje = "Los Datos fueron almacenados";
-        } catch (Exception e) {
+        } catch (SQLException e) {
             mensaje = "Error almacenando los datos "+e ;
         }finally{
             cnb.cerrarConexion();
@@ -46,10 +46,10 @@ try {
     public String modificarEstado(Estados estado) {
          try {
             cnb.abrirConexion();
-            sql = "update estados set  estado_id=?, nombre=? where estado_id=?  ";
+            sql = "update estados set nombre=? where estado_id=?";
             ejecutar = cnb.getMiConexion().prepareStatement(sql);
-            ejecutar.setInt(1, es.getEstado_id());
-            ejecutar.setString(2, es.getNombre());
+            ejecutar.setInt(1, estado.getEstado_id());
+            ejecutar.setString(2, estado.getNombre());
             
              int ContarRegistro = ejecutar.executeUpdate();
             if (ContarRegistro == 0) {
@@ -58,6 +58,7 @@ try {
                 mensaje = "Los datos se modificaron ";
             }
         } catch (SQLException e) {
+            mensaje="ERROR EN MODIFICAR ESTADO";
         }finally{
             cnb.cerrarConexion();
         }
@@ -66,14 +67,15 @@ try {
 
     @Override
     public String eliminarEstado(Estados estado) {
+       
         try {
             cnb.abrirConexion();
             sql = "delete from estados where estado_id=?";
             ejecutar = cnb.getMiConexion().prepareStatement(sql);
-            ejecutar.setInt(1, es.getEstado_id());
+            ejecutar.setInt(1, estado.getEstado_id());
             ejecutar.executeUpdate();
             mensaje = "Los datos se eliminaron";
-        } catch (Exception e) {
+        } catch (SQLException e) {
             mensaje = "Los datos no se pueden eliminar" +e;
         }finally{
             cnb.cerrarConexion();
@@ -83,9 +85,10 @@ try {
 
     @Override
     public Estados buscarEstado(Estados estado) {
+        Estados es = new Estados();
         try {
             cnb.abrirConexion();
-            sql = "select * from  estados";
+            sql = "select * from  estados where estado_id=?";
             ejecutar = cnb.getMiConexion().prepareStatement(sql);
             rs = ejecutar.executeQuery();
             if (rs.next()) {
@@ -95,7 +98,8 @@ try {
             }
             rs.close();
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            System.out.println("ERROR EN BUSCAR ESTADO"+e);
         } finally {
             cnb.cerrarConexion();
         }
@@ -105,6 +109,7 @@ try {
     @Override
     public ArrayList<Estados> listarTipEmpleado() {
         ArrayList<Estados> lista = new ArrayList();
+        Estados es;
          try {
             cnb.abrirConexion();
             sql = "select * from estados";
@@ -118,7 +123,8 @@ try {
             }
             rs.close();
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
+             System.out.println("ERROR EN LISTAR_ESTADOS"+e);
         } finally {
             cnb.cerrarConexion();
         }
