@@ -5,28 +5,17 @@
  */
 package vistas;
 
-import java.awt.Color;
-import java.io.File;
-import javax.swing.ImageIcon;
-
 /**
  *
- * @author Admin
+ * @author javam2019
  */
-public class VistaAsociados extends javax.swing.JFrame {
+public class VistaAsociados extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form VistaAsociadosDao
+     * Creates new form AsociadosVista
      */
     public VistaAsociados() {
         initComponents();
-        String ruta = new File ("").getAbsolutePath () + "\\src\\imagenes\\asociados.png";
-        jLblImagenes.setIcon(new ImageIcon(ruta));
-        setSize(975, 800);
-        //JOptionPane.showMessageDialog(null, System.getProperty("user.dir"));
-        this.getContentPane().setBackground(Color.white);
-        setLocationRelativeTo(null);
-        setVisible(true);
     }
 
     /**
@@ -38,11 +27,8 @@ public class VistaAsociados extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLblImagenes = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -60,29 +46,19 @@ public class VistaAsociados extends javax.swing.JFrame {
         jBtnAgregar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTblAsociados = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jBtnEliminar = new javax.swing.JButton();
         jBtnModificar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jBtnBuscar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jBtnListar = new javax.swing.JButton();
-        jLblImagenes = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("ASOCIADOS");
-
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setText("Asociados-Id");
-
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setText("Antecedentes Penales");
-
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel4.setText("Antecedentes Policiacos");
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("DPI-Imagen");
+
+        jLblImagenes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setText("Especialidad");
@@ -121,19 +97,30 @@ public class VistaAsociados extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTblAsociados);
 
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("ASOCIADOS");
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel2.setText("Asociados-Id");
+
         jBtnEliminar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBtnEliminar.setText("Eliminar");
 
         jBtnModificar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBtnModificar.setText("Modificar");
 
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setText("Antecedentes Penales");
+
         jBtnBuscar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBtnBuscar.setText("Buscar");
 
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel4.setText("Antecedentes Policiacos");
+
         jBtnListar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jBtnListar.setText("Listar");
-
-        jLblImagenes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -180,7 +167,7 @@ public class VistaAsociados extends javax.swing.JFrame {
                                 .addComponent(jLblImagenes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 865, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,7 +224,7 @@ public class VistaAsociados extends javax.swing.JFrame {
                     .addComponent(jBtnListar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -247,41 +234,6 @@ public class VistaAsociados extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTxtDpiImgActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaAsociados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaAsociados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaAsociados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaAsociados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VistaAsociados().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jBtnAgregar;

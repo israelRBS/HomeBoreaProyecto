@@ -95,6 +95,7 @@ public class AsociadosControlador implements ActionListener, MouseListener {
             fila[8] = listar.get(i).getUsuario_contra();
             tabla.addRow(fila);
         }
+        this.vista.jTblAsociados.setModel(tabla);
 
     }
 

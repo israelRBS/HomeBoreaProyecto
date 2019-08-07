@@ -46,11 +46,17 @@ public class PrincipalControlador implements ActionListener, MouseListener {
 
         }
         if (e.getSource() == this.principal.copyMenuAsociados) {
-            
+            if (verificar==true) {
+                vistaasociados=null;
+                asociadoscontrolador=null;
+                System.gc();
+                verificar=false;
+            }else{
             vistaasociados= new VistaAsociados();
             asociadoscontrolador= new AsociadosControlador(vistaasociados);
             principal.jDesktopPane1.add(vistaasociados);
-            vistaasociados.setVisible(true);
+            verificar=true;
+            }
         }
     }
     

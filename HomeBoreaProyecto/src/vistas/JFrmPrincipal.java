@@ -108,6 +108,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jEditMenu.add(cutMenuCategorias);
 
         copyMenuItem.setMnemonic('y');
+        copyMenuItem.setText("Municipios");
         jEditMenu.add(copyMenuItem);
 
         pasteMenuItem.setMnemonic('p');
