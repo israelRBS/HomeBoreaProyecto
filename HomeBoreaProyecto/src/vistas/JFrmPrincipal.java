@@ -39,7 +39,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         exitMenuItem = new javax.swing.JMenuItem();
         jEditMenu = new javax.swing.JMenu();
         cutMenuCategorias = new javax.swing.JMenuItem();
-        copyMenuItem = new javax.swing.JMenuItem();
+        copyMenuMunicipios = new javax.swing.JMenuItem();
         pasteMenuItem = new javax.swing.JMenuItem();
         deleteMenuItem = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -107,9 +107,9 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         });
         jEditMenu.add(cutMenuCategorias);
 
-        copyMenuItem.setMnemonic('y');
-        copyMenuItem.setText("Municipios");
-        jEditMenu.add(copyMenuItem);
+        copyMenuMunicipios.setMnemonic('y');
+        copyMenuMunicipios.setText("Municipios");
+        jEditMenu.add(copyMenuMunicipios);
 
         pasteMenuItem.setMnemonic('p');
         pasteMenuItem.setText("Paste");
@@ -191,7 +191,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JMenuItem copyMenuAsociados;
-    private javax.swing.JMenuItem copyMenuItem;
+    public javax.swing.JMenuItem copyMenuMunicipios;
     public javax.swing.JMenuItem cutMenuCategorias;
     private javax.swing.JMenuItem deleteMenuItem;
     private javax.swing.JMenuItem exitMenuItem;
