@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public interface TiposEmpleadoInterface {
 
-    public TiposEmpleado buscarTipEmpleado(TiposEmpleado tiposEmpleado);
+    public TiposEmpleado buscarTipEmpleado(int tiposEmpleado);
 
     public ArrayList<TiposEmpleado> listarTipEmpleado();
 

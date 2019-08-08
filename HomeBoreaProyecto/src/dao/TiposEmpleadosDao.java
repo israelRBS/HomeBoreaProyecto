@@ -27,13 +27,15 @@ public class TiposEmpleadosDao implements TiposEmpleadoInterface {
     private ResultSet seleccionar;
 
     @Override
-    public TiposEmpleado buscarTipEmpleado(TiposEmpleado tiposEmpleado) {
+    public TiposEmpleado buscarTipEmpleado(int tiposEmpleado) {
         TiposEmpleado emp = new TiposEmpleado();
         try {
             conex.abrirConexion();
-            mysql = "select * from  tipos_empleado where tipoempleado_id=?";
+            mysql = "select * from  tipos_empleado where tipoempleado_id="+tiposEmpleado;
+            
             ejecutar = conex.getMiConexion().prepareStatement(mysql);
-            ejecutar.setInt(1, tiposEmpleado.getTipoempleado_id());
+            
+            
 
             seleccionar = ejecutar.executeQuery();
 
@@ -58,6 +60,7 @@ public class TiposEmpleadosDao implements TiposEmpleadoInterface {
         try {
             conex.abrirConexion();
             mysql = "SELECT * FROM tipos_empleado";
+            ejecutar = conex.getMiConexion().prepareStatement(mysql);
 
             seleccionar = ejecutar.executeQuery();
 
@@ -80,7 +83,7 @@ public class TiposEmpleadosDao implements TiposEmpleadoInterface {
     public String eliminarTipEmpleado(TiposEmpleado tiposEmpleado) {
         try {
             conex.abrirConexion();
-            mysql = "delete from tipos_empleados where tipoempleado_id=?";
+            mysql = "delete from tipos_empleado where tipoempleado_id=?";
             ejecutar = conex.getMiConexion().prepareStatement(mysql);
 
             ejecutar.setInt(1, tiposEmpleado.getTipoempleado_id());
@@ -153,5 +156,7 @@ public class TiposEmpleadosDao implements TiposEmpleadoInterface {
         }
         return mensaje;
     }
+
+    
 
 }
