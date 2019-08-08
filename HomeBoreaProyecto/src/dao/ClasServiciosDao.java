@@ -11,7 +11,7 @@ public class ClasServiciosDao implements ClasificacionesServiciosInterfaces {
 
     ConexionBorea cnb = new ConexionBorea();
     ClasificacionesServicios cs = new ClasificacionesServicios();
-    private String mensaje = null;
+    private String mensaje;
     private String sql;
     private PreparedStatement ejecutar;
     ResultSet rs;
