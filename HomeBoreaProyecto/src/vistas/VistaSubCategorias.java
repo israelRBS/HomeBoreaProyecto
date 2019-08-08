@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
  *
  * @author Admin
  */
-public class VistaSubCategorias extends javax.swing.JFrame {
+public class VistaSubCategorias extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form VistaSubCategorias
@@ -26,7 +26,7 @@ public class VistaSubCategorias extends javax.swing.JFrame {
         //setSize(780, 650);
         //JOptionPane.showMessageDialog(null, System.getProperty("user.dir"));
         this.getContentPane().setBackground(Color.orange);
-        setLocationRelativeTo(null);
+        //setLocationRelativeTo(null);
         setVisible(true);
     }
 
@@ -57,7 +57,8 @@ public class VistaSubCategorias extends javax.swing.JFrame {
         jLblSubtitulo = new javax.swing.JLabel();
         jLblmagenes = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLblTitulo.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
         jLblTitulo.setForeground(new java.awt.Color(255, 255, 255));

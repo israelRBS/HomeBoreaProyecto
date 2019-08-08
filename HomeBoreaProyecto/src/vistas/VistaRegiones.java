@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
  *
  * @author Admin
  */
-public class VistaRegiones extends javax.swing.JFrame {
+public class VistaRegiones extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form VistaRegiones
@@ -25,7 +25,7 @@ public class VistaRegiones extends javax.swing.JFrame {
         setSize(780, 550);
         //JOptionPane.showMessageDialog(null, System.getProperty("user.dir"));
         this.getContentPane().setBackground(Color.LIGHT_GRAY);
-        setLocationRelativeTo(null);
+        //setLocationRelativeTo(null);
         setVisible(true);
     }
 
@@ -69,7 +69,8 @@ public class VistaRegiones extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         TxtTitulo.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
         TxtTitulo.setForeground(new java.awt.Color(255, 255, 0));
@@ -171,7 +172,6 @@ public class VistaRegiones extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
                         .addComponent(TxtTitulo)
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

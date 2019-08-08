@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
  *
  * @author Admin
  */
-public class VistaEmpleados extends javax.swing.JFrame {
+public class VistaEmpleados extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form VistaEmpleados
@@ -25,7 +25,7 @@ public class VistaEmpleados extends javax.swing.JFrame {
         setSize(700, 650);
         //JOptionPane.showMessageDialog(null, System.getProperty("user.dir"));
         this.getContentPane().setBackground(Color.white);
-        setLocationRelativeTo(null);
+        //setLocationRelativeTo(null);
         setVisible(true);
     }
 

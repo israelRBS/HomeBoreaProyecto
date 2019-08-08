@@ -9,7 +9,7 @@ package vistas;
  *
  * @author Admin
  */
-public class VistaServiciosMuni extends javax.swing.JFrame {
+public class VistaServiciosMuni extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form VistaServiciosMuni
@@ -44,7 +44,8 @@ public class VistaServiciosMuni extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jLblImagenes = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

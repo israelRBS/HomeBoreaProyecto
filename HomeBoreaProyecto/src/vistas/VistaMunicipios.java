@@ -42,6 +42,8 @@ public class VistaMunicipios extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jBtnBuscar = new javax.swing.JButton();
 
+        setClosable(true);
+
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Nombre");
 

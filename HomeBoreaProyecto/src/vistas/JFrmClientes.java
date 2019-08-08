@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
  *
  * @author Admin
  */
-public class JFrmClientes extends javax.swing.JFrame {
+public class JFrmClientes extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form JFrmClientes
@@ -25,9 +25,9 @@ public class JFrmClientes extends javax.swing.JFrame {
         setSize(835, 650);
         //JOptionPane.showMessageDialog(null, System.getProperty("user.dir"));
         this.getContentPane().setBackground(Color.white);
-        setLocationRelativeTo(null);
+        //setLocationRelativeTo(null);
         setVisible(true);
-        this.setExtendedState(MAXIMIZED_BOTH);
+        //this.setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -56,7 +56,8 @@ public class JFrmClientes extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTblTabla = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 36)); // NOI18N
         jLabel1.setText("CLIENTES");

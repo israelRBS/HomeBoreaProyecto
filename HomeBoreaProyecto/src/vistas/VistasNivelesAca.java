@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
  *
  * @author Admin
  */
-public class VistasNivelesAca extends javax.swing.JFrame {
+public class VistasNivelesAca extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form VistasNivelesAca
@@ -25,7 +25,7 @@ public class VistasNivelesAca extends javax.swing.JFrame {
         setSize(835, 650);
         //JOptionPane.showMessageDialog(null, System.getProperty("user.dir"));
         this.getContentPane().setBackground(Color.ORANGE);
-        setLocationRelativeTo(null);
+       // setLocationRelativeTo(null);
         setVisible(true);
     }
 
@@ -52,7 +52,8 @@ public class VistasNivelesAca extends javax.swing.JFrame {
         jTblTabla = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -137,8 +138,7 @@ public class VistasNivelesAca extends javax.swing.JFrame {
                                 .addGap(8, 8, 8))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLblImagenes, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0))))
+                                .addComponent(jLblImagenes, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jScrollPane1))
                 .addContainerGap(40, Short.MAX_VALUE))
         );

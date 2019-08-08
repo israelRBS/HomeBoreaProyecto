@@ -7,6 +7,9 @@ import java.awt.event.MouseListener;
 import vistas.JFrmPrincipal;
 import vistas.VistaAsociados;
 import vistas.VistaCategorias;
+import vistas.VistaEmpleados;
+import vistas.VistaImagenesServicios;
+import vistas.VistasNivelesAca;
 
 /**
  *
@@ -20,6 +23,10 @@ public class PrincipalControlador implements ActionListener, MouseListener {
     CategoriasControlador categoriascontrolador;
     VistaAsociados vistaasociados ;
      AsociadosControlador asociadoscontrolador;
+     VistaEmpleados vistaEmpleados;
+     VistaImagenesServicios vistaImagenesServicio;
+     VistasNivelesAca vistaNivelesAca;
+     
     public PrincipalControlador(JFrmPrincipal principal) {
         this.principal = principal;
         principal.cutMenuCategorias.addActionListener(this);
@@ -47,6 +54,45 @@ public class PrincipalControlador implements ActionListener, MouseListener {
         }
         if (e.getSource() == this.principal.copyMenuAsociados) {
             if (verificar==true) {
+                vistaNivelesAca=null;
+                asociadoscontrolador=null;
+                System.gc();
+                verificar=false;
+            }else{
+            vistaNivelesAca= new VistasNivelesAca();
+            //asociadoscontrolador= new AsociadosControlador(vistaasociados);
+            principal.jDesktopPane1.add(vistaNivelesAca);
+            verificar=true;
+            
+            
+            
+           /*if (verificar==true) {
+                vistaImagenesServicio=null;
+                asociadoscontrolador=null;
+                System.gc();
+                verificar=false;
+            }else{
+            vistaImagenesServicio= new VistaImagenesServicios();
+            //asociadoscontrolador= new AsociadosControlador(vistaasociados);
+            principal.jDesktopPane1.add(vistaImagenesServicio);
+            verificar=true;   */        
+            
+            
+            
+           /* if (verificar==true) {
+                vistaEmpleados=null;
+                asociadoscontrolador=null;
+                System.gc();
+                verificar=false;
+            }else{
+            vistaEmpleados= new VistaEmpleados();
+            //asociadoscontrolador= new AsociadosControlador(vistaasociados);
+            principal.jDesktopPane1.add(vistaEmpleados);
+            verificar=true;
+            }*/
+            
+            /*
+            if (verificar==true) {
                 vistaasociados=null;
                 asociadoscontrolador=null;
                 System.gc();
@@ -56,13 +102,13 @@ public class PrincipalControlador implements ActionListener, MouseListener {
             asociadoscontrolador= new AsociadosControlador(vistaasociados);
             principal.jDesktopPane1.add(vistaasociados);
             verificar=true;
-            }
+            }*/
         }
+       
+        
     }
     
-    public void destruirFormularios(){
-       
-    }
+   }
     @Override
     public void mouseClicked(MouseEvent me) {
         System.out.println("Nose usa");

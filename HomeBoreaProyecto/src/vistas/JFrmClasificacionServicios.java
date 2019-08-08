@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
  *
  * @author Admin
  */
-public class JFrmClasificacionServicios extends javax.swing.JFrame {
+public class JFrmClasificacionServicios extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form JFrmClasificacionServicios
@@ -25,7 +25,7 @@ public class JFrmClasificacionServicios extends javax.swing.JFrame {
         setSize(865, 650);
         //JOptionPane.showMessageDialog(null, System.getProperty("user.dir"));
         this.getContentPane().setBackground(Color.white);
-        setLocationRelativeTo(null);
+        //setLocationRelativeTo(null);
         //this.setExtendedState(MAXIMIZED_BOTH);
     }
 
@@ -55,7 +55,8 @@ public class JFrmClasificacionServicios extends javax.swing.JFrame {
         jTblTabla = new javax.swing.JTable();
         jLblImagenes = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

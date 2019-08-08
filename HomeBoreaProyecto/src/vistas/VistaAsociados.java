@@ -55,6 +55,8 @@ public class VistaAsociados extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jBtnListar = new javax.swing.JButton();
 
+        setClosable(true);
+
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("DPI-Imagen");
 
