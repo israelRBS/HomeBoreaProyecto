@@ -67,7 +67,7 @@ public class ClientesDao implements ClientesInterface {
     }
 
     @Override
-    public String eliminarClientes(Clientes clientes) {
+    public String eliminarClientes(Clientes cl) {
         try {
             cnb.abrirConexion();
             sql = "delete from clientes where cliente_id=?";
