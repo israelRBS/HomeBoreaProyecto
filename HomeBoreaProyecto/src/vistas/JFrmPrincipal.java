@@ -35,15 +35,24 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
-        openMenuItem = new javax.swing.JMenuItem();
+        CambiarUsuario = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
         jEditMenu = new javax.swing.JMenu();
         cutMenuCategorias = new javax.swing.JMenuItem();
-        copyMenuMunicipios = new javax.swing.JMenuItem();
-        pasteMenuItem = new javax.swing.JMenuItem();
-        deleteMenuItem = new javax.swing.JMenuItem();
+        cutMenuSubCategorias = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        copyMenuAsociados = new javax.swing.JMenuItem();
+        cutMenuAsociados = new javax.swing.JMenuItem();
+        cutMenuEmpleados = new javax.swing.JMenuItem();
+        cutMenuNivelesAcademicos = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        cutMenuServicios = new javax.swing.JMenuItem();
+        cutMenuServiciosPrestados = new javax.swing.JMenuItem();
+        cutMenuServiciosMunicipales = new javax.swing.JMenuItem();
+        cutMenuServiciosMunicipales1 = new javax.swing.JMenuItem();
+        jEditMenu1 = new javax.swing.JMenu();
+        cutMenuMunicipios = new javax.swing.JMenuItem();
+        cutMenuDepartamentos = new javax.swing.JMenuItem();
+        cutMenuRegiones = new javax.swing.JMenuItem();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -80,9 +89,9 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         fileMenu.setMnemonic('f');
         fileMenu.setText("Sesion");
 
-        openMenuItem.setMnemonic('o');
-        openMenuItem.setText("login");
-        fileMenu.add(openMenuItem);
+        CambiarUsuario.setMnemonic('o');
+        CambiarUsuario.setText("Cambiar usuario");
+        fileMenu.add(CambiarUsuario);
 
         exitMenuItem.setMnemonic('x');
         exitMenuItem.setText("Exit");
@@ -107,27 +116,79 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         });
         jEditMenu.add(cutMenuCategorias);
 
-        copyMenuMunicipios.setMnemonic('y');
-        copyMenuMunicipios.setText("Municipios");
-        jEditMenu.add(copyMenuMunicipios);
-
-        pasteMenuItem.setMnemonic('p');
-        pasteMenuItem.setText("Paste");
-        jEditMenu.add(pasteMenuItem);
-
-        deleteMenuItem.setMnemonic('d');
-        deleteMenuItem.setText("Delete");
-        jEditMenu.add(deleteMenuItem);
+        cutMenuSubCategorias.setMnemonic('y');
+        cutMenuSubCategorias.setText("Sub Categorias");
+        jEditMenu.add(cutMenuSubCategorias);
 
         menuBar.add(jEditMenu);
 
         jMenu3.setText("Personas");
 
-        copyMenuAsociados.setMnemonic('y');
-        copyMenuAsociados.setText("Asociados Pendientes");
-        jMenu3.add(copyMenuAsociados);
+        cutMenuAsociados.setMnemonic('y');
+        cutMenuAsociados.setText("Asociados Pendientes");
+        jMenu3.add(cutMenuAsociados);
+
+        cutMenuEmpleados.setMnemonic('y');
+        cutMenuEmpleados.setText("Empleados");
+        jMenu3.add(cutMenuEmpleados);
+
+        cutMenuNivelesAcademicos.setMnemonic('y');
+        cutMenuNivelesAcademicos.setText("Niveles Academicos");
+        jMenu3.add(cutMenuNivelesAcademicos);
 
         menuBar.add(jMenu3);
+
+        jMenu4.setText("Servicios");
+
+        cutMenuServicios.setMnemonic('y');
+        cutMenuServicios.setText("Servicios");
+        jMenu4.add(cutMenuServicios);
+
+        cutMenuServiciosPrestados.setMnemonic('y');
+        cutMenuServiciosPrestados.setText("Servicios Prestados");
+        jMenu4.add(cutMenuServiciosPrestados);
+
+        cutMenuServiciosMunicipales.setMnemonic('y');
+        cutMenuServiciosMunicipales.setText("Servicios Municipales");
+        jMenu4.add(cutMenuServiciosMunicipales);
+
+        cutMenuServiciosMunicipales1.setMnemonic('y');
+        cutMenuServiciosMunicipales1.setText("Tipo Costo");
+        jMenu4.add(cutMenuServiciosMunicipales1);
+
+        menuBar.add(jMenu4);
+
+        jEditMenu1.setMnemonic('e');
+        jEditMenu1.setText("Area");
+
+        cutMenuMunicipios.setMnemonic('t');
+        cutMenuMunicipios.setText("Municipios");
+        cutMenuMunicipios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cutMenuMunicipiosActionPerformed(evt);
+            }
+        });
+        jEditMenu1.add(cutMenuMunicipios);
+
+        cutMenuDepartamentos.setMnemonic('y');
+        cutMenuDepartamentos.setText("Departamentos");
+        cutMenuDepartamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cutMenuDepartamentosActionPerformed(evt);
+            }
+        });
+        jEditMenu1.add(cutMenuDepartamentos);
+
+        cutMenuRegiones.setMnemonic('y');
+        cutMenuRegiones.setText("Regiones");
+        cutMenuRegiones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cutMenuRegionesActionPerformed(evt);
+            }
+        });
+        jEditMenu1.add(cutMenuRegiones);
+
+        menuBar.add(jEditMenu1);
 
         setJMenuBar(menuBar);
 
@@ -152,6 +213,18 @@ public class JFrmPrincipal extends javax.swing.JFrame {
     private void cutMenuCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuCategoriasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cutMenuCategoriasActionPerformed
+
+    private void cutMenuMunicipiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuMunicipiosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cutMenuMunicipiosActionPerformed
+
+    private void cutMenuDepartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuDepartamentosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cutMenuDepartamentosActionPerformed
+
+    private void cutMenuRegionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuRegionesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cutMenuRegionesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,23 +263,32 @@ public class JFrmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JMenuItem copyMenuAsociados;
-    public javax.swing.JMenuItem copyMenuMunicipios;
+    private javax.swing.JMenuItem CambiarUsuario;
+    public javax.swing.JMenuItem cutMenuAsociados;
     public javax.swing.JMenuItem cutMenuCategorias;
-    private javax.swing.JMenuItem deleteMenuItem;
+    public javax.swing.JMenuItem cutMenuDepartamentos;
+    public javax.swing.JMenuItem cutMenuEmpleados;
+    public javax.swing.JMenuItem cutMenuMunicipios;
+    public javax.swing.JMenuItem cutMenuNivelesAcademicos;
+    public javax.swing.JMenuItem cutMenuRegiones;
+    public javax.swing.JMenuItem cutMenuServicios;
+    public javax.swing.JMenuItem cutMenuServiciosMunicipales;
+    public javax.swing.JMenuItem cutMenuServiciosMunicipales1;
+    public javax.swing.JMenuItem cutMenuServiciosPrestados;
+    public javax.swing.JMenuItem cutMenuSubCategorias;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     public javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JMenu jEditMenu;
+    public javax.swing.JMenu jEditMenu;
+    private javax.swing.JMenu jEditMenu1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem openMenuItem;
-    private javax.swing.JMenuItem pasteMenuItem;
     // End of variables declaration//GEN-END:variables
 
 }

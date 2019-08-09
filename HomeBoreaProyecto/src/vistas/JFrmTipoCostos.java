@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
  *
  * @author Admin
  */
-public class JFrmTipoCostos extends javax.swing.JFrame {
+public class JFrmTipoCostos extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form JFrmEstados
@@ -25,7 +25,7 @@ public class JFrmTipoCostos extends javax.swing.JFrame {
         setSize(880, 600);
         //JOptionPane.showMessageDialog(null, System.getProperty("user.dir"));
         this.getContentPane().setBackground(Color.white);
-        setLocationRelativeTo(null);
+        //setLocationRelativeTo(null);
         //setVisible(true);
         //this.setExtendedState(MAXIMIZED_BOTH);
     }
@@ -54,7 +54,8 @@ public class JFrmTipoCostos extends javax.swing.JFrame {
         jTblTabla = new javax.swing.JTable();
         jLbImagenes = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
