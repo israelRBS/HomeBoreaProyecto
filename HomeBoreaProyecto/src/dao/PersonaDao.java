@@ -86,14 +86,10 @@ public class PersonaDao implements PersonasInterface {
             sql = "DELETE FROM personas WHERE persona_id=?";
             ejecutar = cnb.getMiConexion().prepareStatement(sql);
             ejecutar.setInt(1, per.getPersona_id());
-            contarRegistro = ejecutar.executeUpdate();
-            if (contarRegistro == 0) {
-                mensaje = "El registro es invalido, por favor ingrese un registro existente";
-            } else {
-                mensaje = "El registro se elimino exitosamente, puede seguir trabajando sin problemas";
-            }
+            ejecutar.executeUpdate();
+            mensaje = "El registro se elimino";
         } catch (Exception e) {
-            mensaje = "Error al querer eliminar " + e;
+            mensaje = "No se pueden eliminar los registros" + e;
         } finally {
             cnb.cerrarConexion();
         }

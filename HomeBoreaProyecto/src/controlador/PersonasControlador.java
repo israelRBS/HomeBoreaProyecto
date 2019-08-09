@@ -15,8 +15,6 @@ public class PersonasControlador implements ActionListener{
     JFrmPersonas vista = new JFrmPersonas();
     private String mensaje;
     
-    
-    
     public PersonasControlador(JFrmPersonas vista) {
         this.vista = vista;
         this.vista.jBtnBuscar.addActionListener(this);
@@ -39,12 +37,21 @@ public class PersonasControlador implements ActionListener{
         JOptionPane.showMessageDialog(vista, mensaje);
     }
     
+    public void eliminarPersonas(){
+        modelo.setPersona_id(Integer.parseInt(this.vista.jTxtPersonaId.getText()));
+        mensaje = dao.eliminarPersonas(0);
+        JOptionPane.showMessageDialog(vista, mensaje);
+    }
+    
     
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==this.vista.jBtnGuardar) {
             guardarPersonas();
+        }
+        if (e.getSource()== this.vista.jBtnEliminar) {
+            eliminarPersonas();
         }
     }
     

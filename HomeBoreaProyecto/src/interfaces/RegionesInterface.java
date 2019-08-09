@@ -4,7 +4,7 @@ import modelo.Regiones;
 import java.util.ArrayList;
 
 public interface RegionesInterface {
-    public Regiones buscarRegiones(Regiones regiones);
+    public Regiones buscarRegiones(int regiones);
     public ArrayList<Regiones> listarRegiones();
     public String eliminarRegiones(Regiones regiones);
     public String insertarRegiones(Regiones regiones);

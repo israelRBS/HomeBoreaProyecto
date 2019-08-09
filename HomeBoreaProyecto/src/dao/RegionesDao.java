@@ -17,7 +17,7 @@ public class RegionesDao implements RegionesInterface {
     private int contarRegistros = 0;
 
     @Override
-    public Regiones buscarRegiones(Regiones regiones) {
+    public Regiones buscarRegiones(int regiones) {
         Regiones region = new Regiones();
 
         try {
