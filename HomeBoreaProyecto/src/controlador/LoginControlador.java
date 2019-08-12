@@ -39,7 +39,7 @@ public class LoginControlador implements ActionListener{
         String contrasenia = new String( this.login.jTxtContrasenia.getPassword());
         JOptionPane.showMessageDialog(null,usuario+","+contrasenia);
         ObjetosPublicos.empleado = empleadosDao.buscarEmpleados(usuario, contrasenia);
-        System.out.println("Empleado: " + ObjetosPublicos.empleado.toString());
+        
         JFrmPrincipal principal=new JFrmPrincipal();
         PrincipalControlador principalcontrolador =new PrincipalControlador(principal);
         principal.setExtendedState(6);
