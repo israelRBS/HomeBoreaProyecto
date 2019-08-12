@@ -110,6 +110,8 @@ public class VistaCategorias extends javax.swing.JInternalFrame {
         jLblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLblTitulo.setText("CATEGORIAS");
 
+        jTxtEmpleado.setEditable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(

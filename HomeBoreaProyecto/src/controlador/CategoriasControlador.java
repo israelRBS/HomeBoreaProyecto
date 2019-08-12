@@ -36,6 +36,8 @@ public class CategoriasControlador implements ActionListener, MouseListener{
         listarCategorias();
         this.vista.jTblListaCategorias.addMouseListener(this);
         this.vista.jBtnGuardarCate.addActionListener(this);
+        this.vista.jTxtEmpleado.setText(String.valueOf(ObjetosPublicos.empleado.getEmpleado_id()));
+        
         
     }
     public void guardarCategoria(){
@@ -138,22 +140,22 @@ public class CategoriasControlador implements ActionListener, MouseListener{
 
     @Override
     public void mousePressed(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

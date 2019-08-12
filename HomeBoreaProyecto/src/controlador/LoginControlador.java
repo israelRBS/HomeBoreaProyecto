@@ -20,7 +20,8 @@ import vistas.Login;
 public class LoginControlador implements ActionListener{
     Login login = new Login();
     EmpleadosDao empleadosDao = new EmpleadosDao();
-    Empleados empleados = new Empleados();
+    
+    //Empleados empleados = new Empleados();
     public LoginControlador(Login login) {
         this.login = login;
         login.jBtnEntrar.addActionListener(this);
@@ -37,7 +38,8 @@ public class LoginControlador implements ActionListener{
         String usuario = this.login.jTxtUsuario.getText();
         String contrasenia = new String( this.login.jTxtContrasenia.getPassword());
         JOptionPane.showMessageDialog(null,usuario+","+contrasenia);
-        empleados = empleadosDao.buscarEmpleados(usuario, contrasenia);
+        ObjetosPublicos.empleado = empleadosDao.buscarEmpleados(usuario, contrasenia);
+        System.out.println("Empleado: " + ObjetosPublicos.empleado.toString());
         JFrmPrincipal principal=new JFrmPrincipal();
         PrincipalControlador principalcontrolador =new PrincipalControlador(principal);
         principal.setExtendedState(6);

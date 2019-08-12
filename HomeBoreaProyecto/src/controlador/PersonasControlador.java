@@ -1,4 +1,4 @@
-package controlador;
+ package controlador;
 
 import dao.ConexionBorea;
 import dao.PersonaDao;

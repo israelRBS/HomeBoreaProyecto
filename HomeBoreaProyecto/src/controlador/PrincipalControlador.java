@@ -1,5 +1,6 @@
 package controlador;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -33,7 +34,6 @@ public class PrincipalControlador implements ActionListener, MouseListener {
     SubCategoriaControlador subCategoriaControlador;
     JFrmServicios jfrmServicios;
     ServiciosControlador serviciosControlador;
-    
 
     public PrincipalControlador(JFrmPrincipal principal) {
         this.principal = principal;
@@ -43,6 +43,7 @@ public class PrincipalControlador implements ActionListener, MouseListener {
         principal.cutMenuSubCategorias.addActionListener(this);
         principal.cutMenuNivelesAcademicos.addActionListener(this);
         principal.cutMenuServicios.addActionListener(this);
+        
     }
 
     @Override
@@ -57,7 +58,11 @@ public class PrincipalControlador implements ActionListener, MouseListener {
             } else {
                 vistacategorias = new VistaCategorias();
                 categoriascontrolador = new CategoriasControlador(vistacategorias);
-                principal.jDesktopPane1.add(vistacategorias);
+                 principal.DesktopPane.add(vistacategorias);
+                Dimension desktopSize = principal.DesktopPane.getSize();
+                Dimension FrameSize = vistacategorias.getSize();
+                vistacategorias.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+               vistacategorias.show();
                 verificar = true;
             }
 
@@ -71,7 +76,7 @@ public class PrincipalControlador implements ActionListener, MouseListener {
             } else {
                 vistaSubCategorias = new VistaSubCategorias();
                 subCategoriaControlador = new SubCategoriaControlador();
-                principal.jDesktopPane1.add(vistaSubCategorias);
+                principal.DesktopPane.add(vistaSubCategorias);
                 verificar = true;
             }
         }
@@ -84,7 +89,7 @@ public class PrincipalControlador implements ActionListener, MouseListener {
             } else {
                 vistaasociados = new VistaAsociados();
                 asociadoscontrolador = new AsociadosControlador(vistaasociados);
-                principal.jDesktopPane1.add(vistaasociados);
+                principal.DesktopPane.add(vistaasociados);
                 verificar = true;
             }
             /*if (verificar==true) {
@@ -109,12 +114,12 @@ public class PrincipalControlador implements ActionListener, MouseListener {
             } else {
                 vistaEmpleados = new VistaEmpleados();
                 //asociadoscontrolador= new AsociadosControlador(vistaasociados);
-                principal.jDesktopPane1.add(vistaEmpleados);
+                principal.DesktopPane.add(vistaEmpleados);
                 verificar = true;
             }
         }
-        
-        if (e.getSource()==this.principal.cutMenuNivelesAcademicos) {
+
+        if (e.getSource() == this.principal.cutMenuNivelesAcademicos) {
             if (verificar == true) {
                 vistaNivelesAca = null;
                 asociadoscontrolador = null;
@@ -123,25 +128,25 @@ public class PrincipalControlador implements ActionListener, MouseListener {
             } else {
                 vistaNivelesAca = new VistasNivelesAca();
                 //asociadoscontrolador= new AsociadosControlador(vistaasociados);
-                principal.jDesktopPane1.add(vistaNivelesAca);
+                principal.DesktopPane.add(vistaNivelesAca);
                 verificar = true;
             }
-            
+
         }
-        if (e.getSource()==this.principal.cutMenuServicios) {
+        if (e.getSource() == this.principal.cutMenuServicios) {
             if (verificar == true) {
                 jfrmServicios = null;
                 serviciosControlador = null;
                 System.gc();
                 verificar = false;
             } else {
-                jfrmServicios=new JFrmServicios();
+                jfrmServicios = new JFrmServicios();
                 //asociadoscontrolador= new AsociadosControlador(vistaasociados);
-                principal.jDesktopPane1.add(jfrmServicios);
+                principal.DesktopPane.add(jfrmServicios);
                 verificar = true;
             }
         }
-        
+
     }
 
     @Override

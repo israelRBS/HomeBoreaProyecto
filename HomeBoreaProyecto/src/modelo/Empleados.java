@@ -45,5 +45,10 @@ public class Empleados {
     public void setTipoempleado_id(int tipoempleado_id) {
         this.tipoempleado_id = tipoempleado_id;
     }
+
+    @Override
+    public String toString() {
+        return "Empleados{" + "empleado_id=" + empleado_id + ", usuario=" + usuario + ", contrase\u00f1a=" + contraseña + ", tipoempleado_id=" + tipoempleado_id + '}';
+    }
     
 }

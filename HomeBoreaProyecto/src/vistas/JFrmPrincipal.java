@@ -32,7 +32,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jFrame1 = new javax.swing.JFrame();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        DesktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         CambiarUsuario = new javax.swing.JMenuItem();
@@ -75,15 +75,15 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout DesktopPaneLayout = new javax.swing.GroupLayout(DesktopPane);
+        DesktopPane.setLayout(DesktopPaneLayout);
+        DesktopPaneLayout.setHorizontalGroup(
+            DesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1310, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 731, Short.MAX_VALUE)
+        DesktopPaneLayout.setVerticalGroup(
+            DesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 733, Short.MAX_VALUE)
         );
 
         fileMenu.setMnemonic('f');
@@ -118,6 +118,11 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
         cutMenuSubCategorias.setMnemonic('y');
         cutMenuSubCategorias.setText("Sub Categorias");
+        cutMenuSubCategorias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cutMenuSubCategoriasActionPerformed(evt);
+            }
+        });
         jEditMenu.add(cutMenuSubCategorias);
 
         menuBar.add(jEditMenu);
@@ -142,6 +147,11 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
         cutMenuServicios.setMnemonic('y');
         cutMenuServicios.setText("Servicios");
+        cutMenuServicios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cutMenuServiciosActionPerformed(evt);
+            }
+        });
         jMenu4.add(cutMenuServicios);
 
         cutMenuServiciosPrestados.setMnemonic('y');
@@ -196,11 +206,11 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(DesktopPane)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(DesktopPane)
         );
 
         pack();
@@ -225,6 +235,14 @@ public class JFrmPrincipal extends javax.swing.JFrame {
     private void cutMenuRegionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuRegionesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cutMenuRegionesActionPerformed
+
+    private void cutMenuServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuServiciosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cutMenuServiciosActionPerformed
+
+    private void cutMenuSubCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuSubCategoriasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cutMenuSubCategoriasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,6 +282,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem CambiarUsuario;
+    public javax.swing.JDesktopPane DesktopPane;
     public javax.swing.JMenuItem cutMenuAsociados;
     public javax.swing.JMenuItem cutMenuCategorias;
     public javax.swing.JMenuItem cutMenuDepartamentos;
@@ -278,7 +297,6 @@ public class JFrmPrincipal extends javax.swing.JFrame {
     public javax.swing.JMenuItem cutMenuSubCategorias;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
-    public javax.swing.JDesktopPane jDesktopPane1;
     public javax.swing.JMenu jEditMenu;
     private javax.swing.JMenu jEditMenu1;
     private javax.swing.JFrame jFrame1;
