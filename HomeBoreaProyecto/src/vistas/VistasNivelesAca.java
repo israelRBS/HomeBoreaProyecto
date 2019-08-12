@@ -24,7 +24,7 @@ public class VistasNivelesAca extends javax.swing.JInternalFrame {
         jLblImagenes.setIcon(new ImageIcon(ruta));
         setSize(835, 650);
         //JOptionPane.showMessageDialog(null, System.getProperty("user.dir"));
-        this.getContentPane().setBackground(Color.ORANGE);
+        this.getContentPane().setBackground(Color.orange);
        // setLocationRelativeTo(null);
         setVisible(true);
     }
