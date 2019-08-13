@@ -36,7 +36,11 @@ public class EmpleadosDao implements EmpleadosInterface {
 
         } catch (SQLException e) {
             System.out.println("ERROR EN BUSCAR EMPLEADO" + e);
-            empleado = new Empleados();
+            empleado.setUsuario(null);
+            empleado.setContraseña(null);
+            empleado.setTipoempleado_id(0);
+            empleado.setEmpleado_id(-345);
+            
         } finally {
             conexion.cerrarConexion();
             System.out.println("Empleado: " + empleado.toString());

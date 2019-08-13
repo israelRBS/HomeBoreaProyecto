@@ -33,6 +33,8 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jFrame1 = new javax.swing.JFrame();
         DesktopPane = new javax.swing.JDesktopPane();
+        jPanel1 = new javax.swing.JPanel();
+        jLblTextoUsuario = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         CambiarUsuario = new javax.swing.JMenuItem();
@@ -48,7 +50,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         cutMenuServicios = new javax.swing.JMenuItem();
         cutMenuServiciosPrestados = new javax.swing.JMenuItem();
         cutMenuServiciosMunicipales = new javax.swing.JMenuItem();
-        cutMenuServiciosMunicipales1 = new javax.swing.JMenuItem();
+        cutMenuTipoCosto = new javax.swing.JMenuItem();
         jEditMenu1 = new javax.swing.JMenu();
         cutMenuMunicipios = new javax.swing.JMenuItem();
         cutMenuDepartamentos = new javax.swing.JMenuItem();
@@ -75,15 +77,38 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLblTextoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLblTextoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        DesktopPane.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout DesktopPaneLayout = new javax.swing.GroupLayout(DesktopPane);
         DesktopPane.setLayout(DesktopPaneLayout);
         DesktopPaneLayout.setHorizontalGroup(
             DesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1310, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DesktopPaneLayout.createSequentialGroup()
+                .addGap(0, 1184, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         DesktopPaneLayout.setVerticalGroup(
             DesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 733, Short.MAX_VALUE)
+            .addGroup(DesktopPaneLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 671, Short.MAX_VALUE))
         );
 
         fileMenu.setMnemonic('f');
@@ -162,9 +187,9 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         cutMenuServiciosMunicipales.setText("Servicios Municipales");
         jMenu4.add(cutMenuServiciosMunicipales);
 
-        cutMenuServiciosMunicipales1.setMnemonic('y');
-        cutMenuServiciosMunicipales1.setText("Tipo Costo");
-        jMenu4.add(cutMenuServiciosMunicipales1);
+        cutMenuTipoCosto.setMnemonic('y');
+        cutMenuTipoCosto.setText("Tipo Costo");
+        jMenu4.add(cutMenuTipoCosto);
 
         menuBar.add(jMenu4);
 
@@ -281,7 +306,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem CambiarUsuario;
+    public javax.swing.JMenuItem CambiarUsuario;
     public javax.swing.JDesktopPane DesktopPane;
     public javax.swing.JMenuItem cutMenuAsociados;
     public javax.swing.JMenuItem cutMenuCategorias;
@@ -292,20 +317,22 @@ public class JFrmPrincipal extends javax.swing.JFrame {
     public javax.swing.JMenuItem cutMenuRegiones;
     public javax.swing.JMenuItem cutMenuServicios;
     public javax.swing.JMenuItem cutMenuServiciosMunicipales;
-    public javax.swing.JMenuItem cutMenuServiciosMunicipales1;
     public javax.swing.JMenuItem cutMenuServiciosPrestados;
     public javax.swing.JMenuItem cutMenuSubCategorias;
+    public javax.swing.JMenuItem cutMenuTipoCosto;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     public javax.swing.JMenu jEditMenu;
     private javax.swing.JMenu jEditMenu1;
     private javax.swing.JFrame jFrame1;
+    public javax.swing.JLabel jLblTextoUsuario;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuBar menuBar;
     // End of variables declaration//GEN-END:variables
 

@@ -17,10 +17,11 @@ import vistas.Login;
  *
  * @author Admin
  */
-public class LoginControlador implements ActionListener{
+public class LoginControlador implements ActionListener {
+
     Login login = new Login();
     EmpleadosDao empleadosDao = new EmpleadosDao();
-    
+
     //Empleados empleados = new Empleados();
     public LoginControlador(Login login) {
         this.login = login;
@@ -33,17 +34,28 @@ public class LoginControlador implements ActionListener{
             buscarEmpleado();
         }
     }
-    public void buscarEmpleado(){
-        
+
+    public void buscarEmpleado() {
+
         String usuario = this.login.jTxtUsuario.getText();
-        String contrasenia = new String( this.login.jTxtContrasenia.getPassword());
-        JOptionPane.showMessageDialog(null,usuario+","+contrasenia);
+        String contrasenia = new String(this.login.jTxtContrasenia.getPassword());
+        //JOptionPane.showMessageDialog(null, usuario + "," + contrasenia);
         ObjetosPublicos.empleado = empleadosDao.buscarEmpleados(usuario, contrasenia);
+
+        if (ObjetosPublicos.empleado.getUsuario() == null && ObjetosPublicos.empleado.getContraseña()==null) {
+            JOptionPane.showMessageDialog(null, "Datos Incorrectos");
+            this.login.jTxtUsuario.setText(null);
+            this.login.jTxtContrasenia.setText(null);
+            this.login.jTxtUsuario.requestFocus();
+        } else {
+            JFrmPrincipal principal = new JFrmPrincipal();
+            PrincipalControlador principalcontrolador = new PrincipalControlador(principal);
+            principal.setExtendedState(6);
+            this.login.setVisible(false);   
+            principal.setVisible(true);
+        }
         
-        JFrmPrincipal principal=new JFrmPrincipal();
-        PrincipalControlador principalcontrolador =new PrincipalControlador(principal);
-        principal.setExtendedState(6);
-        principal.setVisible(true);
+
     }
     
 }
