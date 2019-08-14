@@ -30,6 +30,10 @@ public class TiposEmpleadosControlador implements ActionListener, MouseListener 
     TiposEmpleadosDao dao = new TiposEmpleadosDao();
     // VARIABLE DE INSTANCIA
     String mensaje;
+    
+    
+    
+    /*MODIFICACION DE PRUEBA*/
 
     public TiposEmpleadosControlador(JFrmTiposEmpleados vista) {
         this.vista = vista;
