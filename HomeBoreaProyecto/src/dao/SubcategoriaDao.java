@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 public class SubcategoriaDao implements SubcategoriasInterface {
 
-    ConexionBorea conex = new ConexionBorea();
+    ConexionRandal conex = new ConexionRandal();
     private PreparedStatement ejecutar;
     private ResultSet resultadoSelect;
 
@@ -157,8 +157,9 @@ public class SubcategoriaDao implements SubcategoriasInterface {
                 sub.setEmpleado_id(resultadoSelect.getInt("empleado_id"));
 
                 lista.add(sub);
+                
             }
-
+            
             ejecutar.close();
 
         } catch (SQLException e) {

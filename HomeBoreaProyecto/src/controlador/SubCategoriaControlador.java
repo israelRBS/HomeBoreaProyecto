@@ -5,10 +5,14 @@
  */
 package controlador;
 
+import dao.SubcategoriaDao;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import modelo.Subcategorias;
 import vistas.VistaSubCategorias;
 
 /**
@@ -17,11 +21,34 @@ import vistas.VistaSubCategorias;
  */
 public class SubCategoriaControlador implements ActionListener, MouseListener {
     VistaSubCategorias vista;
+    //obtener todas las categorias existentes
+    ArrayList<Subcategorias> listaCategoria = new ArrayList<Subcategorias>();
+    SubcategoriaDao daoSubCategoria=new SubcategoriaDao();
+    DefaultComboBoxModel cmbCategoriaModel = new DefaultComboBoxModel();
     
+    public SubCategoriaControlador(VistaSubCategorias vista) {
+        this.vista = vista;
+        cargarCmbCategoria();
+    }
+    public void cargarCmbCategoria(){
+        try {
+            listaCategoria = daoSubCategoria.listarSubcategorias();
+            for (Subcategorias subcategorias : listaCategoria) {
+                cmbCategoriaModel.addElement(subcategorias.getNombre());
+            }
+            this.vista.jCmbCategoria.setModel(cmbCategoriaModel);
+            cmbCategoriaModel.removeAllElements();
+            
+           
+        } catch (Exception e) {
+            System.out.println("Error: " + e);
+        }
+        
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override

@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/javam2019/Documents/GitHub/HomeBoreaProyecto/HomeBoreaProyecto/src/controlador/SubCategoriaControlador.java</file>
             <file>file:/C:/Users/javam2019/Documents/GitHub/HomeBoreaProyecto/HomeBoreaProyecto/src/controlador/CategoriasControlador.java</file>
             <file>file:/C:/Users/javam2019/Documents/GitHub/HomeBoreaProyecto/HomeBoreaProyecto/src/controlador/ObjetosPublicos.java</file>
             <file>file:/C:/Users/javam2019/Documents/GitHub/HomeBoreaProyecto/HomeBoreaProyecto/src/controlador/RegionesControlador.java</file>
@@ -14,16 +15,12 @@
             <file>file:/C:/Users/javam2019/Documents/GitHub/HomeBoreaProyecto/HomeBoreaProyecto/src/vistas/ejecutable.java</file>
         </group>
         <group>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/HomeBoreaProyecto/HomeBoreaProyecto/src/controlador/SubCategoriaControlador.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/HomeBoreaProyecto/HomeBoreaProyecto/src/controlador/CategoriasControlador.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/HomeBoreaProyecto/HomeBoreaProyecto/src/controlador/ObjetosPublicos.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/HomeBoreaProyecto/HomeBoreaProyecto/src/controlador/RegionesControlador.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/HomeBoreaProyecto/HomeBoreaProyecto/src/dao/EmpleadosDao.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/HomeBoreaProyecto/HomeBoreaProyecto/src/controlador/LoginControlador.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/HomeBoreaProyecto/HomeBoreaProyecto/src/vistas/JFrmPrincipal.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/HomeBoreaProyecto/HomeBoreaProyecto/src/controlador/PrincipalControlador.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/HomeBoreaProyecto/HomeBoreaProyecto/src/vistas/VistaCategorias.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/HomeBoreaProyecto/HomeBoreaProyecto/src/vistas/ejecutable.java</file>
+            <file>file:/C:/Users/Admin.S10-96645/Documents/GitHub/HomeBoreaDesktop2/HomeBoreaProyecto/HomeBoreaProyecto/src/controlador/SubCategoriaControlador.java</file>
+            <file>file:/C:/Users/Admin.S10-96645/Documents/GitHub/HomeBoreaDesktop2/HomeBoreaProyecto/HomeBoreaProyecto/src/vistas/VistaSubCategorias.java</file>
+            <file>file:/C:/Users/Admin.S10-96645/Documents/GitHub/HomeBoreaDesktop2/HomeBoreaProyecto/HomeBoreaProyecto/src/dao/Pruebas.java</file>
+            <file>file:/C:/Users/Admin.S10-96645/Documents/GitHub/HomeBoreaDesktop2/HomeBoreaProyecto/HomeBoreaProyecto/src/dao/SubcategoriaDao.java</file>
+            <file>file:/C:/Users/Admin.S10-96645/Documents/GitHub/HomeBoreaDesktop2/HomeBoreaProyecto/HomeBoreaProyecto/src/modelo/Subcategorias.java</file>
+            <file>file:/C:/Users/Admin.S10-96645/Documents/GitHub/HomeBoreaDesktop2/HomeBoreaProyecto/HomeBoreaProyecto/src/controlador/PrincipalControlador.java</file>
         </group>
     </open-files>
 </project-private>

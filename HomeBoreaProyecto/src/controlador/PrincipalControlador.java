@@ -101,7 +101,7 @@ public class PrincipalControlador implements ActionListener, MouseListener {
                 verificar = false;
             } else {
                 vistaSubCategorias = new VistaSubCategorias();
-                subCategoriaControlador = new SubCategoriaControlador();
+                subCategoriaControlador = new SubCategoriaControlador(vistaSubCategorias);
                 principal.DesktopPane.add(vistaSubCategorias);
                 Dimension desktopSize = principal.DesktopPane.getSize();
                 Dimension FrameSize = vistaSubCategorias.getSize();

@@ -14,6 +14,11 @@ public class Subcategorias {
         this.categoria_id = categoria_id;
         this.empleado_id = empleado_id;
     }
+
+    @Override
+    public String toString() {
+        return "Subcategorias{" + "subcategoria_id=" + subcategoria_id + ", nombre=" + nombre + ", categoria_id=" + categoria_id + ", empleado_id=" + empleado_id + '}';
+    }
     
     public byte getSubcategoria_id() {
         return subcategoria_id;
