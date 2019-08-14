@@ -129,9 +129,7 @@ public class TiposEmpleadosControlador implements ActionListener, MouseListener 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.vista.jBtnBuscar) {
-            buscarTipoEmpleado();
-            
-            
+            buscarTipoEmpleado();  
         }
         if (e.getSource() == this.vista.jBtnModificar) {
             modificarTipoEmpleado();
