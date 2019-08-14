@@ -37,8 +37,9 @@ public class CategoriasControlador implements ActionListener, MouseListener{
         this.vista.jTblListaCategorias.addMouseListener(this);
         this.vista.jBtnGuardarCate.addActionListener(this);
         this.vista.jTxtEmpleado.setText(String.valueOf(ObjetosPublicos.empleado.getEmpleado_id()));
+        this.vista.jBtnCancelar.addActionListener(this);
         
-        
+        cancelarAcciones();      
     }
     public void guardarCategoria(){
         
@@ -76,6 +77,11 @@ public class CategoriasControlador implements ActionListener, MouseListener{
         this.vista.jTxtNombre.setEnabled(false);
         this.vista.jTxtEmpleado.setEnabled(false);
        
+    }
+    public void cancelarAcciones(){
+        this.vista.jTxtCategoria.setEnabled(true);
+        this.vista.jTxtNombre.setEnabled(true);
+        this.vista.jTxtEmpleado.setEnabled(true);
     }
     public void mostrar(){
         ArrayList<Categorias> lista = dao.listarCategorias();
@@ -128,6 +134,10 @@ public class CategoriasControlador implements ActionListener, MouseListener{
         }
         if(e.getSource()==this.vista.jBtnBuscarCate){
             buscarCategoria();
+        }
+        if(e.getSource()==this.vista.jBtnCancelar){
+            System.out.println("hola");
+            cancelarAcciones();
         }
     }
 

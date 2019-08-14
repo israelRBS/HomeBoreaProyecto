@@ -53,7 +53,7 @@ public class VistaAsociados extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jBtnBuscar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jBtnListar = new javax.swing.JButton();
+        jBtnCancelar = new javax.swing.JButton();
 
         setClosable(true);
 
@@ -121,8 +121,8 @@ public class VistaAsociados extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Antecedentes Policiacos");
 
-        jBtnListar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jBtnListar.setText("Listar");
+        jBtnCancelar.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
+        jBtnCancelar.setText("CANCELAR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -130,7 +130,7 @@ public class VistaAsociados extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
@@ -145,28 +145,29 @@ public class VistaAsociados extends javax.swing.JInternalFrame {
                             .addComponent(jLabel8)
                             .addComponent(jBtnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jTxtAntecedentesPoli, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTxtAntecedentesPena, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTxtAsociadosId, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTxtPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTxtUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTxtNivAcad, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTxtFoto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTxtEspecialidad, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTxtDpiImg, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(59, 59, 59)
+                                .addComponent(jLblImagenes, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jBtnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(29, 29, 29)
                                 .addComponent(jBtnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(32, 32, 32)
                                 .addComponent(jBtnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29)
-                                .addComponent(jBtnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jTxtAntecedentesPoli, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
-                                    .addComponent(jTxtAntecedentesPena, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTxtAsociadosId, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTxtPassword, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTxtUsuario, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTxtNivAcad, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTxtFoto, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTxtEspecialidad, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTxtDpiImg))
-                                .addGap(59, 59, 59)
-                                .addComponent(jLblImagenes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jBtnCancelar)
+                                .addGap(11, 11, 11))))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 865, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -223,10 +224,10 @@ public class VistaAsociados extends javax.swing.JInternalFrame {
                     .addComponent(jBtnEliminar)
                     .addComponent(jBtnModificar)
                     .addComponent(jBtnBuscar)
-                    .addComponent(jBtnListar))
+                    .addComponent(jBtnCancelar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -240,8 +241,8 @@ public class VistaAsociados extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jBtnAgregar;
     public javax.swing.JButton jBtnBuscar;
+    public javax.swing.JButton jBtnCancelar;
     public javax.swing.JButton jBtnEliminar;
-    private javax.swing.JButton jBtnListar;
     public javax.swing.JButton jBtnModificar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
