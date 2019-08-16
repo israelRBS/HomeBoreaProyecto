@@ -25,7 +25,7 @@ public class ServiciosPrestadosDao implements ServiciosPrestadosInterface {
     private String sql;
     private int contarRegistros = 0;
 
-    ConexionBorea conex = new ConexionBorea();
+    ConexionRandal conex = new ConexionRandal();
 
     @Override
     public String insertServiciosPrestados(ServiciosPrestados serviciosPrestados) {
@@ -121,7 +121,7 @@ public class ServiciosPrestadosDao implements ServiciosPrestadosInterface {
             conex.abrirConexion();
             sql = "select * from servicios_prestados where servicioprestado_id=?";
             ejecutar = conex.getMiConexion().prepareStatement(sql);
-
+            ejecutar.setInt(1, servicioprestado_id);
             seleccionar = ejecutar.executeQuery();
 
             while(seleccionar.next()){

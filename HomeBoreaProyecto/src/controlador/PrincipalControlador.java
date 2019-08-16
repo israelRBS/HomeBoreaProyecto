@@ -29,6 +29,7 @@ import vistas.VistasNivelesAca;
 public class PrincipalControlador implements ActionListener, MouseListener {
 
     boolean verificar = false;
+    boolean verificarSP = false;
     Login login;
     JFrmPrincipal principal = new JFrmPrincipal();
     VistaCategorias vistacategorias;
@@ -106,6 +107,7 @@ public class PrincipalControlador implements ActionListener, MouseListener {
                 Dimension desktopSize = principal.DesktopPane.getSize();
                 Dimension FrameSize = vistaSubCategorias.getSize();
                 vistaSubCategorias.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+                vistaSubCategorias.setVisible(true);
                 verificar = true;
             }
         }
@@ -122,18 +124,10 @@ public class PrincipalControlador implements ActionListener, MouseListener {
                 Dimension desktopSize = principal.DesktopPane.getSize();
                 Dimension FrameSize = vistaasociados.getSize();
                 vistaasociados.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+                vistaasociados.setVisible(true);
                 verificar = true;
             }
-            /*if (verificar==true) {
-                vistaImagenesServicio=null;
-                asociadoscontrolador=null;
-                System.gc();
-                verificar=false;
-            }else{
-            vistaImagenesServicio= new VistaImagenesServicios();
-            //asociadoscontrolador= new AsociadosControlador(vistaasociados);
-            principal.jDesktopPane1.add(vistaImagenesServicio);
-            verificar=true;   */
+
         }
 
         if (e.getSource() == this.principal.cutMenuEmpleados) {
@@ -150,6 +144,7 @@ public class PrincipalControlador implements ActionListener, MouseListener {
                 Dimension desktopSize = principal.DesktopPane.getSize();
                 Dimension FrameSize = vistaEmpleados.getSize();
                 vistaEmpleados.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+                vistaEmpleados.setVisible(true);
                 verificar = true;
             }
         }
@@ -164,11 +159,13 @@ public class PrincipalControlador implements ActionListener, MouseListener {
                 vistaNivelesAca = new VistasNivelesAca();
                 //asociadoscontrolador= new AsociadosControlador(vistaasociados);
                 principal.DesktopPane.add(vistaNivelesAca);
+                vistaNivelesAca.setVisible(true);
                 verificar = true;
             }
 
         }
         if (e.getSource() == this.principal.cutMenuServicios) {
+            
             if (verificar == true) {
                 jfrmServicios = null;
                 serviciosControlador = null;
@@ -178,20 +175,25 @@ public class PrincipalControlador implements ActionListener, MouseListener {
                 jfrmServicios = new JFrmServicios();
                 //asociadoscontrolador= new AsociadosControlador(vistaasociados);
                 principal.DesktopPane.add(jfrmServicios);
+                jfrmServicios.setVisible(true);
                 verificar = true;
             }
         }
         if (e.getSource() == this.principal.cutMenuServiciosPrestados) {
-            if (verificar == true) {
+            if (verificarSP == true) {
                 jfrmserviciosprestados = null;
-                //serviciosPrestadosControlador = null;
+                serviciosPrestadosControlador = null;
                 System.gc();
-                verificar = false;
+                verificarSP = false;
             } else {
                 jfrmserviciosprestados = new JFrmServiciosPrestados();
-                //serviciosPrestadosControlador= new ServiciosPrestadosControlador(jfrmserviciosprestados);
+                serviciosPrestadosControlador = new ServiciosPrestadosControlador(jfrmserviciosprestados);
                 principal.DesktopPane.add(jfrmserviciosprestados);
-                verificar = true;
+                Dimension desktopSize = principal.DesktopPane.getSize();
+                Dimension FrameSize = jfrmserviciosprestados.getSize();
+                jfrmserviciosprestados.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+                jfrmserviciosprestados.setVisible(true);
+                verificarSP = true;
             }
         }
         if (e.getSource() == this.principal.cutMenuServiciosMunicipales) {

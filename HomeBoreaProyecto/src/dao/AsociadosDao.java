@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class AsociadosDao implements AsociadosInterface {
 
-    ConexionBorea cnb = new ConexionBorea();
+    ConexionRandal cnb = new ConexionRandal();
     Asociados ac = new Asociados();
     private String mensaje = null;
     private String sql;

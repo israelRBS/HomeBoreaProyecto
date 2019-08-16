@@ -156,10 +156,20 @@ public class JFrmPrincipal extends javax.swing.JFrame {
 
         cutMenuAsociados.setMnemonic('y');
         cutMenuAsociados.setText("Asociados Pendientes");
+        cutMenuAsociados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cutMenuAsociadosActionPerformed(evt);
+            }
+        });
         jMenu3.add(cutMenuAsociados);
 
         cutMenuEmpleados.setMnemonic('y');
         cutMenuEmpleados.setText("Empleados");
+        cutMenuEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cutMenuEmpleadosActionPerformed(evt);
+            }
+        });
         jMenu3.add(cutMenuEmpleados);
 
         cutMenuNivelesAcademicos.setMnemonic('y');
@@ -268,6 +278,14 @@ public class JFrmPrincipal extends javax.swing.JFrame {
     private void cutMenuSubCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuSubCategoriasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cutMenuSubCategoriasActionPerformed
+
+    private void cutMenuAsociadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuAsociadosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cutMenuAsociadosActionPerformed
+
+    private void cutMenuEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuEmpleadosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cutMenuEmpleadosActionPerformed
 
     /**
      * @param args the command line arguments
