@@ -53,6 +53,7 @@ public class JFrmTipoCostos extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTblTabla = new javax.swing.JTable();
         jLbImagenes = new javax.swing.JLabel();
+        jBtnCancelar = new javax.swing.JButton();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -103,6 +104,9 @@ public class JFrmTipoCostos extends javax.swing.JInternalFrame {
 
         jLbImagenes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        jBtnCancelar.setFont(new java.awt.Font("Times New Roman", 2, 16)); // NOI18N
+        jBtnCancelar.setText("CANCELAR");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -111,7 +115,6 @@ public class JFrmTipoCostos extends javax.swing.JInternalFrame {
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -130,15 +133,21 @@ public class JFrmTipoCostos extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLbImagenes, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(221, 221, 221)
-                        .addComponent(jBtnNuevo)
-                        .addGap(20, 20, 20)
-                        .addComponent(jBtnGuardar)
-                        .addGap(20, 20, 20)
-                        .addComponent(jBtnModificar)
-                        .addGap(20, 20, 20)
-                        .addComponent(jBtnEliminar)
-                        .addGap(0, 6, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(221, 221, 221)
+                                .addComponent(jBtnNuevo)
+                                .addGap(20, 20, 20)
+                                .addComponent(jBtnGuardar)
+                                .addGap(20, 20, 20)
+                                .addComponent(jBtnModificar)
+                                .addGap(20, 20, 20))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jBtnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jBtnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
@@ -164,11 +173,13 @@ public class JFrmTipoCostos extends javax.swing.JInternalFrame {
                     .addComponent(jBtnGuardar)
                     .addComponent(jBtnModificar)
                     .addComponent(jBtnEliminar))
-                .addGap(30, 30, 30)
-                .addComponent(jLabel4)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jBtnCancelar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         pack();
@@ -214,6 +225,7 @@ public class JFrmTipoCostos extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jBtnBuscar;
+    public javax.swing.JButton jBtnCancelar;
     public javax.swing.JButton jBtnEliminar;
     public javax.swing.JButton jBtnGuardar;
     public javax.swing.JButton jBtnModificar;

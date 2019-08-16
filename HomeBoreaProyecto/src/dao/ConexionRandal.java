@@ -16,7 +16,8 @@ import java.sql.SQLException;
 public class ConexionRandal {
       //atributos
     private Connection miConexion;
-    private static final String URL = "jdbc:mysql://localhost/java19_borea";
+    private static final String URL = "jdbc:mysql://localhost:3306/java19_borea";
+    //jdbc:mysql://localhost:3306/java19_cuentahabientes
     private static final String PASSWORD = "";
     private static final String USER = "root";
 
