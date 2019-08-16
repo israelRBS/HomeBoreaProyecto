@@ -24,7 +24,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -41,30 +41,31 @@
                           <Component id="jBtnAgregar" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jTxtAntecedentesPoli" alignment="1" min="-2" pref="395" max="-2" attributes="0"/>
+                                  <Component id="jTxtAntecedentesPena" alignment="0" min="-2" pref="395" max="-2" attributes="0"/>
+                                  <Component id="jTxtAsociadosId" alignment="0" min="-2" pref="395" max="-2" attributes="0"/>
+                                  <Component id="jTxtPassword" alignment="0" min="-2" pref="395" max="-2" attributes="0"/>
+                                  <Component id="jTxtUsuario" alignment="0" min="-2" pref="395" max="-2" attributes="0"/>
+                                  <Component id="jTxtNivAcad" alignment="0" min="-2" pref="395" max="-2" attributes="0"/>
+                                  <Component id="jTxtFoto" alignment="0" min="-2" pref="395" max="-2" attributes="0"/>
+                                  <Component id="jTxtEspecialidad" alignment="0" min="-2" pref="395" max="-2" attributes="0"/>
+                                  <Component id="jTxtDpiImg" alignment="1" min="-2" pref="395" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                              <Component id="jLblImagenes" min="-2" pref="200" max="-2" attributes="0"/>
+                          </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jBtnEliminar" min="-2" pref="135" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                               <Component id="jBtnModificar" min="-2" pref="155" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                               <Component id="jBtnBuscar" min="-2" pref="151" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                              <Component id="jBtnListar" min="-2" pref="123" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jTxtAntecedentesPoli" alignment="1" pref="395" max="32767" attributes="0"/>
-                                  <Component id="jTxtAntecedentesPena" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTxtAsociadosId" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTxtPassword" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTxtUsuario" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTxtNivAcad" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTxtFoto" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTxtEspecialidad" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTxtDpiImg" alignment="1" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                              <Component id="jLblImagenes" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jBtnCancelar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -139,11 +140,11 @@
                   <Component id="jBtnEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jBtnModificar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jBtnBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jBtnListar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBtnCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="93" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="19" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -359,13 +360,16 @@
         <Property name="text" type="java.lang.String" value="Antecedentes Policiacos"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jBtnListar">
+    <Component class="javax.swing.JButton" name="jBtnCancelar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="14" style="1"/>
+          <Font name="Times New Roman" size="14" style="2"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Listar"/>
+        <Property name="text" type="java.lang.String" value="CANCELAR"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
