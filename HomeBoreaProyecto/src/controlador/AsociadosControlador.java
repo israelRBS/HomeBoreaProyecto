@@ -9,6 +9,7 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import modelo.Municipios;
 import vistas.VistaAsociados;
 
 public class AsociadosControlador implements ActionListener, MouseListener {
@@ -209,6 +210,11 @@ public class AsociadosControlador implements ActionListener, MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {
            System.out.println("");
+    }
+
+    /* METODO PARA MOSTRAR DATOS DE LA TABLA */
+    public void mostrarDatos() {
+        (ERROR);
     }
 
 }
