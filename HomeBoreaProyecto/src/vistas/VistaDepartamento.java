@@ -27,16 +27,16 @@ public class VistaDepartamento extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TxtNombre = new javax.swing.JTextField();
+        jTxtNombre = new javax.swing.JTextField();
         jLblImagen = new javax.swing.JLabel();
-        TxtDepartamentoId = new javax.swing.JTextField();
+        jTxtDepartamento = new javax.swing.JTextField();
         jLblTitulo1 = new javax.swing.JLabel();
-        TxtRegion = new javax.swing.JTextField();
+        jTxtRegion = new javax.swing.JTextField();
         jBtnEliminar = new javax.swing.JButton();
         jBtnGuardar = new javax.swing.JButton();
         jBtnModificar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTblListaDepartamentos = new javax.swing.JTable();
+        jTblDepartemento = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jBtnBuscar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -57,7 +57,7 @@ public class VistaDepartamento extends javax.swing.JInternalFrame {
 
         jBtnModificar.setText("MODIFICAR");
 
-        jTblListaDepartamentos.setModel(new javax.swing.table.DefaultTableModel(
+        jTblDepartemento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -68,7 +68,7 @@ public class VistaDepartamento extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTblListaDepartamentos);
+        jScrollPane2.setViewportView(jTblDepartemento);
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel2.setText("DEPARTAMENTO_ID");
@@ -109,9 +109,9 @@ public class VistaDepartamento extends javax.swing.JInternalFrame {
                                             .addComponent(jBtnGuardar)
                                             .addGap(36, 36, 36)
                                             .addComponent(jBtnModificar))
-                                        .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(TxtDepartamentoId, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(TxtRegion, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jTxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTxtDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTxtRegion, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addComponent(jLblTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
@@ -139,14 +139,14 @@ public class VistaDepartamento extends javax.swing.JInternalFrame {
                             .addGap(64, 64, 64)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel2)
-                                .addComponent(TxtDepartamentoId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTxtDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(30, 30, 30)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(30, 30, 30)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(TxtRegion)
+                                .addComponent(jTxtRegion)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addComponent(jLblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
@@ -167,20 +167,20 @@ public class VistaDepartamento extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JTextField TxtDepartamentoId;
-    public javax.swing.JTextField TxtNombre;
-    public javax.swing.JTextField TxtRegion;
     public javax.swing.JButton jBtnBuscar;
     public javax.swing.JButton jBtnEliminar;
     public javax.swing.JButton jBtnGuardar;
     public javax.swing.JButton jBtnModificar;
-    public javax.swing.JLabel jLabel2;
-    public javax.swing.JLabel jLabel3;
-    public javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     public javax.swing.JLabel jLblImagen;
     public javax.swing.JLabel jLblTitulo1;
     private javax.swing.JLabel jLblTitulo2;
     public javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTblListaDepartamentos;
+    public javax.swing.JTable jTblDepartemento;
+    public javax.swing.JTextField jTxtDepartamento;
+    public javax.swing.JTextField jTxtNombre;
+    public javax.swing.JTextField jTxtRegion;
     // End of variables declaration//GEN-END:variables
 }

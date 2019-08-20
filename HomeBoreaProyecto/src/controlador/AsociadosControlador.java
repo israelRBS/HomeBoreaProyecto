@@ -9,16 +9,20 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import modelo.Municipios;
 import vistas.VistaAsociados;
 
 public class AsociadosControlador implements ActionListener, MouseListener {
 
+    /* INSTANCIA DE LA VISTA PARA OBTENER LOS OBJETOS PUBLICOS */
     VistaAsociados vista = new VistaAsociados();
+    /* INSTANCIA DE LA CLASE DAO ASOCIADOS QUE CONTIENE LAS CONSULTAS PREPARDAS */
     AsociadosDao dao = new AsociadosDao();
+    /* ISNTANCIA DE LA CLASE MODELO ASOCIADOS QUE CONTIENE LOS ATRIBUTOS DE LA TABLA */
     Asociados modelo = new Asociados();
+    /* PROPIEDAD DE CLASE */
     private String mensaje = null;
 
+    /* CONSTRUCTOR QUE NOS PERMITRA INICIALIZAR LOS OBJETOS */
     public AsociadosControlador(VistaAsociados vistaAsociados) {
         this.vista = vista;
         vista.jBtnAgregar.addActionListener(this);
@@ -28,9 +32,9 @@ public class AsociadosControlador implements ActionListener, MouseListener {
         vista.jTblAsociados.addMouseListener(this);
         repositorioAsociados();
         vista.jBtnCancelar.addActionListener(this);
-        
     }
 
+    /* METODO QUE NOS PERMITIRA GUARDAR UN NUEVO ASOCIADO */
     public void insertarAsociados() {
         modelo.setAsociado_id(Integer.parseInt(this.vista.jTxtAsociadosId.getText()));
         modelo.setAnte_penal(this.vista.jTxtAntecedentesPena.getText());
@@ -47,15 +51,16 @@ public class AsociadosControlador implements ActionListener, MouseListener {
         repositorioAsociados();
     }
 
+    /* METODO QUE NOS PERMITIRA ELIMINAR UN ASOCIADO A LA VEZ */
     public void eliminarAsociados() {
         modelo.setAsociado_id(Integer.parseInt(this.vista.jTxtAsociadosId.getText()));
         mensaje = dao.eliminarAsociados(modelo);
         JOptionPane.showMessageDialog(vista, mensaje);
         limpiarImputs();
         repositorioAsociados();
-
     }
 
+    /* METODO QUE NOS PERMITIRA MODIFICAR DATOS DE ASOCIADOS */
     public void modificarAsociados() {
         modelo.setAsociado_id(Integer.parseInt(this.vista.jTxtAsociadosId.getText()));
         modelo.setAnte_penal(this.vista.jTxtAntecedentesPena.getText());
@@ -72,6 +77,7 @@ public class AsociadosControlador implements ActionListener, MouseListener {
         repositorioAsociados();
     }
 
+    /* METODO QUE NOS PERMITRA BUSCAR ASOCIADOS EN LA BASE_DE_DATOS */
     public void buscarAsociados() {
         int codigo = Integer.parseInt(this.vista.jTxtAsociadosId.getText());
         modelo = dao.buscarAsociados(codigo);
@@ -84,7 +90,9 @@ public class AsociadosControlador implements ActionListener, MouseListener {
         this.vista.jTxtUsuario.setEnabled(false);
         this.vista.jTxtPassword.setEnabled(false);
     }
-    public void cancelarAcciones(){
+
+    /* METODO QUE NOS PERMITIRA HABILITAR LOS BOTONES Y CUADROS DE TEXTO SI EN CASO ESTAN DESACTIVADOS */
+    public void cancelarAcciones() {
         this.vista.jTxtAntecedentesPena.setEnabled(true);
         this.vista.jTxtAntecedentesPoli.setEnabled(true);
         this.vista.jTxtDpiImg.setEnabled(true);
@@ -98,9 +106,10 @@ public class AsociadosControlador implements ActionListener, MouseListener {
         this.vista.jBtnAgregar.setEnabled(true);
         this.vista.jBtnBuscar.setEnabled(true);
     }
+
+    /* METODO PARA MOSTRAR TODOS LOS DATOS EXISTENTES EN LA TABLA */
     public void listarAsociados() {
         ArrayList<Asociados> listar = dao.listarAsociados();
-
         DefaultTableModel tabla = (DefaultTableModel) vista.jTblAsociados.getModel();
         Object[] fila = new Object[tabla.getColumnCount()];
         for (int i = 0; i < listar.size(); i++) {
@@ -116,10 +125,10 @@ public class AsociadosControlador implements ActionListener, MouseListener {
             tabla.addRow(fila);
         }
         this.vista.jTblAsociados.setModel(tabla);
-
     }
-    //METODO PARA OBTENER LOS DATOS DE LA TABLA
-    public void obtenerDatosTabla(){
+
+    /* METODO PARA OBTENER LOS DATOS DE LA TABLA */
+    public void obtenerDatosTabla() {
         this.vista.jTxtAsociadosId.setText(String.valueOf(this.vista.jTblAsociados.getValueAt(this.vista.jTblAsociados.getSelectedRow(), 0)));
         this.vista.jTxtAntecedentesPena.setText(String.valueOf(this.vista.jTblAsociados.getValueAt(this.vista.jTblAsociados.getSelectedRow(), 1)));
         this.vista.jTxtAntecedentesPoli.setText(String.valueOf(this.vista.jTblAsociados.getValueAt(this.vista.jTblAsociados.getSelectedRow(), 2)));
@@ -130,28 +139,30 @@ public class AsociadosControlador implements ActionListener, MouseListener {
         this.vista.jTxtUsuario.setText(String.valueOf(this.vista.jTblAsociados.getValueAt(this.vista.jTblAsociados.getSelectedRow(), 7)));
         this.vista.jTxtPassword.setText(String.valueOf(this.vista.jTblAsociados.getValueAt(this.vista.jTblAsociados.getSelectedRow(), 8)));
     }
-    
-    public void repositorioAsociados(){
-        String[] titulos={"ASOCIADO","PENALES","POLICIACOS","DPI","FOTO","NIVEL_ACADEMICO","USUARIO","CONTRASEÑA"};
-        DefaultTableModel modelo = new DefaultTableModel(titulos,0);
+
+    /* METODO PARA LISTAR TODOS LOS DATOS DE LA TABLA */
+    public void repositorioAsociados() {
+        String[] titulos = {"ASOCIADO", "PENALES", "POLICIACOS", "DPI", "FOTO", "NIVEL_ACADEMICO", "USUARIO", "CONTRASEÑA"};
+        DefaultTableModel modelo = new DefaultTableModel(titulos, 0);
         Object[] columnas = new Object[8];
         for (Asociados aso : dao.listarAsociados()) {
-            columnas[0]=aso.getAsociado_id();
-            columnas[1]=aso.getAnte_penal();
-            columnas[2]=aso.getAnte_poli();
-            columnas[3]=aso.getDpiImagen();
-            columnas[4]=aso.getEspecialidad();
-            columnas[5]=aso.getFoto();
-            columnas[6]=aso.getNivel_acad_id();
-            columnas[7]=aso.getUsuario_aso();
-            columnas[8]=aso.getUsuario_contra();
-            
-            modelo.addRow(columnas);      
+            columnas[0] = aso.getAsociado_id();
+            columnas[1] = aso.getAnte_penal();
+            columnas[2] = aso.getAnte_poli();
+            columnas[3] = aso.getDpiImagen();
+            columnas[4] = aso.getEspecialidad();
+            columnas[5] = aso.getFoto();
+            columnas[6] = aso.getNivel_acad_id();
+            columnas[7] = aso.getUsuario_aso();
+            columnas[8] = aso.getUsuario_contra();
+
+            modelo.addRow(columnas);
         }
-            this.vista.jTblAsociados.setModel(modelo);
+        this.vista.jTblAsociados.setModel(modelo);
     }
-    
-    public void limpiarImputs(){
+
+    /* METODO PARA LIMPIAR LOS CUADROS DE TEXTO */
+    public void limpiarImputs() {
         this.vista.jTxtAsociadosId.setText("");
         this.vista.jTxtAntecedentesPena.setText("");
         this.vista.jTxtAntecedentesPoli.setText("");
@@ -161,8 +172,6 @@ public class AsociadosControlador implements ActionListener, MouseListener {
         this.vista.jTxtNivAcad.setText("");
         this.vista.jTxtUsuario.setText("");
         this.vista.jTxtPassword.setText("");
-       
-        
     }
 
     @Override
@@ -179,7 +188,7 @@ public class AsociadosControlador implements ActionListener, MouseListener {
         if (e.getSource() == this.vista.jBtnModificar) {
             modificarAsociados();
         }
-        if(e.getSource()==this.vista.jBtnCancelar){
+        if (e.getSource() == this.vista.jBtnCancelar) {
             cancelarAcciones();
         }
 
@@ -187,8 +196,8 @@ public class AsociadosControlador implements ActionListener, MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(e.getSource()==this.vista.jTblAsociados){
-            
+        if (e.getSource() == this.vista.jTblAsociados) {
+            obtenerDatosTabla();
         }
     }
 
@@ -199,22 +208,17 @@ public class AsociadosControlador implements ActionListener, MouseListener {
 
     @Override
     public void mouseReleased(MouseEvent e) {
-          System.out.println("");
+        System.out.println("");
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-           System.out.println("");
+        System.out.println("");
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-           System.out.println("");
-    }
-
-    /* METODO PARA MOSTRAR DATOS DE LA TABLA */
-    public void mostrarDatos() {
-        (ERROR);
+        System.out.println("");
     }
 
 }

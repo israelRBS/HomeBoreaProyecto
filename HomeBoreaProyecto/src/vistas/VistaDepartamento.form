@@ -39,9 +39,9 @@
                                           <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                                           <Component id="jBtnModificar" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="TxtNombre" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
-                                      <Component id="TxtDepartamentoId" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
-                                      <Component id="TxtRegion" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
+                                      <Component id="jTxtNombre" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
+                                      <Component id="jTxtDepartamento" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
+                                      <Component id="jTxtRegion" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="jLblTitulo1" alignment="0" min="-2" pref="331" max="-2" attributes="0"/>
@@ -80,16 +80,16 @@
                           <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="TxtDepartamentoId" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTxtDepartamento" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
-                              <Component id="TxtNombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTxtNombre" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="TxtRegion" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTxtRegion" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel4" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -113,7 +113,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="TxtNombre">
+    <Component class="javax.swing.JTextField" name="jTxtNombre">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
@@ -132,7 +132,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtDepartamentoId">
+    <Component class="javax.swing.JTextField" name="jTxtDepartamento">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
@@ -151,7 +151,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtRegion">
+    <Component class="javax.swing.JTextField" name="jTxtRegion">
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
@@ -188,7 +188,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="jTblListaDepartamentos">
+        <Component class="javax.swing.JTable" name="jTblDepartemento">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="4">
@@ -199,6 +199,9 @@
               </Table>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
@@ -209,9 +212,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="DEPARTAMENTO_ID"/>
       </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="jBtnBuscar">
       <Properties>
@@ -229,9 +229,6 @@
         <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="NOMBRE"/>
       </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLblTitulo2">
       <Properties>
@@ -250,9 +247,6 @@
         <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="REGION_ID"/>
       </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
