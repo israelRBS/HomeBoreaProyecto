@@ -25,7 +25,7 @@ public class GenerosDao implements GenerosInterface {
     private String sql;
 
     @Override
-    public ArrayList<Generos> listarTipEmpleado() {
+    public ArrayList<Generos> listarGeneros() {
         ArrayList<Generos> lista = new ArrayList();
         Generos ge;
         try {

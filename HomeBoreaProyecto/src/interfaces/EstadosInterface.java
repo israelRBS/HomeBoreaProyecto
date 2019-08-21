@@ -22,6 +22,6 @@ public interface EstadosInterface {
 
     public Estados buscarEstado(Estados estado);
 
-    public ArrayList<Estados> listarTipEmpleado();
+    public ArrayList<Estados> listarEstados();
 
 }

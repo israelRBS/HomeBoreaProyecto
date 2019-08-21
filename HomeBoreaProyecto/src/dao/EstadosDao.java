@@ -107,7 +107,7 @@ try {
     }
 
     @Override
-    public ArrayList<Estados> listarTipEmpleado() {
+    public ArrayList<Estados> listarEstados() {
         ArrayList<Estados> lista = new ArrayList();
         Estados es;
          try {

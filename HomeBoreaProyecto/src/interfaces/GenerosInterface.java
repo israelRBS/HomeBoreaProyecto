@@ -14,7 +14,7 @@ import modelo.Generos;
  */
 public interface GenerosInterface {
     
-    public ArrayList<Generos> listarTipEmpleado();
+    public ArrayList<Generos> listarGeneros();
     
     public String guardarGenero(Generos genero);
     
