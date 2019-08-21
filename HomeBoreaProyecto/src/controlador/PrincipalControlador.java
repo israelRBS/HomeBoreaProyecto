@@ -1,6 +1,7 @@
 package controlador;
 
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,6 +10,7 @@ import java.awt.event.MouseListener;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.plaf.DesktopPaneUI;
 import vistas.JFrmPrincipal;
 import vistas.JFrmServicios;
 import vistas.JFrmServiciosPrestados;
@@ -18,6 +20,7 @@ import vistas.VistaAsociados;
 import vistas.VistaCategorias;
 import vistas.VistaEmpleados;
 import vistas.VistaImagenesServicios;
+import vistas.VistaMunicipios;
 import vistas.VistaServiciosMuni;
 import vistas.VistaSubCategorias;
 import vistas.VistasNivelesAca;
@@ -49,6 +52,9 @@ public class PrincipalControlador implements ActionListener, MouseListener {
     ServiciosMunicipioControlador serviciosMunicipioControlador;
     JFrmTipoCostos jfrmTipoCosto;
     TiposCostosControlador tipoCostosControlador;
+    VistaMunicipios vistaMunicipios;
+    MunicipiosControlador municipiosControlador;
+    
 
     public PrincipalControlador(JFrmPrincipal principal) {
         this.principal = principal;
@@ -61,6 +67,7 @@ public class PrincipalControlador implements ActionListener, MouseListener {
         principal.cutMenuServiciosPrestados.addActionListener(this);
         principal.jLblTextoUsuario.setText("Bienvenido: " + ObjetosPublicos.empleado.getUsuario());
         principal.CambiarUsuario.addActionListener(this);
+       
 
     }
 
@@ -222,7 +229,24 @@ public class PrincipalControlador implements ActionListener, MouseListener {
                 verificar = true;
             }
         }
-        principal.setBackground(Color.yellow);
+        if (e.getSource() == this.principal.cutMenuMunicipios) {
+            if (verificar == true) {
+                vistaMunicipios = null;
+                municipiosControlador = null;
+                System.gc();
+                verificar = false;
+            } else {
+                vistaMunicipios = new VistaMunicipios();
+                municipiosControlador= new MunicipiosControlador(vistaMunicipios);
+                principal.DesktopPane.add(vistaMunicipios);
+                Dimension desktopSize = principal.DesktopPane.getSize();
+                Dimension FrameSize = vistaMunicipios.getSize();
+                vistaMunicipios.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+                vistaMunicipios.setVisible(true);
+                verificar = true;
+            }
+        }
+        
 
     }
 

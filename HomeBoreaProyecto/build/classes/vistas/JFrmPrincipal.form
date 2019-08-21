@@ -271,6 +271,8 @@
   <SubComponents>
     <Container class="javax.swing.JDesktopPane" name="DesktopPane">
       <AuxValues>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="DesktopPane.getAccessibleContext().setAccessibleName(&quot;&quot;);"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon icon=new ImageIcon(System.getProperty(&quot;user.dir&quot;)+&quot;\\src\\main\\java\\imagenes\\Home_editado.jpg&quot;);&#xa;final Image image = icon.getImage().getScaledInstance(1920,720,java.awt.Image.SCALE_DEFAULT);&#xa;DesktopPane = new javax.swing.JDesktopPane(){&#xa;    public void paintComponent(Graphics g){&#xa;g.drawImage(image,0,0,getWidth(),getHeight(),this);&#xa;}&#xa;};"/>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
 
