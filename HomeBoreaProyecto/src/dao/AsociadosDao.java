@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class AsociadosDao implements AsociadosInterface {
 
     ConexionRandal cnb = new ConexionRandal();
-    Asociados ac = new Asociados();
+    Asociados ac ;
     private String mensaje = null;
     private String sql;
     private PreparedStatement ejecutar;
@@ -19,6 +19,7 @@ public class AsociadosDao implements AsociadosInterface {
 
     @Override
     public Asociados buscarAsociados(int asociados_id) {
+         
         try {
             cnb.abrirConexion();
             sql = "select * from  asociados where asociados_id=?";
@@ -50,7 +51,7 @@ public class AsociadosDao implements AsociadosInterface {
     @Override
     public ArrayList<Asociados> listarAsociados() {
         ArrayList<Asociados> lista = new ArrayList();
-
+        Asociados ac ;
         try {
             cnb.abrirConexion();
             sql = "select * from asociados";
@@ -69,9 +70,11 @@ public class AsociadosDao implements AsociadosInterface {
                 ac.setUsuario_contra(rs.getString("password"));
                 lista.add(ac);
             }
+           
             rs.close();
             
         } catch (SQLException e) {
+            System.out.println("error"+e);
         } finally {
             cnb.cerrarConexion();
         }

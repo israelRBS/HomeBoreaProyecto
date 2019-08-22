@@ -97,5 +97,10 @@ public class Asociados {
     public void setUsuario_contra(String usuario_contra) {
         this.usuario_contra = usuario_contra;
     }
+
+    @Override
+    public String toString() {
+        return "Asociados{" + "asociado_id=" + asociado_id + ", ante_penal=" + ante_penal + ", ante_poli=" + ante_poli + ", dpiImagen=" + dpiImagen + ", especialidad=" + especialidad + ", foto=" + foto + ", nivel_acad_id=" + nivel_acad_id + ", usuario_aso=" + usuario_aso + ", usuario_contra=" + usuario_contra + '}';
+    }
     
 }

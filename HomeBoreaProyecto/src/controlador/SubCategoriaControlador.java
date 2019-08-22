@@ -40,6 +40,7 @@ public class SubCategoriaControlador implements ActionListener, MouseListener {
         this.vista.jBtnModificarSub.addActionListener(this);
         this.vista.jTblListarSubcate.addMouseListener(this);
         this.vista.jBtnCancelar.addActionListener(this);
+        this.vista.jTxtEmpleado.setText(String.valueOf(ObjetosPublicos.empleado.getEmpleado_id()));
         cargarCmbCategoria();
         listarSubCategorias();
         activadorCuadros();
@@ -106,7 +107,7 @@ public class SubCategoriaControlador implements ActionListener, MouseListener {
         this.vista.jTxtSubcategoria.setText(String.valueOf(this.vista.jTblListarSubcate.getValueAt(this.vista.jTblListarSubcate.getSelectedRow(), 0)));
         this.vista.jTxtNombreSub.setText(String.valueOf(this.vista.jTblListarSubcate.getValueAt(this.vista.jTblListarSubcate.getSelectedRow(), 1)));
         this.vista.jTxtCategoria.setText(String.valueOf(this.vista.jTblListarSubcate.getValueAt(this.vista.jTblListarSubcate.getSelectedRow(), 2)));
-        this.vista.jTxtEmpleado.setText(String.valueOf(this.vista.jTblListarSubcate.getValueAt(this.vista.jTblListarSubcate.getSelectedRow(), 3)));
+        //this.vista.jTxtEmpleado.setText(String.valueOf(this.vista.jTblListarSubcate.getValueAt(this.vista.jTblListarSubcate.getSelectedRow(), 3)));
     }
 
     /* METODO PARA LISTA SUBCATEGORIAS */

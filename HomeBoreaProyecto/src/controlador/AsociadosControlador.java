@@ -24,14 +24,16 @@ public class AsociadosControlador implements ActionListener, MouseListener {
 
     /* CONSTRUCTOR QUE NOS PERMITRA INICIALIZAR LOS OBJETOS */
     public AsociadosControlador(VistaAsociados vistaAsociados) {
-        this.vista = vista;
+        this.vista = vistaAsociados;
         vista.jBtnAgregar.addActionListener(this);
         vista.jBtnBuscar.addActionListener(this);
         vista.jBtnEliminar.addActionListener(this);
         vista.jBtnModificar.addActionListener(this);
         vista.jTblAsociados.addMouseListener(this);
         repositorioAsociados();
+        System.out.println("no importa lo que sea");
         vista.jBtnCancelar.addActionListener(this);
+        //listarAsociados();
     }
 
     /* METODO QUE NOS PERMITIRA GUARDAR UN NUEVO ASOCIADO */
@@ -144,7 +146,7 @@ public class AsociadosControlador implements ActionListener, MouseListener {
     public void repositorioAsociados() {
         String[] titulos = {"ASOCIADO", "PENALES", "POLICIACOS", "DPI", "FOTO", "NIVEL_ACADEMICO", "USUARIO", "CONTRASEÑA"};
         DefaultTableModel modelo = new DefaultTableModel(titulos, 0);
-        Object[] columnas = new Object[8];
+        Object[] columnas = new Object[9];
         for (Asociados aso : dao.listarAsociados()) {
             columnas[0] = aso.getAsociado_id();
             columnas[1] = aso.getAnte_penal();
@@ -156,6 +158,7 @@ public class AsociadosControlador implements ActionListener, MouseListener {
             columnas[7] = aso.getUsuario_aso();
             columnas[8] = aso.getUsuario_contra();
 
+            System.out.println("carga datos"+ aso.toString());
             modelo.addRow(columnas);
         }
         this.vista.jTblAsociados.setModel(modelo);

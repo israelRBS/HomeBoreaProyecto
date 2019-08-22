@@ -30,7 +30,8 @@ public class EmpleadoControlador implements ActionListener, MouseListener {
         this.vista.jBtnGuardar.addActionListener(this);
         this.vista.jBtnModificar.addActionListener(this);
         this.vista.jTblEmpleados.addMouseListener(this);
-        cleanPictures();
+        System.out.println("si carga");
+        //cleanPictures();
         listarEmpleados();
     }
 
@@ -106,6 +107,7 @@ public class EmpleadoControlador implements ActionListener, MouseListener {
             columnas[1]=trabajador.getUsuario();
             columnas[2]=trabajador.getContraseña();
             columnas[3]=trabajador.getTipoempleado_id(); 
+            System.out.println("holi");
             modelo.addRow(columnas);
         }
             this.vista.jTblEmpleados.setModel(modelo);

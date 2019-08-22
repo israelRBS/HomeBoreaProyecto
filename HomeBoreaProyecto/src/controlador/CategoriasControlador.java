@@ -99,7 +99,7 @@ public class CategoriasControlador implements ActionListener, MouseListener{
     public void obtenerDatosTabla(){
         this.vista.jTxtCategoria.setText(String.valueOf(this.vista.jTblListaCategorias.getValueAt(this.vista.jTblListaCategorias.getSelectedRow(), 0)));
         this.vista.jTxtNombre.setText(String.valueOf(this.vista.jTblListaCategorias.getValueAt(this.vista.jTblListaCategorias.getSelectedRow(), 1)));
-        this.vista.jTxtEmpleado.setText(String.valueOf(this.vista.jTblListaCategorias.getValueAt(this.vista.jTblListaCategorias.getSelectedRow(), 2)));
+        //this.vista.jTxtEmpleado.setText(String.valueOf(this.vista.jTblListaCategorias.getValueAt(this.vista.jTblListaCategorias.getSelectedRow(), 2)));
     }
     public void listarCategorias(){
         String[] cabecera={"CATEGORIA_ID","NOMBRE_CATEGORIA","EMPLEADO_ID"};

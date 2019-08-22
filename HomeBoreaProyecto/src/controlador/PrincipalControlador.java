@@ -96,7 +96,6 @@ public class PrincipalControlador implements ActionListener, MouseListener {
                 Dimension FrameSize = vistacategorias.getSize();
                 vistacategorias.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
                 vistacategorias.setVisible(true);
-
                 verificar = true;
             }
 
@@ -211,8 +210,9 @@ public class PrincipalControlador implements ActionListener, MouseListener {
                 verificar = false;
             } else {
                 vistaServiciosMunicipales = new VistaServiciosMuni();
-                //serviciosPrestadosControlador= new ServiciosPrestadosControlador(jfrmserviciosprestados);
+                //serviciosMunicipioControlador= new ServiciosMunicipioControlador(vistaServiciosMunicipales);
                 principal.DesktopPane.add(vistaServiciosMunicipales);
+                
                 verificar = true;
             }
         }

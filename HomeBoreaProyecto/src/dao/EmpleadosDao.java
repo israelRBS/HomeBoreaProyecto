@@ -11,13 +11,14 @@ public class EmpleadosDao implements EmpleadosInterface {
 
     ConexionRandal conexion = new ConexionRandal();
     private String mensaje;
-    Empleados empleado = new Empleados();
+    Empleados empleado;
     private String sql;
     private PreparedStatement ejecutar;
     ResultSet resultadoSelect;
 
     @Override
     public Empleados buscarEmpleados(String usuario, String contrasenia) {
+        empleado =new Empleados();
         System.out.println("Usuario: " + usuario);
         System.out.println("Contrasenia: " + contrasenia);
         try {
@@ -28,7 +29,7 @@ public class EmpleadosDao implements EmpleadosInterface {
             ejecutar.setString(2, contrasenia);
             resultadoSelect = ejecutar.executeQuery();
             resultadoSelect.next();
-         
+
             empleado.setEmpleado_id(resultadoSelect.getInt("empleado_id"));
             empleado.setUsuario(resultadoSelect.getString("usuario"));
             empleado.setContraseña(resultadoSelect.getString("contrasenia"));
@@ -40,7 +41,7 @@ public class EmpleadosDao implements EmpleadosInterface {
             empleado.setContraseña(null);
             empleado.setTipoempleado_id(0);
             empleado.setEmpleado_id(-345);
-            
+
         } finally {
             conexion.cerrarConexion();
             System.out.println("Empleado: " + empleado.toString());
@@ -51,7 +52,7 @@ public class EmpleadosDao implements EmpleadosInterface {
     @Override
     public ArrayList<Empleados> listarEmpleados() {
         ArrayList<Empleados> lista = new ArrayList();
-
+        empleado = new Empleados();
         try {
             conexion.abrirConexion();
             sql = "select * from empleados";
