@@ -184,8 +184,11 @@ public class PrincipalControlador implements ActionListener, MouseListener {
                 verificar = false;
             } else {
                 jfrmServicios = new JFrmServicios();
-                
+                serviciosControlador=new ServiciosControlador();
                 principal.DesktopPane.add(jfrmServicios);
+                Dimension desktopSize = principal.DesktopPane.getSize();
+                Dimension FrameSize = jfrmServicios.getSize();
+                jfrmServicios.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
                 jfrmServicios.setVisible(true);
                 verificar = true;
             }
