@@ -15,6 +15,7 @@ import vistas.JFrmPrincipal;
 import vistas.JFrmServicios;
 import vistas.JFrmServiciosPrestados;
 import vistas.JFrmTipoCostos;
+import vistas.JFrmVisibleServiciosMunicipios;
 import vistas.Login;
 import vistas.VistaAsociados;
 import vistas.VistaCategorias;
@@ -42,14 +43,15 @@ public class PrincipalControlador implements ActionListener, MouseListener {
     VistaEmpleados vistaEmpleados;
     VistaImagenesServicios vistaImagenesServicio;
     VistasNivelesAca vistaNivelesAca;
+    NivelAcaControlador nivelAcaControlador;
     VistaSubCategorias vistaSubCategorias;
     SubCategoriaControlador subCategoriaControlador;
     JFrmServicios jfrmServicios;
     ServiciosControlador serviciosControlador;
     JFrmServiciosPrestados jfrmserviciosprestados;
     ServiciosPrestadosControlador serviciosPrestadosControlador;
-    VistaServiciosMuni vistaServiciosMunicipales;
-    ServiciosMunicipioControlador serviciosMunicipioControlador;
+    JFrmVisibleServiciosMunicipios vistaServiciosMunicipales;
+    VistaServiciosMunicipios vistaServiciosMunicipiosControlador;
     JFrmTipoCostos jfrmTipoCosto;
     TiposCostosControlador tipoCostosControlador;
     VistaMunicipios vistaMunicipios;
@@ -163,8 +165,11 @@ public class PrincipalControlador implements ActionListener, MouseListener {
                 verificar = false;
             } else {
                 vistaNivelesAca = new VistasNivelesAca();
-                //asociadoscontrolador= new AsociadosControlador(vistaasociados);
+                nivelAcaControlador =new NivelAcaControlador(vistaNivelesAca);
                 principal.DesktopPane.add(vistaNivelesAca);
+                Dimension desktopSize = principal.DesktopPane.getSize();
+                Dimension FrameSize = vistaEmpleados.getSize();
+                vistaEmpleados.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
                 vistaNivelesAca.setVisible(true);
                 verificar = true;
             }
@@ -179,7 +184,7 @@ public class PrincipalControlador implements ActionListener, MouseListener {
                 verificar = false;
             } else {
                 jfrmServicios = new JFrmServicios();
-                //asociadoscontrolador= new AsociadosControlador(vistaasociados);
+                
                 principal.DesktopPane.add(jfrmServicios);
                 jfrmServicios.setVisible(true);
                 verificar = true;
@@ -209,10 +214,13 @@ public class PrincipalControlador implements ActionListener, MouseListener {
                 System.gc();
                 verificar = false;
             } else {
-                vistaServiciosMunicipales = new VistaServiciosMuni();
-                //serviciosMunicipioControlador= new ServiciosMunicipioControlador(vistaServiciosMunicipales);
+                vistaServiciosMunicipales = new JFrmVisibleServiciosMunicipios();
+                vistaServiciosMunicipiosControlador =new VistaServiciosMunicipios(vistaServiciosMunicipales);
                 principal.DesktopPane.add(vistaServiciosMunicipales);
-                
+                 Dimension desktopSize = principal.DesktopPane.getSize();
+                Dimension FrameSize = vistaServiciosMunicipales.getSize();
+                vistaServiciosMunicipales.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+                vistaServiciosMunicipales.setVisible(true);
                 verificar = true;
             }
         }
