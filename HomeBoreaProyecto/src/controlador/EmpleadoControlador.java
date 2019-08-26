@@ -99,7 +99,7 @@ public class EmpleadoControlador implements ActionListener, MouseListener {
     
     /* METODO PARA LISTAR TODOS LOS DATOS DE EMPLEADOS */
     public void listarEmpleados(){
-        String[] titulos ={"NO.EMPLEADO","USUARIO","CONTRASEÑA","NO.TIPO_EMPLEADO",""};
+        String[] titulos ={"NO.EMPLEADO","USUARIO","CONTRASEÑA","NO.TIPO_EMPLEADO"};
         DefaultTableModel modelo = new DefaultTableModel(titulos, 0);
         Object[] columnas = new Object[4];
         for (Empleados trabajador : dao.listarEmpleados()) {

@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class DepartamentosDao implements DepartamentosInterface {
-    ConexionBorea cnb = new ConexionBorea();
+    ConexionRandal cnb = new ConexionRandal();
     Departamentos dp = new Departamentos();
     private String mensaje = null;
     PreparedStatement ejecutar;

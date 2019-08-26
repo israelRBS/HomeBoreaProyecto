@@ -9,7 +9,7 @@ import modelo.Regiones;
 
 public class RegionesDao implements RegionesInterface {
 
-    ConexionBorea conex = new ConexionBorea();
+    ConexionRandal conex = new ConexionRandal();
     private String sql;
     private String mensaje;
     PreparedStatement ejecutar;

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class MunicipiosDao implements MunicipiosInterface {
     
-    ConexionBorea cnb = new ConexionBorea();
+    ConexionRandal cnb = new ConexionRandal();
     private PreparedStatement ejecutar;
     private String mensaje;
     private String sql;

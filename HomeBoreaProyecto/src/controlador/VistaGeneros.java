@@ -27,6 +27,8 @@ public class VistaGeneros {
 
     public VistaGeneros(JFrmVisibleGeneros vista) {
         this.vista = vista;
+        vistaServiciosPrestados();
+        
     }
     
     /* METODO PARA LISTAR Y OBTENER DATOS DE LA TABLA  */

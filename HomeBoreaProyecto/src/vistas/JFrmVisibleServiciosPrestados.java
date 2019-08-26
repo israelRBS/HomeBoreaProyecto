@@ -31,6 +31,8 @@ public class JFrmVisibleServiciosPrestados extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTblListarServiciosPrestados = new javax.swing.JTable();
 
+        setClosable(true);
+
         jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("LISTA DE SERVICIOS PRESTADOS ");
@@ -65,8 +67,8 @@ public class JFrmVisibleServiciosPrestados extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(307, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();

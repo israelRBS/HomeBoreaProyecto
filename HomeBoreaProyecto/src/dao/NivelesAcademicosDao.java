@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class NivelesAcademicosDao implements NivelesAcademicosInterface {
 
-    ConexionBorea cnb = new ConexionBorea();
+    ConexionRandal cnb = new ConexionRandal();
     private String sql;
     private String mensaje;
     PreparedStatement ejecutar;
@@ -53,7 +53,7 @@ public class NivelesAcademicosDao implements NivelesAcademicosInterface {
             sql = "select * from niveles_academicos";
             ejecutar = cnb.getMiConexion().prepareStatement(sql);
             rs = ejecutar.executeQuery();
-            if (rs.next()) {
+            while(rs.next()) {
                 nva = new NivelesAcademicos();
                 nva.setNivel_acad_id(rs.getByte("nivelacademico_id"));
                 nva.setNombre(rs.getString("nombre"));

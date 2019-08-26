@@ -48,16 +48,16 @@ public class JFrmServicios extends javax.swing.JInternalFrame {
         jTxtCosto = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTblTabla = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jBtnBuscar = new javax.swing.JButton();
+        jBtnGuardar = new javax.swing.JButton();
+        jBtnModificar = new javax.swing.JButton();
+        jBtnEliminar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLblImagenes = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jTxtTipoCosto = new javax.swing.JTextField();
         jTxtSubcategoria = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
+        jBtnNuevo = new javax.swing.JButton();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -95,17 +95,22 @@ public class JFrmServicios extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTblTabla);
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 2, 15)); // NOI18N
-        jButton1.setText("BUSCAR");
+        jBtnBuscar.setFont(new java.awt.Font("Times New Roman", 2, 15)); // NOI18N
+        jBtnBuscar.setText("BUSCAR");
 
-        jButton2.setFont(new java.awt.Font("Times New Roman", 2, 15)); // NOI18N
-        jButton2.setText("GUARDAR");
+        jBtnGuardar.setFont(new java.awt.Font("Times New Roman", 2, 15)); // NOI18N
+        jBtnGuardar.setText("GUARDAR");
+        jBtnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnGuardarActionPerformed(evt);
+            }
+        });
 
-        jButton3.setFont(new java.awt.Font("Times New Roman", 2, 15)); // NOI18N
-        jButton3.setText("MODIFICAR");
+        jBtnModificar.setFont(new java.awt.Font("Times New Roman", 2, 15)); // NOI18N
+        jBtnModificar.setText("MODIFICAR");
 
-        jButton4.setFont(new java.awt.Font("Times New Roman", 2, 15)); // NOI18N
-        jButton4.setText("ELIMINAR");
+        jBtnEliminar.setFont(new java.awt.Font("Times New Roman", 2, 15)); // NOI18N
+        jBtnEliminar.setText("ELIMINAR");
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -117,8 +122,8 @@ public class JFrmServicios extends javax.swing.JInternalFrame {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("TIPO_COSTO");
 
-        jButton5.setFont(new java.awt.Font("Times New Roman", 2, 15)); // NOI18N
-        jButton5.setText("INSERTAR NUEVO");
+        jBtnNuevo.setFont(new java.awt.Font("Times New Roman", 2, 15)); // NOI18N
+        jBtnNuevo.setText("INSERTAR NUEVO");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -149,21 +154,21 @@ public class JFrmServicios extends javax.swing.JInternalFrame {
                                                 .addComponent(jTxtServicio, javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jTxtCosto)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton1)
+                                        .addComponent(jBtnBuscar)
                                         .addGap(7, 7, 7))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton5)
+                                        .addComponent(jBtnNuevo)
                                         .addGap(30, 30, 30)
-                                        .addComponent(jButton2))))
+                                        .addComponent(jBtnGuardar))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)))
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton3)
+                                .addComponent(jBtnModificar)
                                 .addGap(30, 30, 30)
-                                .addComponent(jButton4))
+                                .addComponent(jBtnEliminar))
                             .addComponent(jLblImagenes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
@@ -178,7 +183,7 @@ public class JFrmServicios extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(jTxtServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))
+                            .addComponent(jBtnBuscar))
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
@@ -198,10 +203,10 @@ public class JFrmServicios extends javax.swing.JInternalFrame {
                     .addComponent(jLblImagenes, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(jBtnGuardar)
+                    .addComponent(jBtnModificar)
+                    .addComponent(jBtnEliminar)
+                    .addComponent(jBtnNuevo))
                 .addGap(30, 30, 30)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
@@ -211,6 +216,10 @@ public class JFrmServicios extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,11 +272,11 @@ public class JFrmServicios extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jButton1;
-    public javax.swing.JButton jButton2;
-    public javax.swing.JButton jButton3;
-    public javax.swing.JButton jButton4;
-    public javax.swing.JButton jButton5;
+    public javax.swing.JButton jBtnBuscar;
+    public javax.swing.JButton jBtnEliminar;
+    public javax.swing.JButton jBtnGuardar;
+    public javax.swing.JButton jBtnModificar;
+    public javax.swing.JButton jBtnNuevo;
     public javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

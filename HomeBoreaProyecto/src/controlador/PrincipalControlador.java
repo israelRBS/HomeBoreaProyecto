@@ -16,12 +16,15 @@ import vistas.JFrmServicios;
 import vistas.JFrmServiciosPrestados;
 import vistas.JFrmTipoCostos;
 import vistas.JFrmVisibleServiciosMunicipios;
+import vistas.JFrmVisibleServiciosPrestados;
 import vistas.Login;
 import vistas.VistaAsociados;
 import vistas.VistaCategorias;
+import vistas.VistaDepartamento;
 import vistas.VistaEmpleados;
 import vistas.VistaImagenesServicios;
 import vistas.VistaMunicipios;
+import vistas.VistaRegiones;
 import vistas.VistaServiciosMuni;
 import vistas.VistaSubCategorias;
 import vistas.VistasNivelesAca;
@@ -41,6 +44,7 @@ public class PrincipalControlador implements ActionListener, MouseListener {
     VistaAsociados vistaasociados;
     AsociadosControlador asociadoscontrolador;
     VistaEmpleados vistaEmpleados;
+    EmpleadoControlador empleadoControlador;
     VistaImagenesServicios vistaImagenesServicio;
     VistasNivelesAca vistaNivelesAca;
     NivelAcaControlador nivelAcaControlador;
@@ -48,14 +52,18 @@ public class PrincipalControlador implements ActionListener, MouseListener {
     SubCategoriaControlador subCategoriaControlador;
     JFrmServicios jfrmServicios;
     ServiciosControlador serviciosControlador;
-    JFrmServiciosPrestados jfrmserviciosprestados;
-    ServiciosPrestadosControlador serviciosPrestadosControlador;
+    JFrmVisibleServiciosPrestados jfrmvisibleserviciosprestados;
+    VistaServiciosPrestados serviciosPrestadosControlador;
     JFrmVisibleServiciosMunicipios vistaServiciosMunicipales;
     VistaServiciosMunicipios vistaServiciosMunicipiosControlador;
     JFrmTipoCostos jfrmTipoCosto;
     TiposCostosControlador tipoCostosControlador;
     VistaMunicipios vistaMunicipios;
     MunicipiosControlador municipiosControlador;
+    VistaDepartamento vistaDepartamento;
+    DepartamentosControlador departamentosControlador;
+    VistaRegiones vistaRegiones;
+    RegionesControlador regionesControlador;
     
 
     public PrincipalControlador(JFrmPrincipal principal) {
@@ -67,9 +75,13 @@ public class PrincipalControlador implements ActionListener, MouseListener {
         principal.cutMenuNivelesAcademicos.addActionListener(this);
         principal.cutMenuServicios.addActionListener(this);
         principal.cutMenuServiciosPrestados.addActionListener(this);
+        principal.cutMenuServiciosMunicipales.addActionListener(this);
+        principal.cutMenuTipoCosto.addActionListener(this);
+        principal.cutMenuMunicipios.addActionListener(this);
+        principal.cutMenuDepartamentos.addActionListener(this);
+        principal.cutMenuRegiones.addActionListener(this);
         principal.jLblTextoUsuario.setText("Bienvenido: " + ObjetosPublicos.empleado.getUsuario());
         principal.CambiarUsuario.addActionListener(this);
-       
 
     }
 
@@ -147,7 +159,7 @@ public class PrincipalControlador implements ActionListener, MouseListener {
                 verificar = false;
             } else {
                 vistaEmpleados = new VistaEmpleados();
-                //asociadoscontrolador= new AsociadosControlador(vistaasociados);
+                empleadoControlador = new EmpleadoControlador(vistaEmpleados);
                 principal.DesktopPane.add(vistaEmpleados);
                 Dimension desktopSize = principal.DesktopPane.getSize();
                 Dimension FrameSize = vistaEmpleados.getSize();
@@ -165,18 +177,18 @@ public class PrincipalControlador implements ActionListener, MouseListener {
                 verificar = false;
             } else {
                 vistaNivelesAca = new VistasNivelesAca();
-                nivelAcaControlador =new NivelAcaControlador(vistaNivelesAca);
+                nivelAcaControlador = new NivelAcaControlador(vistaNivelesAca);
                 principal.DesktopPane.add(vistaNivelesAca);
                 Dimension desktopSize = principal.DesktopPane.getSize();
-                Dimension FrameSize = vistaEmpleados.getSize();
-                vistaEmpleados.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+                Dimension FrameSize = vistaNivelesAca.getSize();
+                vistaNivelesAca.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
                 vistaNivelesAca.setVisible(true);
                 verificar = true;
             }
 
         }
         if (e.getSource() == this.principal.cutMenuServicios) {
-            
+
             if (verificar == true) {
                 jfrmServicios = null;
                 serviciosControlador = null;
@@ -184,7 +196,7 @@ public class PrincipalControlador implements ActionListener, MouseListener {
                 verificar = false;
             } else {
                 jfrmServicios = new JFrmServicios();
-                serviciosControlador=new ServiciosControlador(jfrmServicios);
+                serviciosControlador = new ServiciosControlador(jfrmServicios);
                 principal.DesktopPane.add(jfrmServicios);
                 Dimension desktopSize = principal.DesktopPane.getSize();
                 Dimension FrameSize = jfrmServicios.getSize();
@@ -195,32 +207,32 @@ public class PrincipalControlador implements ActionListener, MouseListener {
         }
         if (e.getSource() == this.principal.cutMenuServiciosPrestados) {
             if (verificarSP == true) {
-                jfrmserviciosprestados = null;
+                jfrmvisibleserviciosprestados = null;
                 serviciosPrestadosControlador = null;
                 System.gc();
                 verificarSP = false;
             } else {
-                jfrmserviciosprestados = new JFrmServiciosPrestados();
-                serviciosPrestadosControlador = new ServiciosPrestadosControlador(jfrmserviciosprestados);
-                principal.DesktopPane.add(jfrmserviciosprestados);
+                jfrmvisibleserviciosprestados = new JFrmVisibleServiciosPrestados();
+                serviciosPrestadosControlador = new VistaServiciosPrestados(jfrmvisibleserviciosprestados);
+                principal.DesktopPane.add(jfrmvisibleserviciosprestados);
                 Dimension desktopSize = principal.DesktopPane.getSize();
-                Dimension FrameSize = jfrmserviciosprestados.getSize();
-                jfrmserviciosprestados.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
-                jfrmserviciosprestados.setVisible(true);
+                Dimension FrameSize = jfrmvisibleserviciosprestados.getSize();
+                jfrmvisibleserviciosprestados.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+                jfrmvisibleserviciosprestados.setVisible(true);
                 verificarSP = true;
             }
         }
         if (e.getSource() == this.principal.cutMenuServiciosMunicipales) {
             if (verificar == true) {
                 vistaServiciosMunicipales = null;
-                //serviciosPrestadosControlador = null;
+                vistaServiciosMunicipiosControlador = null;
                 System.gc();
                 verificar = false;
             } else {
                 vistaServiciosMunicipales = new JFrmVisibleServiciosMunicipios();
-                vistaServiciosMunicipiosControlador =new VistaServiciosMunicipios(vistaServiciosMunicipales);
+                vistaServiciosMunicipiosControlador = new VistaServiciosMunicipios(vistaServiciosMunicipales);
                 principal.DesktopPane.add(vistaServiciosMunicipales);
-                 Dimension desktopSize = principal.DesktopPane.getSize();
+                Dimension desktopSize = principal.DesktopPane.getSize();
                 Dimension FrameSize = vistaServiciosMunicipales.getSize();
                 vistaServiciosMunicipales.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
                 vistaServiciosMunicipales.setVisible(true);
@@ -230,13 +242,17 @@ public class PrincipalControlador implements ActionListener, MouseListener {
         if (e.getSource() == this.principal.cutMenuTipoCosto) {
             if (verificar == true) {
                 jfrmTipoCosto = null;
-                //serviciosPrestadosControlador = null;
+                tipoCostosControlador = null;
                 System.gc();
                 verificar = false;
             } else {
                 jfrmTipoCosto = new JFrmTipoCostos();
-                //serviciosPrestadosControlador= new ServiciosPrestadosControlador(jfrmserviciosprestados);
+                tipoCostosControlador= new TiposCostosControlador(jfrmTipoCosto);
                 principal.DesktopPane.add(jfrmTipoCosto);
+                Dimension desktopSize = principal.DesktopPane.getSize();
+                Dimension FrameSize = jfrmTipoCosto.getSize();
+                jfrmTipoCosto.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+                jfrmTipoCosto.setVisible(true);
                 verificar = true;
             }
         }
@@ -248,7 +264,7 @@ public class PrincipalControlador implements ActionListener, MouseListener {
                 verificar = false;
             } else {
                 vistaMunicipios = new VistaMunicipios();
-                municipiosControlador= new MunicipiosControlador(vistaMunicipios);
+                municipiosControlador = new MunicipiosControlador(vistaMunicipios);
                 principal.DesktopPane.add(vistaMunicipios);
                 Dimension desktopSize = principal.DesktopPane.getSize();
                 Dimension FrameSize = vistaMunicipios.getSize();
@@ -257,7 +273,42 @@ public class PrincipalControlador implements ActionListener, MouseListener {
                 verificar = true;
             }
         }
-        
+        if (e.getSource() == this.principal.cutMenuDepartamentos) {
+            if (verificar == true) {
+                vistaDepartamento = null;  // destruir el objeto cuando ya existe
+                departamentosControlador = null;
+                System.gc(); //llamar al recolector de basura de jvm
+                verificar = false;
+            } else {
+                vistaDepartamento = new VistaDepartamento();
+                departamentosControlador = new DepartamentosControlador(vistaDepartamento);
+                principal.DesktopPane.add(vistaDepartamento);
+                Dimension desktopSize = principal.DesktopPane.getSize();
+                Dimension FrameSize = vistaDepartamento.getSize();
+                vistaDepartamento.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+                vistaDepartamento.setVisible(true);
+                verificar = true;
+            }
+
+        }
+        if (e.getSource() == this.principal.cutMenuRegiones) {
+            if (verificar == true) {
+                vistaRegiones = null;  // destruir el objeto cuando ya existe
+                regionesControlador = null;
+                System.gc(); //llamar al recolector de basura de jvm
+                verificar = false;
+            } else {
+                vistaDepartamento = new VistaDepartamento();
+                regionesControlador = new RegionesControlador(vistaRegiones);
+                principal.DesktopPane.add(vistaRegiones);
+                Dimension desktopSize = principal.DesktopPane.getSize();
+                Dimension FrameSize = vistaRegiones.getSize();
+                vistaRegiones.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+                vistaRegiones.setVisible(true);
+                verificar = true;
+            }
+
+        }
 
     }
 

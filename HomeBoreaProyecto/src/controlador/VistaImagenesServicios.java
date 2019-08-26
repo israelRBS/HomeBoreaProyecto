@@ -26,6 +26,7 @@ public class VistaImagenesServicios {
 
     public VistaImagenesServicios(JFrmVisibleImgServicios vista) {
         this.vista = vista;
+        vistaServiciosPrestados();
     }
 
     /* METODO PARA LISTAR Y OBTENER DATOS DE LA TABLA  */

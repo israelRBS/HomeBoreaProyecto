@@ -2,7 +2,7 @@ package modelo;
 
 public class Servicios {
 
-    private int servicio_id;
+    private int servicio_id; 
     private int asociado_id;
     private int subcategoria_id;
     private short costo;

@@ -18,7 +18,7 @@ import modelo.TiposCosto;
  */
 public class TipoCostoDao implements TiposCostoInterface {
 
-    ConexionBorea conex = new ConexionBorea();
+    ConexionRandal conex = new ConexionRandal();
     private String sql;
     int contarRegistros = 0;
     private String mensaje;
@@ -133,7 +133,7 @@ public class TipoCostoDao implements TiposCostoInterface {
     public String modificarTipoCosto(TiposCosto tiposCosto) {
         try {
             conex.abrirConexion();
-            sql = "UPDATE tiposcosto SET descripcion=? WHERE tipocosto=?";
+            sql = "UPDATE tiposcosto SET descripcion=? WHERE tipocosto_id=?";
             ejecutar = conex.getMiConexion().prepareStatement(sql);
 
             ejecutar.setByte(2, tiposCosto.getTipocosto_id());

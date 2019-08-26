@@ -27,6 +27,7 @@ public class VistaClasificacionServicios {
 
     public VistaClasificacionServicios(JFrmVisibleClasificacionServicios vista) {
         this.vista = vista;
+        vistaServiciosPrestados();
     }
 
     /* METODO PARA LISTAR Y OBTENER DATOS DE LA TABLA  */

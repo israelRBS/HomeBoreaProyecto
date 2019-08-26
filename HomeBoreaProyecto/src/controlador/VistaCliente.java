@@ -27,6 +27,7 @@ public class VistaCliente {
 
     public VistaCliente(JFrmVisibleClientes vista) {
         this.vista = vista;
+        vistaServiciosPrestados();
     }
     
     /* METODO PARA LISTAR Y OBTENER DATOS DE LA TABLA  */

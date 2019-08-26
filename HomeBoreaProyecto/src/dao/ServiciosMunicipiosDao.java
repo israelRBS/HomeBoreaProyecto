@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 public class ServiciosMunicipiosDao implements ServiciosMunicipiosInterface {
 
-    ConexionBorea conex = new ConexionBorea();
+    ConexionRandal conex = new ConexionRandal();
     private PreparedStatement ejecutar;
     private ResultSet resultadoSelect;
 

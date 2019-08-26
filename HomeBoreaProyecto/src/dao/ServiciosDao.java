@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 public class ServiciosDao implements ServiciosInterface {
 
-    ConexionBorea conex = new ConexionBorea();
+    ConexionRandal conex = new ConexionRandal();
     private PreparedStatement ejecutar;
     private ResultSet resultadoSelect;
 
@@ -155,7 +155,7 @@ public class ServiciosDao implements ServiciosInterface {
             while (resultadoSelect.next()) {
                 ser = new Servicios();
 
-                ser.setServicio_id(resultadoSelect.getInt("servicio_id"));
+                ser.setServicio_id(resultadoSelect.getInt("sevicio_id"));
                 ser.setAsociado_id(resultadoSelect.getInt("asociado_id"));
                 ser.setSubcategoria_id(resultadoSelect.getInt("subcategoria_id"));
                 ser.setCosto((short) resultadoSelect.getInt("costo"));

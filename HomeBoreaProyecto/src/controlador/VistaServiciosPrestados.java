@@ -6,6 +6,8 @@
 package controlador;
 
 import dao.ServiciosPrestadosDao;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import modelo.ServiciosPrestados;
@@ -15,7 +17,7 @@ import vistas.JFrmVisibleServiciosPrestados;
  *
  * @author edwin lezana raxon
  */
-public class VistaServiciosPrestados {
+public class VistaServiciosPrestados  {
 
     /* ISNTANCIANDO LA VISTA PARA OBTENER LA TABLA */
     JFrmVisibleServiciosPrestados vista;
@@ -26,6 +28,8 @@ public class VistaServiciosPrestados {
 
     public VistaServiciosPrestados(JFrmVisibleServiciosPrestados vista) {
         this.vista = vista;
+        //this.vista.jTblListarServiciosPrestados.addAncestorListener(this);
+        vistaServiciosPrestados();
     }
 
     /* METODO PARA LISTAR Y OBTENER DATOS DE LA TABLA  */
